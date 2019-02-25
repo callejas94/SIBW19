@@ -1,0 +1,450 @@
+@font-face {
+    font-family: Pier;
+    src: url("../fonts/pier.otf");
+}
+
+body {
+    font-family: Pier, sans-serif;
+	width: 980px;
+	margin: auto;
+    background-image: url("../images/background.png");
+    background-repeat: repeat;
+}
+
+b {
+    color: #000000;
+}
+
+/**************************************************************************/
+/* CABECERA ***************************************************************/
+/**************************************************************************/
+
+#cabecera {
+    margin-top: 10px;
+    padding-left: 29px;
+    padding-right: 29px;
+}
+
+#cabecera > img {
+    width: 922px;
+}
+
+/**************************************************************************/
+/* MENU *******************************************************************/
+/**************************************************************************/
+
+#menu {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+    width: 96%;
+}
+
+#menu > ul {
+    list-style: none outside none;
+    margin: 0px;
+    padding: 0px;
+    background-color: #F8F8FF;
+    border-bottom: 5px solid #333333;
+    float: left;
+    margin-left: 1%;
+    margin-right: 1%;
+    position: relative;
+    width: 98%;
+}
+
+#menu > ul > li {
+    border-bottom: 5px solid transparent;
+    float: left;
+    margin-bottom: -5px;
+    text-align: left;
+    -moz-transition: all 200ms ease-in-out 0s;
+    -ms-transition: all 200ms ease-in-out 0s;
+    -o-transition: all 200ms ease-in-out 0s;
+    -webkit-transition: all 200ms ease-in-out 0s;
+    transition: all 200ms ease-in-out 0s; 
+}
+
+#menu > ul li a {
+    display: block;
+    text-decoration: none;
+    white-space: normal;
+    -moz-transition: color 200ms ease-in-out 0s, background-color 200ms ease-in-out 0s;
+    -ms-transition: color 200ms ease-in-out 0s, background-color 200ms ease-in-out 0s;
+    -o-transition: color 200ms ease-in-out 0s, background-color 200ms ease-in-out 0s;
+    -webkit-transition: color 200ms ease-in-out 0s, background-color 200ms ease-in-out 0s;
+    transition: color 200ms ease-in-out 0s, background-color 200ms ease-in-out 0s;
+}
+
+#menu > ul > li > a {
+    color: #333333;
+    display: block;
+    font-size: 20px;
+    line-height: 49px;
+    padding: 0 15px;
+    text-transform: uppercase;
+}
+
+#menu > ul > a:hover, #menu > ul > li:hover > a {
+    background-color: #B92326;
+    color: #F8F8FF;
+}
+
+#menu > ul li.active > a {
+    background-color: #333333;
+    color: #F8F8FF;
+    cursor: default;
+}
+
+#menu > ul li > a.with-sub {
+    cursor: pointer   
+}
+
+/* Submenu ****************************************************************/
+
+#menu > ul ul.sub {
+    background-color: #F8F8FF;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+    color: #333333;
+    display: none;
+    left: 0;
+    padding: 1%;
+    position: absolute;
+    top: 52px;
+    width: 98%;
+}
+#menu > ul li:hover ul.sub {
+    display: block;
+}
+#menu > ul ul.sub > li {
+    display: block;
+    float: left;
+    padding: 10px;
+    vertical-align: top;
+}
+#menu > ul ul.sub > li a {
+    color: #333333;
+    line-height: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+#menu > ul ul li a:hover {
+    color: #B92326;
+}
+#menu > ul ul.sub > li > a {
+    font-size: 16px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+/**************************************************************************/
+/* MAIN *******************************************************************/
+/**************************************************************************/
+
+#main {
+    margin-top: 20px; 
+    margin-right: 30px;
+    margin-left: 29px;
+    margin-bottom: 20px;
+    border: solid 1px #ddd;
+    display: table;    
+    background: rgb(255, 255, 255); /* Si no soporta transparencia, opaco */
+    background: rgba(255, 255, 255, 0.4);
+    color: #333333;
+    font-size: 14px;
+    width: 920px;
+}
+
+/**************************************************************************/
+/* CONTENIDO **************************************************************/
+/**************************************************************************/
+
+#main #content {
+    padding-top: 10px;
+    width: 75%;
+    float: left;
+    clear: both;
+}
+
+#main h1 {
+    font-variant: small-caps;
+    font-weight: bolder;
+    font-size: 20px;
+    color: #B92326;
+    border-bottom: 2px solid #333333;
+    margin-bottom: 10px;
+}
+
+#main h2 {
+    font-variant: small-caps;
+    font-weight: bolder;
+    font-size: 18px;
+    color: #B92326;
+    margin-bottom: 10px;
+}
+
+#main #content section {
+    margin: 10px;
+}
+
+#main #content section article {
+    text-align: justify;
+}
+
+#main #content section article a {
+    text-decoration: none;
+    color: #B92326;
+}
+
+#main #content section article a:visited {
+    color: #A52A2A;
+}
+
+#main #content section article a:active {
+    color: #FF0000;
+}
+
+.direcciones {
+    list-style-type: none;   
+}
+
+.direcciones i {
+    padding-right: 12px;
+}
+
+/* Patrocinadores *********************************************************/
+
+.patrocinador {   
+    margin: 5px;
+    width: 150px;
+    border: solid 1px #BBB;
+    box-shadow: 0 1px 2px rgba(0,0,0,.2);
+}
+
+/* Image-slider ***********************************************************/
+
+#main #content .image-slider img {
+    width: 670px;
+    height: 250px;
+    padding-bottom: 10px; 
+}
+
+/* Mapa (ancho completo) **************************************************/
+
+.map-max-width {
+    width: 670px;
+    height: 450px;
+    border: 0;
+}
+
+/**************************************************************************/
+/* ASIDE ******************************************************************/
+/**************************************************************************/
+
+#main aside {
+    padding-top: 10px;
+    width: 25%;
+    float: left;
+}
+
+#main aside h1 {
+    text-align: left;
+    padding-left: 10px;
+    padding-top: 10px;
+    font-size: 18px;
+    border: none;
+}
+
+#main aside #fechas, #main aside #redes-sociales, #main aside #enlaces {
+    padding-right: 5px;
+}
+
+/* Fechas *****************************************************************/
+
+#main aside #fechas ul {
+    list-style: circle;
+}
+
+/* Redes sociales *********************************************************/
+
+#main aside #redes-sociales {
+    font-size: 32px;
+    text-align: center;
+}
+
+#main aside #redes-sociales a {
+    font-size: 32px;
+    text-align: center;
+    color: #333333;
+}
+
+#redes-sociales #btn-twitter:hover{
+    color: #5EA9DD;
+}
+
+#redes-sociales #btn-facebook:hover{
+    color: #3B5998;
+}
+
+#redes-sociales #btn-google:hover{
+    color: #CD4130;
+}
+
+/* Enlaces ****************************************************************/
+
+#main aside #enlaces ul {
+    list-style: none;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-left-width: 1px;
+}
+
+#main aside #enlaces a {
+    padding: 5px;
+    text-decoration: none;
+    display:block;
+    color: #333333;
+}
+
+#main aside #enlaces a:hover {
+    color: #F8F8FF;
+    background: #333333;
+    background: rgba(0,0,0,0.75);
+}
+
+/**************************************************************************/
+/* FOOTER *****************************************************************/
+/**************************************************************************/
+
+footer {
+    margin: 20px 20px;
+    padding: 10px;
+    clear: both;
+    color: #333333;
+}
+
+footer h1 {
+    font-variant: small-caps;
+    font-weight: bolder;
+    font-size: 20px;
+    color: #B92326;
+    border-bottom: 2px solid #333333;
+    margin-bottom: 10px;
+}
+
+footer > #contacto > ul {
+    list-style: none;
+    padding-left: 0px;
+}
+
+footer > #contacto > ul > li {
+    margin: 5px;
+    font-size: 14px;
+    color: #333333;
+}
+
+footer > #contacto > ul > li a {
+    color: #333333;
+}
+
+footer > #contacto > ul i {
+    margin-right: 10px;
+}
+
+footer > #copyright {
+    text-align: center;
+    font-size: 12px;
+    color: #555;
+}
+
+/**************************************************************************/
+/* FORMULARIO DE CONTACTO *************************************************/
+/**************************************************************************/
+
+.contact_form ul {
+    list-style-type: none;
+    list-style-position: outside;
+    margin: 0px;
+    padding: 0px;
+}
+
+.contact_form li {
+    padding: 12px;
+    position: relative;
+}
+
+.contact_form label {
+    width: 150px;
+    margin-top: 3px;
+    display: inline-block;
+    float: left;
+    padding: 3px;
+}
+
+.contact_form input {
+    height: 20px;
+    width: 220px;
+    padding: 5px 8px;
+    font-family: Pier, sans-serif;
+}
+
+.contact_form select {
+    height: 32px;
+    width: 240px;
+    padding: 5px 8px;
+    font-family: Pier, sans-serif;
+}
+
+.contact_form textarea {
+    padding: 8px;
+    width: 300px;
+    font-family: Pier, sans-serif;
+}
+
+.contact_form button {
+    margin-left: 156px;
+}
+
+.contact_form input, .contact_form textarea, .contact_form select {
+    border: 1px solid #AAAAAA;
+    box-shadow: 0px 0px 3px #CCCCCC, 0px 10px 15px #EEEEEE inset;
+    border-radius: 2px;
+}
+
+button.submit {
+    font-family: Pier;
+    background-color: #B92326;
+    border: 1px solid #800000;
+    border-bottom: 1px solid #800000;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+    box-shadow: inset 0 1px 0 0 #B92326;
+    -webkit-box-shadow: 0 1px 0 0 #B92326 inset ;
+    -moz-box-shadow: 0 1px 0 0 #B92326 inset;
+    -ms-box-shadow: 0 1px 0 0 #B92326 inset;
+    -o-box-shadow: 0 1px 0 0 #B92326 inset;
+    color: white;
+    padding: 6px 20px;
+    text-align: center;
+    text-shadow: 0 -1px 0 #396715;
+}
+
+button.submit:hover {
+    opacity:.75;
+    cursor: pointer; 
+}
+
+button.submit:active {
+    border: 1px solid #800000;
+    box-shadow: 0 0 10px 5px #800000 inset; 
+    -webkit-box-shadow:0 0 10px 5px #800000 inset ;
+    -moz-box-shadow: 0 0 10px 5px #800000 inset;
+    -ms-box-shadow: 0 0 10px 5px #800000 inset;
+    -o-box-shadow: 0 0 10px 5px #800000 inset;
+     
+}
