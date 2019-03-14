@@ -22,7 +22,7 @@ header img {
     vertical-align: top;
     float: left;
     margin: auto;
-    padding: 8px;   
+    padding: 8px;
 }
 
 header h1 {
@@ -36,11 +36,9 @@ main  {
   margin-left: 1%;
   margin-top: 50px;
   float: right;
-  background-color: blue;
   background-color: #99C04B;
   margin-bottom: 10px;
   display: grid;
-  grid-template-columns: repeat(3,1fr);
   grid-template-columns: auto auto auto;
 }
 
