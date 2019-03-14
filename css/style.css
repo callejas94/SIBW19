@@ -1,8 +1,7 @@
-
 /* Cuerpo de la pagina web   */
 body {
   font-family: sans-serif;
-  width: 1300px;
+  width: 90%;
   margin: auto;
 }
 
@@ -10,9 +9,8 @@ body {
 /*Estilo de la cabecera*/
 header {
   margin-top: 20px;
-  height: 100px;
   background-color: #24292e;
-  margin-bottom: 10px;
+  /* margin-bottom: 10px; */
 }
 
 
@@ -34,7 +32,7 @@ header h1 {
 main  {
   width: 79%;
   margin-left: 1%;
-  margin-top: 50px;
+  margin-top: %;
   float: right;
   background-color: blue;
   margin-bottom: 10px;
@@ -42,7 +40,7 @@ main  {
   grid-template-columns: repeat(3,1fr);
 }
 
-/* Estilo de la barra de navegación    https://www.w3schools.com/css/css_navbar.asp */
+/* Estilo de la barra de navegaciÃ³n    https://www.w3schools.com/css/css_navbar.asp */
 
 nav {
   margin-left: 0;
@@ -81,21 +79,21 @@ li a:hover {
 
 /* Zona lateral de enlaces de interes */
 aside {
-  margin-top: 50px;
+  /* margin-top: 50px; */
   width: 20%;
   float: left;
   background-color: blue;
 }
 
 footer {
-  margin-top: 10px;
-  height: 90px;
+  margin-top: 2%;
+  height: 75%;
   background-color: #24292e;
   clear: both;
 }
 
 footer h3 {
-  padding-top: 35px;
+  padding-top: 2%;
   text-align: center;
   color: white;
 }
