@@ -1,0 +1,102 @@
+
+/* Cuerpo de la pagina web   */
+body {
+  font-family: sans-serif;
+  width: 1100px;
+  margin: auto;
+}
+
+
+/*Estilo de la cabecera*/
+header {
+  margin-top: 20px;
+  height: 100px;
+  background-color: green;
+  margin-bottom: 10px;
+}
+
+/* Estilo de la zona central de enlaces */
+main  {
+  width: 79%;
+  margin-left: 1%;
+  margin-top: 50px;
+  float: right;
+  background-color: blue;
+  margin-bottom: 10px;
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+}
+
+/* Estilo de la barra de navegación    https://www.w3schools.com/css/css_navbar.asp */
+
+nav {
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: -1;
+  width: 96%;
+}
+
+ul {
+  list-style-type: none;
+  margin-top: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+  position: sticky;
+  top: 0;
+  min-width: 105%;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+  background-color: #111;
+}
+
+.active {
+  background-color: #4CAF50;
+}
+
+
+/* Zona lateral de enlaces de interes */
+aside {
+  margin-top: 50px;
+  width: 20%;
+  float: left;
+  background-color: blue;
+}
+
+footer {
+  margin-top: 10px;
+  height: 90px;
+  background-color: yellow;
+  clear: both;
+}
+
+footer h3 {
+  padding-top: 35px;
+  text-align: center;
+}
+
+#titulo {
+  font-family: sans-serif;
+  color: red;
+  margin-left: 20px;
+  margin-bottom: 0px;
+  /* margin-top: 0px; */
+  display: inline-block;
+}
+#logo{
+  float: left;
+}
