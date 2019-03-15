@@ -119,6 +119,17 @@ aside > ul > li > a:hover{
   color: #24292e;
 }
 
+/* Quitar linea azul en los logos */
+aside > a{
+  text-decoration: none;
+  margin-top: 10%; 
+}
+
+/* Añadir un poco de margen con respecto a los enlaces de interés */
+aside > a > img{
+  margin-top: 10%; 
+}
+
 footer {
 
   height: 75%;
