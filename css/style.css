@@ -34,7 +34,7 @@ main.contenedores  {
   margin-top: 1%;
   margin-bottom: 1%;
   float: right;
-  background-color: #99C04B;
+  background-color: #90caf9;
   display: grid;
   grid-template-columns: auto auto auto;
 }
@@ -50,6 +50,35 @@ main.contenedores  {
   height: auto;
   max-width:100%;
 }
+
+/* Estilo para la imagen en la pagina evento.html */
+a.imagen_evento {
+  width: 79%;
+  margin-left: 1%;
+  margin-top: 1%;
+  margin-bottom: 1%;
+  float: right;
+  background-color: #90caf9;
+  display: grid;
+}
+
+a.imagen_evento > img{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+a.imagen_evento > h3{
+  text-align: center;
+  color: black;
+}
+
+a.imagen_evento > p{
+  margin: 5%;
+  text-align: justify;
+  color: black;
+}
+
 
 /* Estilo de la barra de navegaciÃ³n    https://www.w3schools.com/css/css_navbar.asp */
 
