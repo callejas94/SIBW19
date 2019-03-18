@@ -59,22 +59,38 @@ a.imagen_evento {
   margin-bottom: 1%;
   float: right;
   background-color: #90caf9;
-  display: grid;
 }
-
-a.imagen_evento > img{
+a.imagen_evento > div > div {
+  color: #fff;
+  background-color: #000;
+  opacity: 0.5;
+  font-weight: bold;
+  position: relative;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  bottom: 18px;
+}
+a.imagen_evento > div > img{
+  display: block;
   margin-top: 5%;
   margin-left: auto;
   margin-right: auto;
+  height: auto;
   max-width: 100%;
-  height: 350px;
-  object-fit: cover;
-  max-width: 100%;
+  position: relative;
 }
 
+a.imagen_evento > h2{
+  text-align: center;
+  color: black;
+  font-size: 50px;
+}
 a.imagen_evento > h3{
   text-align: center;
   color: black;
+  font-size: 20px;
 }
 
 a.imagen_evento > p{
@@ -101,7 +117,7 @@ nav > ul {
   min-width: 100%;
 }
 
-nav> ul > li {
+nav > ul > li {
   float: left;
 }
 
@@ -114,7 +130,7 @@ nav> ul > li > a{
 }
 
 /* Change the link color to #111 (black) on hover */
-nav> ul >li >a:hover {
+nav> ul >li > a:hover {
   background-color: #24292e;
 }
 
@@ -155,12 +171,12 @@ aside > ul > li > a:hover{
 /* Quitar linea azul en los logos */
 aside > a{
   text-decoration: none;
-  margin-top: 10%; 
+  margin-top: 10%;
 }
 
 /* Añadir un poco de margen con respecto a los enlaces de interés */
 aside > a > img{
-  margin-top: 10%; 
+  margin-top: 10%;
 }
 
 footer {
