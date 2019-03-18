@@ -199,3 +199,39 @@ footer h3 {
   margin: auto;
   display: inline-block;
 }
+
+/*Estilo referente a evento_imprimir*/
+#tituloImprimir {
+  font-family: sans-serif;
+  color: black;
+  margin: auto;
+  font-size: 40px;
+}
+
+header > div{
+  background-color: white;
+}
+
+header > div > a {
+  float: right;
+}
+
+a.evento_imprimir{
+  width: 70%;
+  text-align: center;
+}
+a.evento_imprimir > h2{
+  padding-top: 5%;
+}
+a.evento_imprimir > p {
+  width: 50%;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+a.evento_imprimir > footer{
+  background-color: white;
+}
+a.evento_imprimir > footer > h3{
+  color: black;
+}
