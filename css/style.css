@@ -56,10 +56,19 @@ a.imagen_evento {
   width: 79%;
   margin-left: 1%;
   margin-top: 1%;
-  margin-bottom: 1%;
   float: right;
   background-color: #90caf9;
 }
+
+a.link_evento {
+  width: 79%;
+  margin-bottom: 5%;
+  padding-bottom: 5%;
+  float: right;
+  text-align: center;
+  background-color: #90caf9;
+}
+
 a.imagen_evento > div > div {
   color: #fff;
   background-color: #000;
