@@ -52,7 +52,7 @@ main.contenedores  {
 }
 
 /* Estilo para la imagen en la pagina evento.html */
-a.imagen_evento {
+main.imagen_evento {
   width: 79%;
   margin-left: 1%;
   margin-top: 1%;
@@ -61,14 +61,14 @@ a.imagen_evento {
 }
 
 a.link_evento {
-  width: 79%;
-  padding-bottom: 7%;
+  width: 100%;
+  padding-bottom: 2.35%;
   float: right;
   text-align: center;
   background-color: #90caf9;
 }
 
-a.imagen_evento > div > div {
+main.imagen_evento > div > div {
   color: #fff;
   background-color: #000;
   opacity: 0.5;
@@ -80,7 +80,7 @@ a.imagen_evento > div > div {
   text-align: center;
   bottom: 18px;
 }
-a.imagen_evento > div > img{
+main.imagen_evento > div > img{
   display: block;
   margin-top: 5%;
   margin-left: auto;
@@ -90,24 +90,24 @@ a.imagen_evento > div > img{
   position: relative;
 }
 
-a.imagen_evento > h2{
+main.imagen_evento > h2{
   text-align: center;
   color: black;
   font-size: 50px;
 }
-a.imagen_evento > h3{
+main.imagen_evento > h3{
   text-align: center;
   color: black;
   font-size: 20px;
 }
 
-a.imagen_evento > p{
+main.imagen_evento > p{
   margin: 5%;
   text-align: justify;
   color: black;
 }
 
-a.imagen_evento > p > a{
+main.imagen_evento > p > a{
   margin: 5%;
   text-align: justify;
   color: black;
