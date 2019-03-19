@@ -56,28 +56,58 @@ a.imagen_evento {
   width: 79%;
   margin-left: 1%;
   margin-top: 1%;
-  margin-bottom: 1%;
   float: right;
   background-color: #90caf9;
-  display: grid;
 }
 
-a.imagen_evento > img{
+a.link_evento {
+  width: 79%;
+  padding-bottom: 7%;
+  float: right;
+  text-align: center;
+  background-color: #90caf9;
+}
+
+a.imagen_evento > div > div {
+  color: #fff;
+  background-color: #000;
+  opacity: 0.5;
+  font-weight: bold;
+  position: relative;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  bottom: 18px;
+}
+a.imagen_evento > div > img{
+  display: block;
   margin-top: 5%;
   margin-left: auto;
   margin-right: auto;
+  height: auto;
   max-width: 100%;
-  height: 350px;
-  object-fit: cover;
-  max-width: 100%;
+  position: relative;
 }
 
+a.imagen_evento > h2{
+  text-align: center;
+  color: black;
+  font-size: 50px;
+}
 a.imagen_evento > h3{
   text-align: center;
   color: black;
+  font-size: 20px;
 }
 
 a.imagen_evento > p{
+  margin: 5%;
+  text-align: justify;
+  color: black;
+}
+
+a.imagen_evento > p > a{
   margin: 5%;
   text-align: justify;
   color: black;
@@ -101,7 +131,7 @@ nav > ul {
   min-width: 100%;
 }
 
-nav> ul > li {
+nav > ul > li {
   float: left;
 }
 
@@ -114,7 +144,7 @@ nav> ul > li > a{
 }
 
 /* Change the link color to #111 (black) on hover */
-nav> ul >li >a:hover {
+nav> ul >li > a:hover {
   background-color: #24292e;
 }
 
@@ -123,7 +153,7 @@ nav> ul >li >a:hover {
 aside {
   width: 20%;
   padding-top: 1em;
-  padding-bottom: 10em;
+  padding-bottom: 13em;
   background-color: #EC672F;
   text-align: center;
   border-top: 1px solid white;
@@ -155,12 +185,12 @@ aside > ul > li > a:hover{
 /* Quitar linea azul en los logos */
 aside > a{
   text-decoration: none;
-  margin-top: 10%; 
+  margin-top: 10%;
 }
 
 /* Añadir un poco de margen con respecto a los enlaces de interés */
 aside > a > img{
-  margin-top: 10%; 
+  margin-top: 10%;
 }
 
 footer {
@@ -182,4 +212,40 @@ footer h3 {
   color: white;
   margin: auto;
   display: inline-block;
+}
+
+/*Estilo referente a evento_imprimir*/
+#tituloImprimir {
+  font-family: sans-serif;
+  color: black;
+  margin: auto;
+  font-size: 40px;
+}
+
+header > div{
+  background-color: white;
+}
+
+header > div > a {
+  float: right;
+}
+
+a.evento_imprimir{
+  width: 70%;
+  text-align: center;
+}
+a.evento_imprimir > h2{
+  padding-top: 5%;
+}
+a.evento_imprimir > p {
+  width: 50%;
+  text-align: justify;
+  margin-left: auto;
+  margin-right: auto;
+}
+a.evento_imprimir > footer{
+  background-color: white;
+}
+a.evento_imprimir > footer > h3{
+  color: black;
 }
