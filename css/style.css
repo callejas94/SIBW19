@@ -99,6 +99,12 @@ a.imagen_evento > p{
   color: black;
 }
 
+a.imagen_evento > p > a{
+  margin: 5%;
+  text-align: justify;
+  color: black;
+}
+
 
 /* Estilo de la barra de navegaciÃ³n    https://www.w3schools.com/css/css_navbar.asp */
 
