@@ -1,0 +1,282 @@
+/* Cuerpo de la pagina web   */
+body {
+  font-family: sans-serif;
+  width: 90%;
+  margin: auto;
+}
+
+
+/*Estilo de la cabecera*/
+header {
+  margin-top: 1%;
+  background-color: #24292e;
+}
+
+
+/* Estilo para que el texto se quede alineado y el logo arriba a la izquierda */
+
+header img {
+    vertical-align: top;
+    float: left;
+    margin: auto;
+    padding: 1%;
+}
+
+header h1 {
+    padding-top: 3%;
+    padding-left: 6%;
+}
+
+/* Estilo de la zona central de enlaces */
+main.contenedores  {
+  width: 79%;
+  margin-left: 1%;
+  margin-top: 1%;
+  margin-bottom: 1%;
+  float: right;
+  background-color: #90caf9;
+  display: grid;
+  grid-template-columns: auto auto auto;
+}
+
+
+.contenedor {
+  text-align: center;
+  text-decoration:none;
+  color: black;
+  padding-top: 5%;
+}
+.contenedor > img {
+  height: auto;
+  max-width:100%;
+}
+
+/* Estilo para la imagen en la pagina evento.html */
+main.imagen_evento {
+  width: 79%;
+  margin-left: 1%;
+  margin-top: 1%;
+  float: right;
+  margin-bottom: 1%;
+  background-color: #90caf9;
+}
+
+a.link_evento {
+  width: 100%;
+  padding-bottom: 2.35%;
+  float: right;
+  text-align: center;
+  background-color: #90caf9;
+}
+
+main.imagen_evento > div{
+  margin-right: 15%;
+}
+main.imagen_evento > div > div > div {
+  color: #fff;
+  background-color: #000;
+  opacity: 0.5;
+  font-weight: bold;
+  position: relative;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  bottom: 18px;
+}
+main.imagen_evento > div > div > img{
+  display: block;
+  margin-top: 5%;
+  margin-left: auto;
+  margin-right: auto;
+  height: auto;
+  max-width: 100%;
+  position: relative;
+}
+
+main.imagen_evento > div > h2{
+  text-align: center;
+  color: black;
+  font-size: 50px;
+}
+main.imagen_evento > div > h3{
+  text-align: center;
+  color: black;
+  font-size: 20px;
+}
+
+main.imagen_evento > div > p{
+  margin: 5%;
+  text-align: justify;
+  color: black;
+}
+
+main.imagen_evento > div > p > a{
+  margin: 5%;
+  text-align: justify;
+  color: black;
+}
+
+
+/* Estilo de la barra de navegaciÃ³n    https://www.w3schools.com/css/css_navbar.asp */
+
+nav {
+  width: 100%;
+  margin: 0 !important;
+}
+
+nav > ul {
+  list-style-type: none;
+  margin: 0 !important;
+  padding: 0;
+  overflow: hidden;
+  background-color: #EC672F;
+  position: sticky;
+  min-width: 100%;
+}
+
+nav > ul > li {
+  float: left;
+}
+
+nav> ul > li > a{
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+nav> ul >li > a:hover {
+  background-color: #24292e;
+}
+
+
+/* Zona lateral de enlaces de interes */
+aside {
+  width: 20%;
+  padding-top: 1em;
+  padding-bottom: 13em;
+  background-color: #EC672F;
+  text-align: center;
+  border-top: 1px solid white;
+}
+
+aside > ul{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  min-width: 100%;
+
+}
+
+aside > ul > li{
+  padding-top: 1em;
+
+}
+aside > ul > li > a{
+  text-decoration: none;
+  color: white;
+  text-align: center;
+
+}
+
+aside > ul > li > a:hover{
+  color: #24292e;
+}
+
+/* Quitar linea azul en los logos */
+aside > a{
+  text-decoration: none;
+  margin-top: 10%;
+}
+
+/* Añadir un poco de margen con respecto a los enlaces de interés */
+aside > a > img{
+  margin-top: 10%;
+}
+
+footer {
+
+  height: 75%;
+  background-color: #24292e;
+  clear: both;
+  margin-bottom: 2%;
+}
+
+footer h3 {
+  padding-top: 20px;
+  text-align: center;
+  color: white;
+}
+
+#titulo {
+  font-family: sans-serif;
+  color: white;
+  margin: auto;
+  display: inline-block;
+}
+
+/*Estilo referente a evento_imprimir*/
+#tituloImprimir {
+  font-family: sans-serif;
+  color: black;
+  margin: auto;
+  font-size: 40px;
+}
+
+header > div{
+  background-color: white;
+}
+
+header > div > a {
+  float: right;
+}
+
+a.evento_imprimir{
+  width: 70%;
+  text-align: center;
+}
+a.evento_imprimir > h2{
+  padding-top: 5%;
+}
+a.evento_imprimir > p {
+  width: 50%;
+  text-align: justify;
+  margin-left: auto;
+  margin-right: auto;
+}
+a.evento_imprimir > footer{
+  background-color: white;
+}
+a.evento_imprimir > footer > h3{
+  color: black;
+}
+
+.collapse {
+  background-color: #777;
+  color: white;
+  cursor: pointer;
+  margin: 8%;
+  padding: 1%;
+  width: 10%;
+  border: none;
+  font-size: 2vh;
+  outline: none;
+  object-fit: contain;
+  text-align: center;
+  position: fixed;
+  top: 16%;
+  right: 0;
+}
+.collapse:hover {
+  background-color: #555;
+}
+
+.collapseContent {
+  padding-right: 1%;
+  display: none;
+  overflow: hidden;
+  background-color: #f1f1f1;
+}
