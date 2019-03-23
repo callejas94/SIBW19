@@ -43,30 +43,32 @@
 			<button class="collapse">Comentarios</button>
 			<div class="collapseContent">
 				<div class="comentario">
-					<div class="cabecera_comentario">
-						<div class="comentario_autor">Agustin Ortiz</div>
-    					<div class="comentario_hora">10:35 21/03/2019</div>
-					</div>
-					<hr class="separador_comentario">
-					<div class="contenido_comentario">
-						<p>
-							HOLIIIIIIIIIIIIIIIIIIIIIIIIIIIIII.
-						</p>
-					</div>
+					<h4 id="comentario_autor">Agustin Ortiz</h4>
+    			<p id="comentario_hora">10:35 21/03/2019</p>
+					<hr id="separador_comentario">
+					<p id="contenido_comentario">
+						HOLIIIIIIIIIIIIIIIIIIIIIIIIIIIIII.
+					</p>
 				</div>
 
-				<div class="comentario">
-					<div class="cabecera_comentario">
-						<div class="comentario_autor">Agustin Ortiz</div>
-    					<div class="comentario_hora">10:35 21/03/2019</div>
-					</div>
-					<hr class="separador_comentario">
-					<div class="contenido_comentario">
-						<p>
-							HOLIIIIIIIIIIIIIIIIIIIIIIIIIIIIII.
-						</p>
-					</div>
+				<div class="comentario" id="chat">
+					<h4 id="comentario_autor">Agustin Ortiz</h4>
+    			<p id="comentario_hora">10:35 21/03/2019</p>
+					<hr id="separador_comentario">
+					<p id="contenido_comentario">
+						HOLIIIIIIIIIIIIIIIIIIIIIIIIIIIIII.
+					</p>
 				</div>
+
+				<form name="formularioComentar" action="" method="post">
+					Nombre: <input type="text" id="name" name="nombreUsuario">
+          <br><br>
+					Email: <input type="email" id="email" name="email">
+					<br><br>
+					Comentario: <textarea id="comment" name="comment" rows="5" cols="60"></textarea>
+          <input id="botonEnviar" type="submit" name="postear" value="Comentar">
+				</form>
+
 			</div>
 			<!-- Script para el despliegue de la sección de comentarios --->
 			<script>

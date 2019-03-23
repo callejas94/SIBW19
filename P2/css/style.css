@@ -292,38 +292,44 @@ a.evento_imprimir > footer > h3{
   margin: 2%;
 }
 
-.nombre_comentario{
-  border-bottom: 1px solid #E5E5E5;
+form {
+  border-style: outset;
+  border: 2px solid rgb(226, 231, 235);
+  border-radius: 5px;
+  background: #FCFCFC;
+  padding: 10px 12px;
+  overflow: hidden;
+  margin: 2%;
 }
 
-.cabecera_comentario{
-  padding-bottom: 2%;
-}
-
-.separador_comentario {
+#separador_comentario {
   border: 0;
   height: 0;
   overflow: visible;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  width: 70%;
 }
 
-.contenido_comentario > p{
+#contenido_comentario{
   padding-top: 1%;
   margin: 0;
 }
 
-.comentario_autor {
+#comentario_autor {
   float: left;
   color: #364560;
   font-size: 15px;
   font-weight: bold;
+  margin: 0;
 }
 
-.comentario_hora {
+#comentario_hora {
   float: right;
   text-align: right;
   color: #364560;
   font-size: 15px;
   font-weight: bold;
+  padding-bottom: 2%;
+  margin: 0;
 }
