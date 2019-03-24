@@ -303,12 +303,13 @@ form {
 }
 
 #separador_comentario {
-  border: 0;
-  height: 0;
-  overflow: visible;
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-  width: 70%;
+	margin-top: 3%;
+	border: 0;
+	height: 0;
+	overflow: visible;
+	border-top: 1px solid rgba(0, 0, 0, 0.1);
+	border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+	width: 70%;
 }
 
 #contenido_comentario{
