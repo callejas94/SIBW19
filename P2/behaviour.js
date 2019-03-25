@@ -22,6 +22,7 @@ function Coment() {
 		//creamos el chat
 		var chat = document.createElement("div");
 		chat.id = "chat";
+		chat.className = "comentario";
 
 		//creamos el nombre
 		var name = document.createElement("h4");
@@ -39,6 +40,11 @@ function Coment() {
 		dat.appendChild(document.createTextNode(fecha));
 		chat.appendChild(dat);
 
+
+		var separador = document.createElement("hr");
+		separador.id = "separador_comentario";
+		chat.appendChild(separador);
+
 	  //creamos el mensaje a partir del texto introducido
 	  var para = document.createElement("p");
 	  para.id = "contenido_comentario";
@@ -51,7 +57,6 @@ function Coment() {
 	  var element = document.getElementById("collapseContent");
 		var child = document.getElementById("chat");
 		element.insertBefore(chat, child);
-
 	  document.getElementById("comment").value = '';
 	}
 	else if(nombre.length == 0){

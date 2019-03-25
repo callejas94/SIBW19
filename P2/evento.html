@@ -6,6 +6,7 @@
 		<title>WADS Eventos</title>
 		<link rel="shortcut icon" type="image/x-icon" href="./imgs/logo.ico" />
 		<link rel="stylesheet" type="text/css" href="./css/style.css"/>
+		<script src="./behaviour.js"></script>
 	</head>
 
 
@@ -41,8 +42,8 @@
 				</a>
 			</div>
 			<button class="collapse">Comentarios</button>
-			<div class="collapseContent">
-				<div class="comentario">
+			<div class="collapseContent" id="collapseContent">
+				<div class="comentario" id="chat">
 					<h4 id="comentario_autor">Agustin Ortiz</h4>
     			<p id="comentario_hora">10:35 21/03/2019</p>
 					<hr id="separador_comentario">
@@ -65,8 +66,8 @@
           <br><br>
 					Email: <input type="email" id="email" name="email">
 					<br><br>
-					Comentario: <textarea id="comment" name="comment" rows="5" cols="60"></textarea>
-          <input id="botonEnviar" type="submit" name="postear" value="Comentar">
+					Comentario: <textarea id="comment" name="comment" rows="5" cols="60" onkeyup="Censura()"></textarea>
+          <input id="botonEnviar" type="button" name="postear" onclick="Coment()" value="Comentar">
 				</form>
 
 			</div>
