@@ -254,6 +254,7 @@ a.evento_imprimir > footer > h3{
   color: black;
 }
 
+/*Estilo de la zona de comentarios*/
 .collapse {
   background-color: #777;
   color: white;
@@ -297,9 +298,16 @@ form {
   border: 2px solid rgb(226, 231, 235);
   border-radius: 5px;
   background: #FCFCFC;
-  padding: 10px 12px;
+  padding: 2% 2%;
   overflow: hidden;
   margin: 2%;
+}
+
+#botonEnviar{
+  float: right;
+  width: 25%;
+  height: 75px;
+  font-size: 3vh;
 }
 
 #separador_comentario {
