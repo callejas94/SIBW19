@@ -74,8 +74,8 @@ function SetName(){
 	nombre = document.getElementById("name").value;
 }
 function validarEmail( email ) {
-    expr = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@((?:[A-Z]{2}|gmail|hotmail|yahoo|ugr|correo.ugr)?\.)+(?:[A-Z]{2}|com|org|net|es)\b/;
-    if ( !expr.test(email) ){ugr|correo.ugr
+    expr = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@((?:[A-Z]{2}|gmail|hotmail|yahoo)?\.)+(?:[A-Z]{2}|com|org|net|es)\b/;
+    if ( !expr.test(email) ){
         alert("Error: La dirección de correo " + email + " es incorrecta.");
         return false;
     }
