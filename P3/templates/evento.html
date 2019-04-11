@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="es">
+<html>
+  <main class="imagen_evento">
+    <div>
+      <div>
+        <img src="./imgs/evento.jpg" alt="HS">
+        <div class="banner_img">Imagen banner del juego. Blizzard Entertaintment </div>
+      </div>
+      <h2>Fireside Gathering en Granada</h2>
+      <h3>25 Marzo 2019 19:55</h3>
+      <p>
+        Reúnete con más gente para jugar al famoso juego de Hearthstone, donde te lo pasarás genial. Además disfrutarás de deliciosa comida y bebida.
+        Primeras consumiciones gratis, para más información vaya al siguiente link.
+      </p>
+
+
+      <a class="link_evento" href="https://firesidegatherings.com/es-es/?lat=37.14374&lng=-3.598988800000029#fireside-gatherings">
+        Fireside Gathering en Granada.
+      </a>
+    </div>
+    <button class="collapse">Comentarios</button>
+    <div class="collapseContent" id="collapseContent">
+      <div class="comentario" id="chat">
+        <h4 id="comentario_autor">Agustin Ortiz</h4>
+        <p id="comentario_hora">10:35 21/03/2019</p>
+        <hr id="separador_comentario">
+        <p id="contenido_comentario">
+          HOLIIIIIIIIIIIIIIIIIIIIIIIIIIIIII.
+        </p>
+      </div>
+
+      <div class="comentario" id="chat">
+        <h4 id="comentario_autor">Agustin Ortiz</h4>
+        <p id="comentario_hora">10:35 21/03/2019</p>
+        <hr id="separador_comentario">
+        <p id="contenido_comentario">
+          HOLIIIIIIIIIIIIIIIIIIIIIIIIIIIIII.
+        </p>
+      </div>
+
+      <form name="formularioComentar" action="" method="post">
+        Nombre: <input type="text" id="name" name="nombreUsuario">
+        <br><br>
+        Email: <input type="email" id="email" name="email">
+        <br><br>
+        <textarea id="comment" name="comment" rows="5" cols="80" onkeyup="Censura()" placeholder="Tu comentario aqui :)"></textarea>
+        <input id="botonEnviar" type="button" name="postear" onclick="Coment()" value="Comentar">
+      </form>
+
+    </div>
+    <!-- Script para el despliegue de la sección de comentarios --->
+    <script>
+      var coll = document.getElementsByClassName("collapse");
+      var i;
+
+      for (i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function() {
+          this.classList.toggle("active");
+          var content = this.nextElementSibling;
+          if (content.style.display === "block") {
+            content.style.display = "none";
+          } else {
+            content.style.display = "block";
+          }
+        });
+      }
+    </script>
+  </main>
+</html>
