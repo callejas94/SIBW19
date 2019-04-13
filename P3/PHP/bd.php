@@ -7,7 +7,7 @@
 			}
 
 			function conectar(){
-				$conexion =  new mysqli('localhost','root', '');
+				$conexion =  new mysqli('localhost','user', '');
 				if (!$conexion) {
 						die('No pudo conectarse: ' . mysqli_error());
 				}
@@ -25,6 +25,13 @@
       function getEvento($id){
         $conexion=conectar();
         $consultaEvento="SELECT * FROM eventos WHERE id =";
+        $consultaEvento.=$id;
+        $arrayDatos=consultar($conexion,$consultaEvento);
+        return $arrayDatos;
+      }
+      function getComentariosEvento($id){
+        $conexion=conectar();
+        $consultaEvento="SELECT * FROM comentario WHERE id =";
         $consultaEvento.=$id;
         $arrayDatos=consultar($conexion,$consultaEvento);
         return $arrayDatos;

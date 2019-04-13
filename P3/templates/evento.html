@@ -2,30 +2,34 @@
 
 {% block principal %}
   <!--elEvento tiene un array donde:
-  elEvento[0] es el nombre,
-  elEvento[1] es el enlace,
-  elEvento[2] es el id,
+  elEvento[0][0] es el nombre,
+  elEvento[0][1] es la fecha y hora,
+  elEvento[0][2] es el path de imagen,
+  elEvento[0][3] es la descripción,
+  elEvento[0][4] es el id,
+  elEvento[0][5] es la cabecera de la imagen (derechos de autor),
+  elEvento[0][6] es la fotoPortada
    -->
 
   <main class="imagen_evento">
-    {{ dump(elEvento) }}
     <div>
       <div>
+        <!-- AGREGAR EL PATH DE LA IMAGEN DIRECTAMENTE DESDE LA BASE DE DATOS -->
         <img src="./imgs/evento.jpg" alt="HS">
-        <div class="banner_img">Imagen banner del juego. Blizzard Entertaintment </div>
+        <div class="banner_img">{{ elEvento[0][5] }}</div>
       </div>
-      <h2>Fireside Gathering en Granada</h2>
-      <h3>25 Marzo 2019 19:55</h3>
+      <h2>{{ elEvento[0][0] }}</h2>
+      <h3>{{ elEvento[0][1] }}</h3>
       <p>
-        Reúnete con más gente para jugar al famoso juego de Hearthstone, donde te lo pasarás genial. Además disfrutarás de deliciosa comida y bebida.
-        Primeras consumiciones gratis, para más información vaya al siguiente link.
+        {{ elEvento[0][3] }}
       </p>
 
-
+      <!-- FALTA AGREGAR EL LINK A LA BASE DE DATOS -->
       <a class="link_evento" href="https://firesidegatherings.com/es-es/?lat=37.14374&lng=-3.598988800000029#fireside-gatherings">
-        Fireside Gathering en Granada.
+        {{ elEvento[0][0] }}.
       </a>
     </div>
+    <!-- COMENTARIOS, FALTA POR HACER -->
     <button class="collapse">Comentarios</button>
     <div class="collapseContent" id="collapseContent">
       <div class="comentario" id="chat">
@@ -74,4 +78,11 @@
       }
     </script>
   </main>
+{% endblock %}
+{% block imprimir %}
+  <p>
+    <a class="imprimir" href="evento_imprimir.html">
+              <img src="./imgs/imprimir.png" alt="Impresión de la página web">
+    </a>
+  </p>
 {% endblock %}
