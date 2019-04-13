@@ -24,7 +24,8 @@
       }
       function getEvento($id){
         $conexion=conectar();
-        $consultaEvento="SELECT * FROM eventos WHERE idEventos=$id";
+        $consultaEvento="SELECT * FROM eventos WHERE id =";
+        $consultaEvento.=$id;
         $arrayDatos=consultar($conexion,$consultaEvento);
         return $arrayDatos;
       }

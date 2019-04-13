@@ -18,7 +18,7 @@
       //Funciones SELECT
       function eventosGeneral(){
         $conexion=conectar();
-        $consultaEvento="SELECT * FROM eventos";
+        $consultaEvento="SELECT * FROM generales";
         $arrayDatos=consultar($conexion,$consultaEvento);
         return $arrayDatos;
       }

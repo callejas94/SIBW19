@@ -5,14 +5,16 @@
 
   $loader = new \Twig\Loader\FilesystemLoader('templates');
   $twig = new \Twig\Environment($loader, [
-      'cache' => 'cacheTwig',
+    'debug' => true,
   ]);
+
+  //Debug
+  $twig->addExtension(new \Twig\Extension\DebugExtension());
 
   $arrayEventos=eventosGeneral();
 
 
-
   $template = $twig->load("principal.html");
-  echo $template->render();
+  echo $template->render(['eventos' => $arrayEventos]);
 
 ?>

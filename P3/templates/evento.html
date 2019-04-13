@@ -1,7 +1,14 @@
-<!doctype html>
-<html lang="es">
-<html>
+{% extends "basico.html" %}
+
+{% block principal %}
+  <!--elEvento tiene un array donde:
+  elEvento[0] es el nombre,
+  elEvento[1] es el enlace,
+  elEvento[2] es el id,
+   -->
+
   <main class="imagen_evento">
+    {{ dump(elEvento) }}
     <div>
       <div>
         <img src="./imgs/evento.jpg" alt="HS">
@@ -67,4 +74,4 @@
       }
     </script>
   </main>
-</html>
+{% endblock %}

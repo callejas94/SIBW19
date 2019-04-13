@@ -4,9 +4,16 @@
 
 {% block principal %}
   <main class="contenedores">
-    <a class="contenedor" href="./evento.html">
-      <img src="imgs/hs.jpg" alt="HS">
-      <h3>Fireside Gathering en Granada</h3>
-    </a>
+    <!--eventos tiene un array donde:
+    evento[0] es el nombre,
+    evento[1] es el enlace,
+    evento[2] es el id,
+     -->
+    {% for evento in eventos %}
+      <a class="contenedor" href="./evento.php?id={{ evento[2] }}" >
+        <img src="imgs/hs.jpg" alt="HS">
+        <h3>{{ evento[0] }}</h3>
+      </a>
+    {% endfor %}
   </main>
 {% endblock %}
