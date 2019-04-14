@@ -9,8 +9,8 @@
     evento[2] es el id,
      -->
     {% for evento in eventos %}
-      <a class="contenedor" href="./evento.php?id={{ evento[2] }}" >
-        <img src="imgs/hs.jpg" alt="HS">
+      <a class="contenedor" href="./evento/{{ evento[2] }}" >
+        <img src="/P3/imgs/hs.jpg" alt="HS">
         <h3>{{ evento[0] }}</h3>
       </a>
     {% endfor %}
