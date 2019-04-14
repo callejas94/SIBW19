@@ -20,7 +20,7 @@
   $arrayEventos=getEvento($id);
 
 
-  $template = $twig->load("evento.html");
+  $template = $twig->load("evento_imprimir_especializado.html");
   echo $template->render(['elEvento' => $arrayEventos]);
 
 ?>

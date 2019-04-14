@@ -8,14 +8,14 @@
   elEvento[0][3] es la descripción,
   elEvento[0][4] es el id,
   elEvento[0][5] es la cabecera de la imagen (derechos de autor),
-  elEvento[0][6] es la fotoPortada
+  elEvento[0][6] es la fotoPortada(usada ahora para el link)
    -->
 
   <main class="imagen_evento">
     <div>
       <div>
         <!-- AGREGAR EL PATH DE LA IMAGEN DIRECTAMENTE DESDE LA BASE DE DATOS -->
-        <img src="./imgs/evento.jpg" alt="HS">
+        <img src="{{ elEvento[0][2] }}" alt="HS">
         <div class="banner_img">{{ elEvento[0][5] }}</div>
       </div>
       <h2>{{ elEvento[0][0] }}</h2>
@@ -25,7 +25,7 @@
       </p>
 
       <!-- FALTA AGREGAR EL LINK A LA BASE DE DATOS -->
-      <a class="link_evento" href="https://firesidegatherings.com/es-es/?lat=37.14374&lng=-3.598988800000029#fireside-gatherings">
+      <a class="link_evento" href="{{ elEvento[0][6] }}">
         {{ elEvento[0][0] }}.
       </a>
     </div>
@@ -81,7 +81,7 @@
 {% endblock %}
 {% block imprimir %}
   <p>
-    <a class="imprimir" href="evento_imprimir.html">
+    <a class="imprimir" href="./evento_imprimir.php?id={{ elEvento[0][4] }}">
               <img src="./imgs/imprimir.png" alt="Impresión de la página web">
     </a>
   </p>

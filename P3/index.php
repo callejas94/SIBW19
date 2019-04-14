@@ -13,7 +13,6 @@
 
   $arrayEventos=eventosGeneral();
 
-
   $template = $twig->load("principal.html");
   echo $template->render(['eventos' => $arrayEventos]);
 
