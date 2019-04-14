@@ -8,13 +8,13 @@
   elEvento[0][3] es la descripción,
   elEvento[0][4] es el id,
   elEvento[0][5] es la cabecera de la imagen (derechos de autor),
-  elEvento[0][6] es la fotoPortada(usada ahora para el link)
+  elEvento[0][6] es el link
    -->
+
 
   <main class="imagen_evento">
     <div>
       <div>
-        <!-- AGREGAR EL PATH DE LA IMAGEN DIRECTAMENTE DESDE LA BASE DE DATOS -->
         <img src="{{ elEvento[0][2] }}" alt="HS">
         <div class="banner_img">{{ elEvento[0][5] }}</div>
       </div>
@@ -24,7 +24,6 @@
         {{ elEvento[0][3] }}
       </p>
 
-      <!-- FALTA AGREGAR EL LINK A LA BASE DE DATOS -->
       <a class="link_evento" href="{{ elEvento[0][6] }}">
         {{ elEvento[0][0] }}.
       </a>
@@ -32,23 +31,26 @@
     <!-- COMENTARIOS, FALTA POR HACER -->
     <button class="collapse">Comentarios</button>
     <div class="collapseContent" id="collapseContent">
-      <div class="comentario" id="chat">
-        <h4 id="comentario_autor">Agustin Ortiz</h4>
-        <p id="comentario_hora">10:35 21/03/2019</p>
-        <hr id="separador_comentario">
-        <p id="contenido_comentario">
-          HOLIIIIIIIIIIIIIIIIIIIIIIIIIIIIII.
-        </p>
-      </div>
 
-      <div class="comentario" id="chat">
-        <h4 id="comentario_autor">Agustin Ortiz</h4>
-        <p id="comentario_hora">10:35 21/03/2019</p>
-        <hr id="separador_comentario">
-        <p id="contenido_comentario">
-          HOLIIIIIIIIIIIIIIIIIIIIIIIIIIIIII.
-        </p>
-      </div>
+      <!--comentarios tiene un array donde:
+      comentarios[0][0] es el ip,
+      comentarios[0][1] es el nombre,
+      comentarios[0][2] es el email
+      comentarios[0][3] es la fecha y hora,
+      comentarios[0][4] es el texto,
+       -->
+
+      {% for comentario in comentarios %}
+        <div class="comentario" id="chat">
+          <h4 id="comentario_autor">{{ comentario[1] }}</h4>
+          <p id="comentario_hora">{{ comentario[3] }}</p>
+          <hr id="separador_comentario">
+          <p id="contenido_comentario">
+            {{ comentario[4] }}
+          </p>
+        </div>
+      {% endfor %}
+
 
       <form name="formularioComentar" action="" method="post">
         Nombre: <input type="text" id="name" name="nombreUsuario">

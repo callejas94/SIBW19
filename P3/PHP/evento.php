@@ -13,14 +13,17 @@
 
   if (isset($_GET['id'])) {
     $id = (int) $_GET['id'];
-  } else {
+    $arrayEventos=getEvento($id);
+    $comentarios=getComentariosEvento($id);
+  }
+  else {
     die('Sin id');
   }
 
-  $arrayEventos=getEvento($id);
+  //$arrayEventos=getEvento($id);
 
 
   $template = $twig->load("evento.html");
-  echo $template->render(['elEvento' => $arrayEventos]);
+  echo $template->render(['elEvento' => $arrayEventos,'comentarios' => $comentarios]);
 
 ?>

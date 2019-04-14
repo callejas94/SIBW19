@@ -18,20 +18,20 @@
       //Funciones SELECT
       function eventosGeneral(){
         $conexion=conectar();
-        $consultaEvento="SELECT * FROM generales";
+        $consultaEvento="SELECT nombre,fotoPortada,id FROM eventos";
         $arrayDatos=consultar($conexion,$consultaEvento);
         return $arrayDatos;
       }
       function getEvento($id){
         $conexion=conectar();
-        $consultaEvento="SELECT * FROM eventos WHERE id =";
+        $consultaEvento="SELECT nombre,fecha,imagen,descripcion,id,piefoto,link FROM eventos WHERE id =";
         $consultaEvento.=$id;
         $arrayDatos=consultar($conexion,$consultaEvento);
         return $arrayDatos;
       }
       function getComentariosEvento($id){
         $conexion=conectar();
-        $consultaEvento="SELECT * FROM comentario WHERE id =";
+        $consultaEvento="SELECT ip,nombre,email,fecha,texto FROM comentario WHERE idEvento =";
         $consultaEvento.=$id;
         $arrayDatos=consultar($conexion,$consultaEvento);
         return $arrayDatos;
