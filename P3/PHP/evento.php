@@ -15,6 +15,7 @@
     $id = (int) $_GET['id'];
     $arrayEventos=getEvento($id);
     $comentarios=getComentariosEvento($id);
+    $prohibidas=getPalabrasProhibidas();
   }
   else {
     die('Sin id');
@@ -24,6 +25,6 @@
 
 
   $template = $twig->load("evento.html");
-  echo $template->render(['elEvento' => $arrayEventos,'comentarios' => $comentarios]);
+  echo $template->render(['elEvento' => $arrayEventos,'comentarios' => $comentarios, 'prohibidas' => $prohibidas]);
 
 ?>

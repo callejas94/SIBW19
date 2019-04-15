@@ -33,11 +33,11 @@
     <div class="collapseContent" id="collapseContent">
 
       <!--comentarios tiene un array donde:
-      comentarios[0][0] es el ip,
-      comentarios[0][1] es el nombre,
-      comentarios[0][2] es el email
-      comentarios[0][3] es la fecha y hora,
-      comentarios[0][4] es el texto,
+      comentarios[0] es el ip,
+      comentarios[1] es el nombre,
+      comentarios[2] es el email
+      comentarios[3] es la fecha y hora,
+      comentarios[4] es el texto,
        -->
 
       {% for comentario in comentarios %}
@@ -51,6 +51,13 @@
         </div>
       {% endfor %}
 
+      <!-- Palabras para la censura -->
+      {% for palabra in prohibidas %}
+          <a data-entry-id='{{ palabra|json_encode|raw }}'/>
+      {% endfor %}
+
+      <script type="text/javascript" src="/P3/javascript/behaviour.js">
+      </script>
 
       <form name="formularioComentar" action="" method="post">
         Nombre: <input type="text" id="name" name="nombreUsuario">
@@ -63,22 +70,9 @@
 
     </div>
     <!-- Script para el despliegue de la sección de comentarios --->
-    <script>
-      var coll = document.getElementsByClassName("collapse");
-      var i;
-
-      for (i = 0; i < coll.length; i++) {
-        coll[i].addEventListener("click", function() {
-          this.classList.toggle("active");
-          var content = this.nextElementSibling;
-          if (content.style.display === "block") {
-            content.style.display = "none";
-          } else {
-            content.style.display = "block";
-          }
-        });
-      }
+    <script type="text/javascript" src="/P3/javascript/comentarios.js">
     </script>
+
   </main>
 {% endblock %}
 {% block imprimir %}

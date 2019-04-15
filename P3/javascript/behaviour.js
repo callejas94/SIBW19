@@ -1,11 +1,43 @@
 
 
 var nombre; //nombre del usuario
-var forbidden = [" tonto ", " feo ", " caca ", " culo ", " pedo "]; //palabras baneadas
+//var forbidden = [" tonto ", " feo ", " caca ", " culo ", " pedo "]; //palabras baneadas
+var forbidden;
 var correos = ["gmail", "yahoo", "hotmail"];	//dominios permitidos
 var extensions = [".com", ".es"];	//extensiones permitidas
 var cens = "*";	//caracteres de censura
 var display = 0;
+
+
+document.addEventListener('DOMContentLoaded', () => {
+
+    // Seleccionando los elementos de TWIG
+    const entryElements =
+        document.querySelectorAll('[data-entry-id]');
+
+    // Mapeando los datos en un array
+    const entryIds =
+        Array.from(entryElements).map(
+            item => item.dataset.entryId
+        );
+		// Al mapearlos,salen elementos repetidos
+		forbidden = entryIds.filter(function(item, index){
+			return entryIds.indexOf(item) >= index;
+		});
+
+		// Los elementos sin repetir están con caracteres que no tienen que tener:
+		// [" tonto "] -->  tonto
+		for(let i = 0; i < forbidden.length; ++i){
+			forbidden[i] = forbidden[i].replace("[", "");
+			forbidden[i] = forbidden[i].replace("]", "");
+			forbidden[i] = forbidden[i].replace("\"", "");
+			forbidden[i] = forbidden[i].replace("\"", "");
+		}
+
+
+    // Valores
+    console.log(forbidden);
+});
 
 
 //función que crea un nuevo cuadro de texto par el comentario con el estilo predefinido
