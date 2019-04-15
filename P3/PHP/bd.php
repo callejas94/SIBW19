@@ -36,6 +36,12 @@
         $arrayDatos=consultar($conexion,$consultaEvento);
         return $arrayDatos;
       }
+      function getPalabrasProhibidas(){
+        $conexion=conectar();
+        $consultaEvento="SELECT * FROM prohibidas";
+        $arrayDatos=consultar($conexion,$consultaEvento);
+        return $arrayDatos;
+      }
 
 
  ?>
