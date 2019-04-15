@@ -1,0 +1,18 @@
+{% extends "evento_imprimir.html" %}
+
+{% block evento_imprimir %}
+  <!--elEvento tiene un array donde:
+  elEvento[0][0] es el nombre,
+  elEvento[0][1] es la fecha y hora,
+  elEvento[0][2] es el path de imagen,
+  elEvento[0][3] es la descripción,
+  elEvento[0][4] es el id,
+  elEvento[0][5] es la cabecera de la imagen (derechos de autor),
+  elEvento[0][6] es la fotoPortada(usada ahora para el link)
+   -->
+  <h2>{{ elEvento[0][0] }}</h2>
+  <h3>{{ elEvento[0][1] }}</h3>
+  <p>
+    {{ elEvento[0][3] }} {{ elEvento[0][6] }}
+  </p>
+{% endblock %}

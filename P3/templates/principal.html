@@ -1,4 +1,3 @@
-
 {% extends "basico.html" %}
 
 
@@ -6,12 +5,12 @@
   <main class="contenedores">
     <!--eventos tiene un array donde:
     evento[0] es el nombre,
-    evento[1] es el enlace,
+    evento[1] es la imagen,
     evento[2] es el id,
      -->
     {% for evento in eventos %}
-      <a class="contenedor" href="./evento.php?id={{ evento[2] }}" >
-        <img src="imgs/hs.jpg" alt="HS">
+      <a class="contenedor" href="./evento/{{ evento[2] }}" >
+        <img src="{{ evento[1] }}" alt="HS">
         <h3>{{ evento[0] }}</h3>
       </a>
     {% endfor %}

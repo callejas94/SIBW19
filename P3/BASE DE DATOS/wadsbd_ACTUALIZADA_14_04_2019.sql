@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.9
+-- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 13-04-2019 a las 12:53:20
--- Versión del servidor: 10.1.31-MariaDB
--- Versión de PHP: 7.2.3
+-- Tiempo de generación: 14-04-2019 a las 19:26:59
+-- Versión del servidor: 10.1.38-MariaDB
+-- Versión de PHP: 7.3.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -58,34 +58,17 @@ CREATE TABLE `eventos` (
   `descripcion` text CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci NOT NULL,
   `id` int(11) NOT NULL,
   `piefoto` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci NOT NULL,
-  `fotoPortada` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci NOT NULL
+  `fotoPortada` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci NOT NULL,
+  `link` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `eventos`
 --
 
-INSERT INTO `eventos` (`nombre`, `fecha`, `imagen`, `descripcion`, `id`, `piefoto`, `fotoPortada`) VALUES
-('Fireside Gathering en Granada', '2019-04-04 00:00:00', '', 'Re?nete con m?s gente para jugar al famoso juego de Hearthstone, donde te lo pasar?s genial. Adem?s disfrutar?s de deliciosa comida y bebida. Primeras consumiciones gratis, para m?s informaci?n vaya al siguiente link.', 0, 'Imagen banner del juego. Blizzard Entertaintment', '');
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `generales`
---
-
-CREATE TABLE `generales` (
-  `nombre` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci NOT NULL,
-  `enlace` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci NOT NULL,
-  `id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Volcado de datos para la tabla `generales`
---
-
-INSERT INTO `generales` (`nombre`, `enlace`, `id`) VALUES
-('Fireside Gathering en Granada', '', 0);
+INSERT INTO `eventos` (`nombre`, `fecha`, `imagen`, `descripcion`, `id`, `piefoto`, `fotoPortada`, `link`) VALUES
+('Fireside Gathering en Granada', '2019-04-04 00:00:00', '/P3/imgs/evento.jpg', 'Reunete con mas gente para jugar al famoso juego de Hearthstone, donde te lo pasaras genial. Ademas disfrutaras de deliciosa comida y bebida. Primeras consumiciones gratis, para mas informacian vaya al siguiente link.', 0, 'Imagen banner del juego. Blizzard Entertaintment', '/P3/imgs/hs.jpg', 'https://firesidegatherings.com/es-es/?lat=37.14374&lng=-3.598988800000029#fireside-gatherings'),
+('Otro Evento', '2019-04-04 00:00:00', '/P3/imgs/evento.jpg', 'Reunete con mas gente para jugar al famoso juego de Hearthstone, donde te lo pasaras genial. Ademas disfrutaras de deliciosa comida y bebida. Primeras consumiciones gratis, para mas informacian vaya al siguiente link.', 1, 'Imagen banner del juego. Blizzard Entertaintment', '/P3/imgs/hs.jpg', 'https://firesidegatherings.com/es-es/?lat=37.14374&lng=-3.598988800000029#fireside-gatherings');
 
 -- --------------------------------------------------------
 
@@ -112,13 +95,6 @@ ALTER TABLE `comentario`
 -- Indices de la tabla `eventos`
 --
 ALTER TABLE `eventos`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `id` (`id`);
-
---
--- Indices de la tabla `generales`
---
-ALTER TABLE `generales`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `id` (`id`);
 

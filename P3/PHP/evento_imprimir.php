@@ -1,9 +1,9 @@
 <?php
-  require_once './vendor/autoload.php';
+  require_once '../vendor/autoload.php';
   require_once 'bd.php';
 
-  
-  $loader = new \Twig\Loader\FilesystemLoader('./templates');
+
+  $loader = new \Twig\Loader\FilesystemLoader('../templates');
   $twig = new \Twig\Environment($loader, [
     'debug' => true,
   ]);
@@ -20,7 +20,7 @@
   $arrayEventos=getEvento($id);
 
 
-  $template = $twig->load("evento.html");
+  $template = $twig->load("evento_imprimir_especializado.html");
   echo $template->render(['elEvento' => $arrayEventos]);
 
 ?>
