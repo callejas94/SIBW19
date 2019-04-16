@@ -5,8 +5,8 @@ paginas debe estar guardado en la BD.
 que luego se podran listar los eventos que esten ligados a una etiqueta
 particular.
 * Validacion en servidor de TODAS las variables GET y POST (independientemente de las validaciones Javascript, que un atacante se puede saltar
-facilmente) (10 %)
-* Usa POST para datos del formulario (3 %)Usa POST para datos del formulario (3 %)
+facilmente) (10 %) ----> Validaciones (https://developer.hyvor.com/php/input-validation-with-php)
+* Usa POST para datos del formulario (3 %)
 * En botones de TW y FB se muestra una ventana emergente de Javascript
 con el siguiente mensaje: (5 %)
 Se publicara en Twitter (o Facebook, segun corresponda) el
@@ -23,9 +23,10 @@ Aceptar
 -El evento se muestra con foto grande a todo lo ancho
 -El texto esta a dos columnas
 -Si hay videos, se pone su URL
-* En cada evento se ve la fecha de publicacion y la fecha de ultima modificacion (3 %)
+* En cada evento se ve la fecha de publicacion y la fecha de ultima modificacion (3 %)
+
 * Se cuida la seguridad del sistema: (10 %)
-* Hay galeria de fotos (en al menos un evento)
-* Uso de sesiones/HTML5 storage
-* Menu dinamico (a partir de datos en la BD) (5 %)
-* Hay posibilidad de incluir videos 
+* Hay galeria de fotos (en al menos un evento) ---> (https://www.w3schools.com/css/css_image_gallery.asp)
+* Uso de sesiones/HTML5 storage ----> (https://developer.mozilla.org/es/docs/Web/API/Window/sessionStorage) (https://www.w3schools.com/html/html5_webstorage.asp)
+* Menu dinamico (a partir de datos en la BD) (5 %) ---> (Fácil de hacer con TWIG)
+* Hay posibilidad de incluir videos  ----> (https://www.w3schools.com/html/html_youtube.asp)
