@@ -12,33 +12,46 @@ var display = 0;
 document.addEventListener('DOMContentLoaded', () => {
 
     // Seleccionando los elementos de TWIG
+    //var x = document.getElementById("prohibidas");
     const entryElements =
-        document.querySelectorAll('[data-entry-id]');
+        document.querySelectorAll("[id='prohibidas']");
 
     // Mapeando los datos en un array
     const entryIds =
         Array.from(entryElements).map(
             item => item.dataset.entryId
         );
-		// Al mapearlos,salen elementos repetidos
-		forbidden = entryIds.filter(function(item, index){
-			return entryIds.indexOf(item) >= index;
-		});
+    // Al mapearlos,salen elementos repetidos
+    forbidden = entryIds.filter(function(item, index){
+      return entryIds.indexOf(item) >= index;
+    });
 
-		// Los elementos sin repetir están con caracteres que no tienen que tener:
-		// [" tonto "] -->  tonto
-		for(let i = 0; i < forbidden.length; ++i){
-			forbidden[i] = forbidden[i].replace("[", "");
-			forbidden[i] = forbidden[i].replace("]", "");
-			forbidden[i] = forbidden[i].replace("\"", "");
-			forbidden[i] = forbidden[i].replace("\"", "");
-		}
+    // Los elementos sin repetir están con caracteres que no tienen que tener:
+    // [" tonto "] -->  tonto
+    for(let i = 0; i < forbidden.length; ++i){
+      forbidden[i] = forbidden[i].replace("[", "");
+      forbidden[i] = forbidden[i].replace("]", "");
+      forbidden[i] = forbidden[i].replace("\"", "");
+      forbidden[i] = forbidden[i].replace("\"", "");
+    }
 
-
-    // Valores
-    console.log(forbidden);
+    borrarEtiquetas(entryElements);
 });
 
+function borrarEtiquetas(elementos){
+  if (!elementos){
+    alert("El elemento selecionado no existe");
+  } else {
+    for(let i = 0; i < elementos.length; ++i){
+      var elem = elementos[i];
+      // Mejor codificado
+      //elem.remove();
+      // Mejor compatibilidad
+      elem.parentNode.removeChild(elem);
+    }
+
+  }
+}
 
 //función que crea un nuevo cuadro de texto par el comentario con el estilo predefinido
 function Coment() {

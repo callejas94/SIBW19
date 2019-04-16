@@ -52,9 +52,7 @@
       {% endfor %}
 
       <!-- Palabras para la censura -->
-      {% for palabra in prohibidas %}
-          <a data-entry-id='{{ palabra|json_encode|raw }}'/>
-      {% endfor %}
+
 
       <script type="text/javascript" src="/P3/javascript/behaviour.js">
       </script>
@@ -72,6 +70,10 @@
     <!-- Script para el despliegue de la sección de comentarios --->
     <script type="text/javascript" src="/P3/javascript/comentarios.js">
     </script>
+
+    {% for palabra in prohibidas %}
+        <a id="prohibidas" data-entry-id='{{ palabra|json_encode|raw }}'/>
+    {% endfor %}
 
   </main>
 {% endblock %}
