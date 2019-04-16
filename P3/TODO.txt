@@ -1,0 +1,31 @@
+• P´agina de informaci´on general: Son p´aginas con informaci´on general sobre el sitio, como por ejemplo, la p´agina de contacto, p´agina
+de los creadores el sitio, informaci´on legal, etc. El contenido de dichas
+p´aginas debe estar guardado en la BD.
+• Etiquetas: Cada evento podr´a tener una o m´as etiquetas, de manera
+que luego se podr´an listar los eventos que est´en ligados a una etiqueta
+particular.
+• Validaci´on en servidor de TODAS las variables GET y POST (independientemente de las validaciones Javascript, que un atacante se puede saltar
+f´acilmente) (10 %)
+• Usa POST para datos del formulario (3 %)Usa POST para datos del formulario (3 %)
+• En botones de TW y FB se muestra una ventana emergente de Javascript
+con el siguiente mensaje: (5 %)
+‘‘Se publicar´a en Twitter (o Facebook, seg´un corresponda) el
+siguiente mensaje:
+TEXTO DEL MENSAJE’’
+La ventana se cerrar´a pulsando dentro de ella en una opci´on denominada
+Aceptar
+• El TEXTO DEL MENSAJE anterior contiene:
+-El t´itulo del evento
+-V´ia @elnombredevuestrositio
+-La foto del evento
+• En la p´agina evento imprimir: (5 %)
+-Arriba a la izquierda aparece el logotipo
+-El evento se muestra con foto grande a todo lo ancho
+-El texto est´a a dos columnas
+-Si hay v´ideos, se pone su URL
+• En cada evento se ve la fecha de publicaci´on y la fecha de ´ultima modificaci´on (3 %)
+• Se cuida la seguridad del sistema: (10 %)
+• Hay galer´ia de fotos (en al menos un evento)
+• Uso de sesiones/HTML5 storage
+• Men´u din´amico (a partir de datos en la BD) (5 %)
+• Hay posibilidad de incluir v´ideos 
