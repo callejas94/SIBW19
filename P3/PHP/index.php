@@ -12,10 +12,10 @@
   $twig->addExtension(new \Twig\Extension\DebugExtension());
 
 
-
+  $menu=getMenu();
   $arrayEventos=eventosGeneral();
 
   $template = $twig->load("principal.html");
-  echo $template->render(['eventos' => $arrayEventos]);
+  echo $template->render(['eventos' => $arrayEventos, 'elMenu' => $menu]);
 
 ?>

@@ -42,6 +42,12 @@
         $arrayDatos=consultar($conexion,$consultaEvento);
         return $arrayDatos;
       }
+      function getMenu(){
+        $conexion=conectar();
+        $consultaEvento="SELECT * FROM menu ORDER BY id";
+        $arrayDatos=consultar($conexion,$consultaEvento);
+        return $arrayDatos;
+      }
 
 
  ?>

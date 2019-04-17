@@ -77,10 +77,22 @@
 
   </main>
 {% endblock %}
+
 {% block imprimir %}
   <p>
     <a class="imprimir" href="./evento_imprimir/{{ elEvento[0][4] }}">
               <img src="/P3/imgs/imprimir.png" alt="Impresión de la página web">
     </a>
   </p>
+{% endblock %}
+
+{% block menu %}
+  <nav role="Navegación">
+    <ul>
+
+      {% for elemento in elMenu %}
+        <li><a href="/P3/{{ elemento[2] }}">{{ elemento[1] }}</a></li>
+      {% endfor %}
+    </ul>
+  </nav>
 {% endblock %}

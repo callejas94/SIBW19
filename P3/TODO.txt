@@ -1,0 +1,32 @@
+* Pagina de informacion general: Son paginas con informacion general sobre el sitio, como por ejemplo, la pagina de contacto, pagina
+de los creadores el sitio, informacion legal, etc. El contenido de dichas paginas debe estar guardado en la BD.
+* Etiquetas: Cada evento podra tener una o mas etiquetas, de manera
+que luego se podran listar los eventos que esten ligados a una etiqueta
+particular.
+* Usa POST para datos del formulario (3 %)
+* En botones de TW y FB se muestra una ventana emergente de Javascript
+con el siguiente mensaje: (5 %)
+Se publicara en Twitter (o Facebook, segun corresponda) el
+siguiente mensaje:
+TEXTO DEL MENSAJE
+La ventana se cerrara pulsando dentro de ella en una opcion denominada
+Aceptar
+* El TEXTO DEL MENSAJE anterior contiene:
+-El titulo del evento
+-Via @elnombredevuestrositio
+-La foto del evento
+ En la pagina evento imprimir: (5 %)
+-Arriba a la izquierda aparece el logotipo
+-El evento se muestra con foto grande a todo lo ancho
+-El texto esta a dos columnas
+-Si hay videos, se pone su URL
+* En cada evento se ve la fecha de publicacion y la fecha de ultima modificacion (3 %)
+
+* Hay galeria de fotos (en al menos un evento) ---> (https://www.w3schools.com/css/css_image_gallery.asp)
+* Uso de sesiones/HTML5 storage ----> (https://developer.mozilla.org/es/docs/Web/API/Window/sessionStorage) (https://www.w3schools.com/html/html5_webstorage.asp)
+* Hay posibilidad de incluir videos  ----> (https://www.w3schools.com/html/html_youtube.asp)
+
+* HECHO * Menu dinamico (a partir de datos en la BD) (5 %) ---> (Fácil de hacer con TWIG)
+* HECHO * Se cuida la seguridad del sistema: (10 %)
+* HECHO clase Input en PHP * Validacion en servidor de TODAS las variables GET y POST (independientemente de las validaciones Javascript, que un atacante se puede saltar
+facilmente) (10 %) ----> Validaciones (https://developer.hyvor.com/php/input-validation-with-php)
