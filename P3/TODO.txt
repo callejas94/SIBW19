@@ -34,4 +34,4 @@ facilmente) (10 %) ----> Validaciones (https://developer.hyvor.com/php/input-val
 que luego se podran listar los eventos que esten ligados a una etiqueta
 particular.
 * HECHO * En cada evento se ve la fecha de publicacion y la fecha de ultima modificacion (3 %)
-* MEDIO HECHO FALTA IMPLEMENTAR LA GALERIA * Hay galeria de fotos (en al menos un evento) ---> (https://www.w3schools.com/css/css_image_gallery.asp)
+* HECHO * Hay galeria de fotos (en al menos un evento) ---> (https://www.w3schools.com/css/css_image_gallery.asp)
