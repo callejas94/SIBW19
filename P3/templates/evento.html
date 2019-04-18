@@ -24,8 +24,10 @@
 
       {% if arrayImagenes|length > 1 %}
         {% for imagen in arrayImagenes %}
-          <div>
-            <img src="{{ imagen }}" alt="{{ arrayEtiquetas[0] }}">
+          <div class="gallery">
+            <a target="_blank" href="{{ imagen }}">
+              <img src="{{ imagen }}" alt="{{ arrayEtiquetas[0] }}">
+            </a>
             <div class="banner_img">{{ elEvento[0][5] }}</div>
           </div>
         {% endfor %}
