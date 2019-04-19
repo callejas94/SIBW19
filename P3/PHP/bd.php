@@ -49,6 +49,15 @@
         $arrayDatos=consultar($conexion,$consultaEvento);
         return $arrayDatos;
       }
+      function postComment($idEvento, $nombre, $email, $texto){
+        $consultaEvento="INSERT INTO comentario (idEvento, ip, nombre, email, fecha, texto, id)"."
+        VALUES (". "\"NULL\"" . ", \"127.0.0.1\",\"". $nombre ."\",\"". $email .
+        "\", CURRENT_TIME(),\"". $texto."\",". $idEvento.")";
+        // die("Insertando ".$consultaEvento);
+        $conexion=conectar();
+        $otroValor=ponerDatos($conexion, $consultaEvento);
+        return $otroValor;
+      }
 
 
  ?>
