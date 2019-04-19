@@ -13,13 +13,8 @@
 		<header>
 			<a href="/P3/indice"><img src="/P3/imgs/logo.png" alt="Logo"></a>
 			<h1 id="titulo">WADS Eventos sobre videojuegos</h1>
-			<nav role="Navegación">
-				<ul>
-				  <li><a class="active" href="/P3/indice">Inicio</a></li>
-				  <li><a href="/P3/indice#noticias">Noticias</a></li>
-				  <li><a href="/P3/indice#acerca de">Acerca de</a></li>
-				</ul>
-			</nav>
+			{% block menu %}{% endblock %}
+
 		</header>
 
 		{% block principal %}{% endblock %}

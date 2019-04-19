@@ -98,6 +98,7 @@ main.imagen_evento > div > h2{
   text-align: center;
   color: black;
   font-size: 50px;
+  clear: both;
 }
 main.imagen_evento > div > h3{
   text-align: center;
@@ -115,6 +116,27 @@ main.imagen_evento > div > p > a{
   margin: 5%;
   text-align: justify;
   color: black;
+}
+
+main.imagen_evento h5{
+  text-align: right;
+}
+
+
+div.gallery {
+  margin: 2%;
+  border: 1px solid #ccc;
+  float: left;
+  width: 30%;
+}
+
+div.gallery:hover {
+  border: 1px solid #777;
+}
+
+div.gallery img {
+  width: 100%;
+  height: auto;
 }
 
 

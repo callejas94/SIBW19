@@ -24,7 +24,8 @@
       }
       function getEvento($id){
         $conexion=conectar();
-        $consultaEvento="SELECT nombre,fecha,imagen,descripcion,id,piefoto,link FROM eventos WHERE id =";
+        $consultaEvento="SELECT nombre,fecha,imagen,descripcion,id,piefoto,link,
+        etiqueta,fecha_publicacion,ultima_modificacion FROM eventos WHERE id =";
         $consultaEvento.=$id;
         $arrayDatos=consultar($conexion,$consultaEvento);
         return $arrayDatos;
@@ -39,6 +40,12 @@
       function getPalabrasProhibidas(){
         $conexion=conectar();
         $consultaEvento="SELECT * FROM prohibidas";
+        $arrayDatos=consultar($conexion,$consultaEvento);
+        return $arrayDatos;
+      }
+      function getMenu(){
+        $conexion=conectar();
+        $consultaEvento="SELECT * FROM menu ORDER BY id";
         $arrayDatos=consultar($conexion,$consultaEvento);
         return $arrayDatos;
       }

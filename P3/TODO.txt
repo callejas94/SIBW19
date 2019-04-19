@@ -35,4 +35,3 @@ que luego se podran listar los eventos que esten ligados a una etiqueta
 particular.
 * HECHO * En cada evento se ve la fecha de publicacion y la fecha de ultima modificacion (3 %)
 * HECHO * Hay galeria de fotos (en al menos un evento) ---> (https://www.w3schools.com/css/css_image_gallery.asp)
-

@@ -16,3 +16,13 @@
     {% endfor %}
   </main>
 {% endblock %}
+
+{% block menu %}
+  <nav role="Navegación">
+    <ul>
+      {% for elemento in elMenu %}
+        <li><a href="/P3/{{ elemento[2] }}">{{ elemento[1] }}</a></li>
+      {% endfor %}
+    </ul>
+  </nav>
+{% endblock %}
