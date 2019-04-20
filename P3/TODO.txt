@@ -3,18 +3,7 @@ como por ejemplo, la pagina de contacto, pagina
 de los creadores el sitio, informacion legal, etc.
 El contenido de dichas paginas debe estar guardado en la BD.
 * Usa POST para datos del formulario (3 %) (https://fernando-gaitan.com.ar/aprendiendo-php-parte-18-validar-formularios/)
-* En botones de TW y FB se muestra una ventana emergente de Javascript
-con el siguiente mensaje: (5 %)
-Se publicara en Twitter (o Facebook, segun corresponda) el
-siguiente mensaje:
-TEXTO DEL MENSAJE
-La ventana se cerrara pulsando dentro de ella en una opcion denominada
-Aceptar
-* El TEXTO DEL MENSAJE anterior contiene:
--El titulo del evento
--Via @elnombredevuestrositio
--La foto del evento
- En la pagina evento imprimir: (5 %)
+* En la pagina evento imprimir: (5 %)
 -Arriba a la izquierda aparece el logotipo
 -El evento se muestra con foto grande a todo lo ancho
 -El texto esta a dos columnas
@@ -25,7 +14,17 @@ Aceptar
 * Hay posibilidad de incluir videos  ----> (https://www.w3schools.com/html/html_youtube.asp)
 
 
-
+* HECHO * En botones de TW y FB se muestra una ventana emergente de Javascript
+con el siguiente mensaje: (5 %)
+Se publicara en Twitter (o Facebook, segun corresponda) el
+siguiente mensaje:
+TEXTO DEL MENSAJE
+La ventana se cerrara pulsando dentro de ella en una opcion denominada
+Aceptar
+* El TEXTO DEL MENSAJE anterior contiene:
+-El titulo del evento
+-Via @elnombredevuestrositio
+-La foto del evento
 * HECHO * Menu dinamico (a partir de datos en la BD) (5 %) ---> (Fácil de hacer con TWIG)
 * HECHO * Se cuida la seguridad del sistema: (10 %)
 * HECHO clase Input en PHP * Validacion en servidor de TODAS las variables GET y POST (independientemente de las validaciones Javascript, que un atacante se puede saltar
