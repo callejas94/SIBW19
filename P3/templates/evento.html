@@ -12,7 +12,8 @@
   elEvento[0][7] es la etiqueta
   elEvento[0][8] es la fecha_publicacion
   elEvento[0][9] es la fecha_edicion
-  elEvento[0][10] es el posible video
+  elEvento[0][10] es la fotoPortada (para publicaciones en fb y twitter)
+  elEvento[0][11] es el posible video
    -->
 
 
@@ -60,9 +61,9 @@
         {{ elEvento[0][0] }}.
       </a>
 
-      {% if elEvento[0][10]|length > 0 %}
+      {% if elEvento[0][11]|length > 0 %}
         <iframe
-          src="{{ elEvento[0][10] }}" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+          src="{{ elEvento[0][11] }}" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
         </iframe>
       {% endif %}
 
@@ -137,4 +138,41 @@
       {% endfor %}
     </ul>
   </nav>
+{% endblock %}
+
+{% block facebook %}
+  <script type="text/javascript" src="/P3/javascript/redes.js">
+  </script>
+  <a class="rrss_facebook" onclick="funcionFacebook()">
+    <img src="/P3/imgs/Facebook.png" alt="Facebook">
+  </a>
+
+  <div id="modalFB" class="modal">
+    <div class="modal-content">
+      <p>Se publicara en Facebook el siguiente mensaje: </p>
+      <h1>{{ elEvento[0][0] }}</h1>
+      <h2>Via @WADSEventosSobreVideojuegos </h2>
+      <img src="{{ elEvento[0][10] }}" alt="{{ arrayEtiquetas[0] }}">
+      <br><br>
+      <div class=botonCierre><span class="close" onclick="cerrarFacebook()">Aceptar</span></div>
+    </div>
+  </div>
+
+{% endblock %}
+
+{% block twitter %}
+  <a class="rrss_twitter" onclick="funcionTwitter()">
+    <img src="/P3/imgs/Twitter.png" alt="Twitter">
+  </a>
+
+  <div id="modalTW" class="modal">
+    <div class="modal-content">
+      <p>Se publicara en Twitter el siguiente mensaje: </p>
+      <h1>{{ elEvento[0][0] }}</h1>
+      <h2>Via @WADSEventosSobreVideojuegos </h2>
+      <img src="{{ elEvento[0][10] }}" alt="{{ arrayEtiquetas[0] }}">
+      <br><br>
+      <span class="close" onclick="cerrarTwitter()">Aceptar</span>
+    </div>
+  </div>
 {% endblock %}
