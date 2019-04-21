@@ -36,6 +36,21 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     borrarEtiquetas(entryElements);
+
+
+    // Cargar comentarios posteados
+
+    if (typeof(Storage) !== "undefined") {
+	if (!localStorage.clickcount) {
+	  localStorage.clickcount = 1;
+	}
+	  	document.getElementById("result").innerHTML = "Comentarios posteados " + localStorage.clickcount + " .";
+	}
+	else {
+	  	document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage...";
+	}
+
+
 });
 
 function borrarEtiquetas(elementos){
@@ -57,7 +72,7 @@ function borrarEtiquetas(elementos){
 function Coment() {
 	//recogemos el texto y calculamos su longitud
 	SetName();
-	var texto = document.getElementById("comment").value;
+	var texto = document.getElementById("texto").value;
 	var lengt = texto.length;
 
 	var em = document.getElementById("email").value;
@@ -102,7 +117,7 @@ function Coment() {
 	  var element = document.getElementById("collapseContent");
 		var child = document.getElementById("chat");
 		element.insertBefore(chat, child);
-	  document.getElementById("comment").value = '';
+	  document.getElementById("texto").value = '';
 	}
 	else if(nombre.length == 0){
 		alert("Debes indicar tu nombre");
@@ -130,9 +145,9 @@ function validarEmail( email ) {
 
 //función que añadirá un event listener para que compruebe el cuadro de texto
 function Censura(){
-	document.getElementById("comment").onkeyup = function(e){
+	document.getElementById("texto").onkeyup = function(e){
 		if(e.keyCode == 32){
-			var str = document.getElementById("comment").value;
+			var str = document.getElementById("texto").value;
 			var censurada = "";
 				for(i = 0; i < forbidden.length; i++){
 					if(str.match(forbidden[i])){
@@ -145,10 +160,37 @@ function Censura(){
 							censurada = censurada + cens;
 						}
 						censurada += " ";
-						document.getElementById("comment").value = str.replace(censure, censurada);
+						document.getElementById("texto").value = str.replace(censure, censurada);
+            document.getElementById("texto").innerHTML = str.replace(censure, censurada);
 					}
 				}
 		}
 
 	};
 }
+
+
+
+
+function postCounter() {
+  if (typeof(Storage) !== "undefined") {
+  	localStorage.clickcount = Number(localStorage.clickcount)+1;
+  }
+
+}
+
+
+
+/*
+function postCounter() {
+  if (typeof(Storage) !== "undefined") {
+    if (sessionStorage.clickcount) {
+      sessionStorage.clickcount = Number(sessionStorage.clickcount)+1;
+    } else {
+      sessionStorage.clickcount = 1;
+    }
+    document.getElementById("result").innerHTML = "Comentarios posteados " + sessionStorage.clickcount + " .";
+  } else {
+    document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage...";
+  }
+}*/

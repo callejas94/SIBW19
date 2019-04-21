@@ -12,6 +12,7 @@
   elEvento[0][7] es la etiqueta
   elEvento[0][8] es la fecha_publicacion
   elEvento[0][9] es la fecha_edicion
+  elEvento[0][10] es el posible video
    -->
 
 
@@ -58,8 +59,16 @@
       <a class="link_evento" href="{{ elEvento[0][6] }}">
         {{ elEvento[0][0] }}.
       </a>
+
+      {% if elEvento[0][10]|length > 0 %}
+        <iframe
+          src="{{ elEvento[0][10] }}" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+        </iframe>
+      {% endif %}
+
+
     </div>
-    <!-- COMENTARIOS, FALTA POR HACER -->
+
     <button class="collapse">Comentarios</button>
     <div class="collapseContent" id="collapseContent">
 
@@ -68,9 +77,9 @@
       comentarios[1] es el nombre,
       comentarios[2] es el email
       comentarios[3] es la fecha y hora,
-      comentarios[4] es el texto,
-       -->
-
+      comentarios[4] es el texto,-->
+       
+      <!-- {{ dump(comentarios) }} -->
       {% for comentario in comentarios %}
         <div class="comentario" id="chat">
           <h4 id="comentario_autor">{{ comentario[1] }}</h4>
@@ -88,14 +97,16 @@
       <script type="text/javascript" src="/P3/javascript/behaviour.js">
       </script>
 
-      <form name="formularioComentar" action="" method="post">
+      <form action="/P3/PHP/comment.php?id={{ elEvento[0][4] }}" method="POST" name="formularioComentar" id="formularioComentar">
         Nombre: <input type="text" id="name" name="nombreUsuario">
         <br><br>
         Email: <input type="email" id="email" name="email">
         <br><br>
-        <textarea id="comment" name="comment" rows="5" cols="80" onkeyup="Censura()" placeholder="Tu comentario aqui :)"></textarea>
-        <input id="botonEnviar" type="button" name="postear" onclick="Coment()" value="Comentar">
+        <textarea id="texto" name="texto" rows="5" cols="80" onkeyup="Censura()" placeholder="Tu comentario aqui :)"form="formularioComentar"></textarea>
+        <input id="botonEnviar" type="submit" name="postear" onclick="postCounter()" value="Comentar">
       </form>
+
+      <div id="result"></div>
 
     </div>
     <!-- Script para el despliegue de la sección de comentarios --->

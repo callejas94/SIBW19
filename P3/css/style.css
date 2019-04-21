@@ -139,6 +139,20 @@ div.gallery img {
   height: auto;
 }
 
+div#result{
+    text-align: center;
+    margin: 1%;
+}
+
+
+iframe{
+  height: 110%;
+  margin: 3%;
+  display: block;
+  margin-top: 5%;
+  margin-left: auto;
+  margin-right: auto;
+}
 
 /* Estilo de la barra de navegaciÃ³n    https://www.w3schools.com/css/css_navbar.asp */
 
