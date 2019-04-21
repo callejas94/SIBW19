@@ -38,7 +38,7 @@
       function getEvento($id){
         $conexion=conectar();
         $consultaEvento="SELECT nombre,fecha,imagen,descripcion,id,piefoto,link,
-        etiqueta,fecha_publicacion,ultima_modificacion,video FROM eventos WHERE id =";
+        etiqueta,fecha_publicacion,ultima_modificacion,fotoPortada,video FROM eventos WHERE id =";
         $consultaEvento.=$id;
         $arrayDatos=consultar($conexion,$consultaEvento);
         return $arrayDatos;
