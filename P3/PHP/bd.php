@@ -72,5 +72,19 @@
         return $otroValor;
       }
 
+      function getSobreNosotros(){
+        $conexion=conectar();
+        $consultaEvento="SELECT * FROM paginas WHERE id = 1";
+        $arrayDatos=consultar($conexion,$consultaEvento);
+        return $arrayDatos;
+      }
+
+      function getNoticias(){
+        $conexion=conectar();
+        $consultaEvento="SELECT * FROM paginas WHERE id = 2";
+        $arrayDatos=consultar($conexion,$consultaEvento);
+        return $arrayDatos;
+      }
+
 
  ?>
