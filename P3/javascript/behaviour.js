@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Seleccionando los elementos de TWIG
     //var x = document.getElementById("prohibidas");
-    const entryElements =
+    /*const entryElements =
         document.querySelectorAll("[id='prohibidas']");
 
     // Mapeando los datos en un array
@@ -35,25 +35,25 @@ document.addEventListener('DOMContentLoaded', () => {
       forbidden[i] = forbidden[i].replace("\"", "");
     }
 
-    borrarEtiquetas(entryElements);
+    borrarEtiquetas(entryElements);*/
 
 
     // Cargar comentarios posteados
 
-    if (typeof(Storage) !== "undefined") {
-	if (!localStorage.clickcount) {
-	  localStorage.clickcount = 1;
-	}
-	  	document.getElementById("result").innerHTML = "Comentarios posteados " + localStorage.clickcount + " .";
-	}
-	else {
-	  	document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage...";
-	}
+  if (typeof(Storage) !== "undefined") {
+    if (!localStorage.clickcount) {
+      localStorage.clickcount = 0;
+    }
+  	document.getElementById("result").innerHTML = "Comentarios posteados " + localStorage.clickcount + " .";
+  }
+  else {
+  	document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage...";
+  }
 
 
 });
 
-function borrarEtiquetas(elementos){
+/*function borrarEtiquetas(elementos){
   if (!elementos){
     alert("El elemento selecionado no existe");
   } else {
@@ -66,7 +66,7 @@ function borrarEtiquetas(elementos){
     }
 
   }
-}
+}*/
 
 //función que crea un nuevo cuadro de texto par el comentario con el estilo predefinido
 function Coment() {
@@ -144,14 +144,14 @@ function validarEmail( email ) {
 }
 
 //función que añadirá un event listener para que compruebe el cuadro de texto
-function Censura(){
+function Censura(forbidden){
 	document.getElementById("texto").onkeyup = function(e){
 		if(e.keyCode == 32){
 			var str = document.getElementById("texto").value;
 			var censurada = "";
 				for(i = 0; i < forbidden.length; i++){
-					if(str.match(forbidden[i])){
-						var censure = forbidden[i];
+					if(str.match(forbidden[i][0])){
+						var censure = forbidden[i][0];
 						var censure_time = censure.length;
 						var tam = cens;
 
@@ -174,9 +174,19 @@ function Censura(){
 
 function postCounter() {
   if (typeof(Storage) !== "undefined") {
-  	localStorage.clickcount = Number(localStorage.clickcount)+1;
+    if(comentarioNoVacio()){
+      localStorage.clickcount = Number(localStorage.clickcount)+1;
+    }
+
   }
 
+}
+
+function comentarioNoVacio(){
+  var texto = document.getElementById("texto").value.length > 0;
+  var nombre = document.getElementById("name").value.length > 0;
+  var email = document.getElementById("email").value.length > 0;
+  return texto&&nombre&&email;
 }
 
 
