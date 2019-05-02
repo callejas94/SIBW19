@@ -85,6 +85,48 @@
         $arrayDatos=consultar($conexion,$consultaEvento);
         return $arrayDatos;
       }
+      function loginUsuario($username, $password){
+        $conexion=conectar();
+        $sql = "SELECT username, password, nombre, email, permisos FROM usuarios WHERE username = ?";
+
+        if($stmt = mysqli_prepare($conexion,$sql)){
+          mysqli_stmt_bind_param($stmt, "s", $param_username);
+          $param_username = $username;
+
+          //Ejecuta la petición
+          if(mysqli_stmt_execute($stmt)){
+            mysqli_stmt_store_result($stmt);
+
+            //Si el usuario existe
+            if(mysqli_stmt_num_rows($stmt)==1){
+              mysqli_stmt_bind_result($stmt, $username, $hashed_password, $nombre, $email, $permisos);
+              if(mysqli_stmt_fetch($stmt)){
+                if(password_verify($password, $hashed_password)){
+                  //Arrancamos la sesión
+                  session_start();
+
+                  //Variables de sesión
+                  $_SESSION["loggedin"] = true;
+                  $_SESSION["email"] = $email;
+                  $_SESSION["username"] = $username;
+                  $_SESSION["permisos"] = $permisos;
+                  $_SESSION["nombre"] = $nombre;
+
+                }else{
+                    // Error de contraseña
+                    $password_err = "Contraseña erronea";
+                }
+              }
+            } else{
+              // Username no existe
+              $username_err = "El usuario no existe";
+            }
+          } else{
+            echo "Oh vaya! Qué embarazoso, prueba en otro momento";
+          }
+        }
+        mysqli_stmt_close($stmt);
+      }
 
 
  ?>

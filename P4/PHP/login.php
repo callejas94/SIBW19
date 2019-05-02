@@ -1,23 +1,47 @@
 <?php
-  require_once 'bd.php';
-  require_once 'validation.php';
+require_once '../vendor/autoload.php';
+require_once 'bd.php';
+require_once 'validation.php';
 
-  if (isset($_REQUEST['id']) && isset($_REQUEST["postear"])) {
-    $id = Input::validateInt((int) $_REQUEST['id']);
-    //$comment = Input::validateStr($_REQUEST["a"]);
-    $comment = Input::validateStr($_REQUEST['texto']);
-    $user = Input::validateStr($_REQUEST["nombreUsuario"]);
-    $email = Input::validateEmail($_REQUEST["email"]);
-    $elValor = postComment($id, $user, $email, "texto");
-    echo '<h2>'. $elValor .'</h2>';
-    header("http://localhost/P3/evento/".$id);
+
+$loader = new \Twig\Loader\FilesystemLoader('../templates');
+$twig = new \Twig\Environment($loader, [
+  'debug' => true,
+]);
+
+//Debug
+$twig->addExtension(new \Twig\Extension\DebugExtension());
+
+//Iniciamos la sesión
+session_start();
+
+//Variables del usuario
+$username = $password = "";
+$username_err = $password_err = "";
+$nombre = $email = $permisos = "";
+
+if($_SERVER["REQUEST_METHOD"] == "POST"){
+
+  // Comprobamos campo nickname
+  if(empty(trim($_POST["username"]))){
+      $username_err = "Introduzca su nombre de usuario";
+  } else{
+      $username = trim($_POST["username"]);
   }
-  else{
-    die('Sin id o submit'. $_REQUEST['id'] . $_REQUEST['postear']);
+
+  // Comprobamos campo password
+  if(empty(trim($_POST["password"]))){
+      $password_err = "Introduzca su contraseña";
+  } else{
+      $password = trim($_POST["password"]);
   }
 
 
+  //Comprobamos las credenciales
+  if(empty($username_err) && empty($password)){
+    loginUsuario($username, $password);
+  }
+}
 
-  //Input::check($_POST["nombreUsuario"], $_POST["email"], $_POST["comment"]);
 
-?>
+ ?>
