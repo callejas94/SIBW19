@@ -1,0 +1,28 @@
+{% extends "basico.html" %}
+
+
+{% block principal %}
+  <main class="contenedores">
+    <!--eventos tiene un array donde:
+    evento[0] es el nombre,
+    evento[1] es la imagen,
+    evento[2] es el id,
+     -->
+    {% for evento in eventos %}
+      <a class="contenedor" href="./evento/{{ evento[2] }}" >
+        <img src="{{ evento[1] }}" alt="HS">
+        <h3>{{ evento[0] }}</h3>
+      </a>
+    {% endfor %}
+  </main>
+{% endblock %}
+
+{% block menu %}
+  <nav role="Navegación">
+    <ul>
+      {% for elemento in elMenu %}
+        <li><a href="/P3/{{ elemento[2] }}">{{ elemento[1] }}</a></li>
+      {% endfor %}
+    </ul>
+  </nav>
+{% endblock %}
