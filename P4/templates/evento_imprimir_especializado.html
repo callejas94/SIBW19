@@ -1,0 +1,39 @@
+{% extends "evento_imprimir.html" %}
+
+{% block evento_imprimir %}
+  <!--elEvento tiene un array donde:
+  elEvento[0][0] es el nombre,
+  elEvento[0][1] es la fecha y hora,
+  elEvento[0][2] es el path de imagen,
+  elEvento[0][3] es la descripción,
+  elEvento[0][4] es el id,
+  elEvento[0][5] es la cabecera de la imagen (derechos de autor),
+  elEvento[0][6] es el link
+  elEvento[0][7] es la etiqueta
+  elEvento[0][8] es la fecha_publicacion
+  elEvento[0][9] es la fecha_edicion
+  elEvento[0][10] es la fotoPortada (para publicaciones en fb y twitter)
+  elEvento[0][11] es el posible video
+   -->
+
+  {% set arrayImagenes = elEvento[0][2]|split(',') %}
+  {% for imagen in arrayImagenes %}
+    <div>
+      <img src="{{ imagen }}" alt="{{ arrayEtiquetas[0] }}">
+      <div class="banner_img">{{ elEvento[0][5] }}</div>
+    </div>
+  {% endfor %}
+
+
+  <h2>{{ elEvento[0][0] }}</h2>
+  <h3>{{ elEvento[0][1] }}</h3>
+  <p>
+    {{ elEvento[0][3] }} {{ elEvento[0][6] }}
+  </p>
+
+  {% if elEvento[0][11]|length > 0 %}
+    <h2>El video:</h2>
+    <h3>{{ elEvento[0][11] }}</h3>
+  {% endif %}
+
+{% endblock %}

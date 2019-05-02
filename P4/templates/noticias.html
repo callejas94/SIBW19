@@ -1,0 +1,21 @@
+{% extends "basico.html" %}
+
+
+
+{% block principal %}
+	<!-- 
+	lasNoticias[0][0] es el id
+	lasNoticias[0][1] es la pagina
+ 	-->
+	{{ lasNoticias[0][1]|raw }}
+{% endblock %}
+
+{% block menu %}
+  <nav role="Navegación">
+    <ul>
+      {% for elemento in elMenu %}
+        <li><a href="/P3/{{ elemento[2] }}">{{ elemento[1] }}</a></li>
+      {% endfor %}
+    </ul>
+  </nav>
+{% endblock %}

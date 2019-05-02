@@ -1,5 +1,4 @@
 Prácticas de la asignatura SIBW(Sistemas de Información Basados en Web). Curso 2018-19
-Prácticas de la asignatura SIBW(Sistemas de Información Basados en Web). Curso 2018-19
 
 ------- CHECKLIST P4 --------
 - [ ] Existen distintos roles de usuarios: anónimo, registrado, moderador, gestor,
