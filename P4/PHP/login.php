@@ -12,8 +12,6 @@ $twig = new \Twig\Environment($loader, [
 //Debug
 $twig->addExtension(new \Twig\Extension\DebugExtension());
 
-//Iniciamos la sesión
-session_start();
 
 //Variables del usuario
 $username = $password = "";
