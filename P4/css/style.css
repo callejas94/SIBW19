@@ -454,3 +454,26 @@ form {
   padding-bottom: 2%;
   margin: 0;
 }
+
+#boton_circular{
+  float: right;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 30px;
+  text-align: center;
+  color: #333;
+  background-color: #fff;
+  border-color: #ccc;
+  margin: 0.2rem;
+}
+
+#login_img{
+  margin-top: 0.5rem;
+  float: none;
+}
+
+#filtradoEventos{
+  float: right;
+  margin-top: 0.8rem;
+  margin-right: 0.3rem;
+}
