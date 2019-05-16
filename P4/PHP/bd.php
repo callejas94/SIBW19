@@ -128,5 +128,52 @@
         mysqli_stmt_close($stmt);
       }
 
+      function registroUsuario($username, $password, $email, $nombre, $permiso){
+        $conexion = conectar();
+        $sql = "SELECT username FROM usuarios WHERE username = ?";
+
+        if($stmt = mysqli_prepare($link, $sql)){
+            mysqli_stmt_bind_param($stmt, "s", $param_username);
+            $param_username = $username;
+
+            //Ejecuta la petición
+            if(mysqli_stmt_execute($stmt)){
+              mysqli_stmt_store_result($stmt);
+
+              //Si el usuario existe
+              if(mysqli_stmt_num_rows($stmt)==1){
+                $username_err = "El nombre de usuario ya existe";
+              } else{
+                $username = trim($_POST["username"]);
+              }
+            }else{
+              echo "Oh vaya! Qué embarazoso, prueba en otro momento";
+            }
+          }
+
+        mysqli_stmt_close($stmt);
+        if(empty($username_err)){
+          $sql = "INSERT INTO usuarios (username,  nombre, email, password, permiso) VALUES (?, ?, ?, ?, ?)";
+
+          if($stmt = mysqli_prepare($link, $sql)){
+            mysqli_stmt_bind_param($stmt, "ssssi", $param_username, $param_nombre, $param_email, $param_password, $param_permiso);
+
+            $param_username = $username;
+            $param_password = password_hash($password, PASSWORD_DEFAULT);
+            $param_email = $email;
+            $param_nombre = $nombre;
+            $param_permiso = $permiso;
+
+            if(mysqli_stmt_execute($stmt)){
+                header("P4/indice");
+            } else{
+                echo "¯\_(ツ)_/¯";
+            }
+            mysqli_stmt_close($stmt);
+          }
+
+          mysqli_close($link);
+        }
+      }
 
  ?>
