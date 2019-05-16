@@ -36,7 +36,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
 
   //Comprobamos las credenciales
-  if(empty($username_err) && empty($password)){
+  if(empty($username_err) && empty($password_err)){
     loginUsuario($username, $password);
   }
 }
