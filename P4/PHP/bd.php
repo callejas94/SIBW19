@@ -101,7 +101,18 @@
             if(mysqli_stmt_num_rows($stmt)==1){
               mysqli_stmt_bind_result($stmt, $username, $hashed_password, $nombre, $email, $permisos);
               if(mysqli_stmt_fetch($stmt)){
-                if(password_verify($password, $hashed_password)){
+
+                /*
+                  AHORA MISMO $hashed_password ES LA CONTRASEÑA SIN PASARLE EL HASH
+                */
+                echo $password . " con hash " . $hashed_password;
+                /*
+                  HACIENDO ESTO NO HAY CONTRASEÑA ERRONEA
+                */
+                $contra = password_hash($password, PASSWORD_DEFAULT);
+                echo $contra;
+                //if(password_verify($password, $hashed_password)){
+                if(password_verify($password, $contra)){
                   //Arrancamos la sesión
                   session_start();
 
@@ -114,11 +125,13 @@
 
                 }else{
                     // Error de contraseña
+                    echo "Contraseña erronea";
                     $password_err = "Contraseña erronea";
                 }
               }
             } else{
               // Username no existe
+              echo "El usuario no existe";
               $username_err = "El usuario no existe";
             }
           } else{
@@ -126,7 +139,7 @@
           }
         }
         mysqli_stmt_close($stmt);
-        echo "FUNCIONA";
+        //echo "FUNCIONA";
       }
 
       function registroUsuario($username, $password, $email, $nombre, $permiso){
