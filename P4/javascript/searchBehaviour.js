@@ -56,8 +56,10 @@ function FiltraPorTexto(inputTexto, lista){
 
 	if(listaNoBuscada.length > 0){
 		for (let k = 0; k < listaNoBuscada.length; ++k) {
-		  // do something with items[i], which is a <li> element
 		  listaNoBuscada[k].style.display = "none";
+		}
+		for (let k = 0; k < listaFiltrada.length; ++k) {
+		  listaFiltrada[k].style.display = "inline-block";
 		}
 	}
 	else{
