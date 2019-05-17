@@ -126,6 +126,7 @@
           }
         }
         mysqli_stmt_close($stmt);
+        echo "FUNCIONA";
       }
 
       function registroUsuario($username, $password, $email, $nombre, $permiso){

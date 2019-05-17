@@ -477,3 +477,9 @@ form {
   margin-top: 0.8rem;
   margin-right: 0.3rem;
 }
+
+
+#loginContenedor{
+  display: block;
+  grid-template-columns: none;
+}
