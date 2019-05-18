@@ -1,9 +1,13 @@
 <?php
 
+  require_once 'bd.php';
+
 
 //Variables para el registro del usuario
-$username = $password = $email = $nombre = $permiso;
-$username_err = $password_err = $email_err = $nombre_err = $permiso_err;
+$username = $password = $email = $nombre = $permiso = "";
+$username_err = $password_err = $email_err = $nombre_err = $permiso_err = "";
+
+//die("SE METIO BIEN");
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
 
@@ -30,7 +34,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
   } else{
       $nombre = trim($_POST["nombre"]);
   }
-  if(empty(trim($_POST["permiso"]))){
+  if($_POST["permiso"] < 0 && $_POST["permiso"] > 4){
       $permiso_err = "Introduzca su permiso";
   } else{
       $permiso = trim($_POST["permiso"]);
@@ -38,6 +42,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
   if(empty($username_err) && empty($password_err) && empty($email_err) && empty($nombre_err) && empty($permiso_err)){
     registroUsuario($username, $password, $email, $nombre, $permiso);
+  }
+  else{
+    echo $username_err . " " . $password_err . " " . $email_err . " " . $nombre_err . " " . $permiso_err;
   }
 }
 

@@ -146,7 +146,7 @@
         $conexion = conectar();
         $sql = "SELECT username FROM usuarios WHERE username = ?";
 
-        if($stmt = mysqli_prepare($link, $sql)){
+        if($stmt = mysqli_prepare($conexion, $sql)){
             mysqli_stmt_bind_param($stmt, "s", $param_username);
             $param_username = $username;
 
@@ -155,21 +155,29 @@
               mysqli_stmt_store_result($stmt);
 
               //Si el usuario existe
+              $username_err = "";
               if(mysqli_stmt_num_rows($stmt)==1){
                 $username_err = "El nombre de usuario ya existe";
+                echo $username_err;
               } else{
                 $username = trim($_POST["username"]);
               }
             }else{
               echo "Oh vaya! Qué embarazoso, prueba en otro momento";
             }
+
+            echo "TODO BIEN COMPROBANDO EL USUARIO";
           }
 
         mysqli_stmt_close($stmt);
+        echo empty($username_err);
         if(empty($username_err)){
-          $sql = "INSERT INTO usuarios (username,  nombre, email, password, permiso) VALUES (?, ?, ?, ?, ?)";
+          /*$sql = "INSERT INTO usuarios (username,  nombre, email, password, permiso) VALUES (?, ?, ?, ?, ?)";*/
+          $sql = "INSERT INTO `usuarios` (`username`, `nombre`, `email`, `password`, `permisos`) VALUES (?, ?, ?, ?, ?)";
 
-          if($stmt = mysqli_prepare($link, $sql)){
+
+          echo "INSERTANDO....";
+          if($stmt = mysqli_prepare($conexion, $sql)){
             mysqli_stmt_bind_param($stmt, "ssssi", $param_username, $param_nombre, $param_email, $param_password, $param_permiso);
 
             $param_username = $username;
@@ -178,15 +186,21 @@
             $param_nombre = $nombre;
             $param_permiso = $permiso;
 
+            echo "EJECUTANDO LA SENTENCIA:";
+            //echo mysqli_stmt_execute($stmt);
+
             if(mysqli_stmt_execute($stmt)){
-                header("P4/indice");
+                //header("P4/indice");
+                echo "SALIO BIEN";
             } else{
+
                 echo "¯\_(ツ)_/¯";
             }
             mysqli_stmt_close($stmt);
           }
 
-          mysqli_close($link);
+          echo "CERRANDO";
+          mysqli_close($conexion);
         }
       }
 
