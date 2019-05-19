@@ -2,6 +2,8 @@
 require_once '../vendor/autoload.php';
 require_once 'bd.php';
 require_once 'validation.php';
+require_once 'session.php';
+
 
 
 $loader = new \Twig\Loader\FilesystemLoader('../templates');
@@ -17,29 +19,47 @@ $twig->addExtension(new \Twig\Extension\DebugExtension());
 $username = $password = "";
 $username_err = $password_err = "";
 $nombre = $email = $permisos = "";
+$session = "";
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
 
   // Comprobamos campo nickname
-  if(empty(trim($_POST["username"]))){
+  if(empty(Input::validateStr($_POST["username"]))){
       $username_err = "Introduzca su nombre de usuario";
   } else{
-      $username = trim($_POST["username"]);
+      $username = Input::validateStr($_POST["username"]);
   }
 
   // Comprobamos campo password
-  if(empty(trim($_POST["password"]))){
+  if(empty(Input::validateStr($_POST["password"]))){
       $password_err = "Introduzca su contraseña";
   } else{
-      $password = trim($_POST["password"]);
+      $password = Input::validateStr($_POST["password"]);
   }
 
 
   //Comprobamos las credenciales
   if(empty($username_err) && empty($password_err)){
-    loginUsuario($username, $password);
+    if(loginUsuario($username, $password)){
+      $session = Session::getInstance();
+      var_dump( $session);
+      //$session.startSession();
+      $session->loggedin = true;
+      var_dump( $username);
+      $session->username = $username;
+
+      $session->nickname = 'Someone';
+      $session->age = 18;
+
+      var_dump( isset( $session->nickname ));
+      var_dump( $session->nickname );
+
+      echo "LAS VARIABLES\n";
+      var_dump( $session);
+
+    }
   }
 }
 
 
- ?>
+?>

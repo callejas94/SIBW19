@@ -112,15 +112,15 @@
                 if(password_verify($password, $hashed_password)){
                 //if(password_verify($password, $contra)){
                   //Arrancamos la sesión
-                  echo "SESION INICIADA";
-                  session_start();
+                  //echo "SESION INICIADA";
+                  //session_start();
 
                   //Variables de sesión
-                  $_SESSION["loggedin"] = true;
+                  /*$_SESSION["loggedin"] = true;
                   $_SESSION["email"] = $email;
                   $_SESSION["username"] = $username;
                   $_SESSION["permisos"] = $permisos;
-                  $_SESSION["nombre"] = $nombre;
+                  $_SESSION["nombre"] = $nombre;*/
 
                 }else{
                     // Error de contraseña
@@ -138,7 +138,7 @@
           }
         }
         mysqli_stmt_close($stmt);
-        //echo "FUNCIONA";
+        return true;
       }
 
       function registroUsuario($username, $password, $email, $nombre, $permiso){
@@ -200,6 +200,7 @@
 
           echo "CERRANDO";
           mysqli_close($conexion);
+          return true;
         }
       }
 
