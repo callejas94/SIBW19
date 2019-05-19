@@ -1,7 +1,7 @@
 Prácticas de la asignatura SIBW(Sistemas de Información Basados en Web). Curso 2018-19
 
 ------- CHECKLIST P4 --------
-- [ ] Existen distintos roles de usuarios: anónimo, registrado, moderador, gestor,
+- [X] Existen distintos roles de usuarios: anónimo, registrado, moderador, gestor,
   superusuario **(5 %)**
 - [ ] Los usuarios pueden editar su información personal **(5 %)**
 - [ ] Solo los usuarios registrados pueden añadir comentarios a los eventos **(5 %)**
@@ -20,7 +20,7 @@ Prácticas de la asignatura SIBW(Sistemas de Información Basados en Web). Curso
 - [ ] Los gestores pueden añadir / borrar fotografías de los eventos del sitio
   **(5 %)**
 - [ ] Los gestores pueden acceder a un listado con todos los eventos **(5 %)**
-- [ ] Los gestores pueden buscar eventos **(5 %)**
+- [X] Los gestores pueden buscar eventos **(5 %)**
 - [ ] Los superusuarios deben poder realizar todas las acciones anteriormente descritas para los moderadores y gestores **(2 %)**
 - [ ] Los superusuarios deben poder asignar / retirar roles de moderación y
   gestión **(3 %)**
