@@ -105,15 +105,14 @@
                 /*
                   AHORA MISMO $hashed_password ES LA CONTRASEÑA SIN PASARLE EL HASH
                 */
-                echo $password . " con hash " . $hashed_password;
+                //echo $password . " con hash " . $hashed_password;
                 /*
                   HACIENDO ESTO NO HAY CONTRASEÑA ERRONEA
                 */
-                $contra = password_hash($password, PASSWORD_DEFAULT);
-                echo $contra;
-                //if(password_verify($password, $hashed_password)){
-                if(password_verify($password, $contra)){
+                if(password_verify($password, $hashed_password)){
+                //if(password_verify($password, $contra)){
                   //Arrancamos la sesión
+                  echo "SESION INICIADA";
                   session_start();
 
                   //Variables de sesión

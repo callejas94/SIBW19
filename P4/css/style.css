@@ -483,3 +483,14 @@ form {
   display: block;
   grid-template-columns: none;
 }
+
+h5.textoDescriptivo{
+  margin: 0;
+  margin-right: 2%;
+}
+
+h3.textoDescriptivo{
+  margin-top: 0;
+  margin-bottom: 0%;
+}
+
