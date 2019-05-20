@@ -42,20 +42,54 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
   if(empty($username_err) && empty($password_err)){
     if(loginUsuario($username, $password)){
       $session = Session::getInstance();
-      var_dump( $session);
-      //$session.startSession();
+      //var_dump( $session);
+      
+      //var_dump( $username);
+      //$session->username = $username;
+
+      $valores = getUsuario($username);
+      //var_dump( $valores );
+
+
+      //var_dump( isset( $session->nickname ));
+      //var_dump( $session->nickname );
+
+      /*
+      
+      0-> username, 
+      1-> nombre, 
+      2-> email, 
+      3-> permisos
+
+      */
       $session->loggedin = true;
-      var_dump( $username);
-      $session->username = $username;
+      $session->username = $valores[0];
+      $session->nombre = $valores[1];
+      $session->email = $valores[2];
+      $session->permisos = $valores[3];
 
-      $session->nickname = 'Someone';
-      $session->age = 18;
+      var_dump( isset( $session->loggedin ));
+      var_dump( isset( $session->username ));
+      var_dump( isset( $session->nombre ));
+      var_dump( isset( $session->email ));
+      var_dump( isset( $session->permisos ));
 
-      var_dump( isset( $session->nickname ));
-      var_dump( $session->nickname );
+      var_dump( $session->loggedin );
+      var_dump( $session->username );
+      var_dump( $session->nombre );
+      var_dump( $session->email );
+      var_dump( $session->permisos );
 
-      echo "LAS VARIABLES\n";
-      var_dump( $session);
+
+      // QUE CUANDO ESTE LOGUEADO TIRE PARA EL PANEL DE CONTROL
+      // ESTO HARIA QUE FUESE DIRECTAMENTE A : http://localhost/P4/panelDeControl
+      //header('Location: panelDeControl');
+
+
+
+
+      //echo "LAS VARIABLES\n";
+      //var_dump( $session);
 
     }
   }

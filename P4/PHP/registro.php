@@ -42,6 +42,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
   if(empty($username_err) && empty($password_err) && empty($email_err) && empty($nombre_err) && empty($permiso_err)){
     registroUsuario($username, $password, $email, $nombre, $permiso);
+    header('Location: loginScreen');
   }
   else{
     echo $username_err . " " . $password_err . " " . $email_err . " " . $nombre_err . " " . $permiso_err;
