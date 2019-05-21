@@ -1,5 +1,6 @@
 <?php
 
+
       function consultar($conexion, $consulta){
 				$datos=mysqli_query($conexion, $consulta);
 				$datos_array=mysqli_fetch_all($datos);
@@ -300,9 +301,11 @@
         }
       }
 
-      function cambiarDatosPersonales($arrayMods,$nuevoUsername,$nuevaPass,$nuevoEmail,$nuevoNombre,$nuevosPermisos){
+      function cambiarDatosPersonales($arrayMods,$nuevoUsername,$nuevaPass,$nuevoEmail,$nuevoNombre,$nuevosPermisos, $session){
         $valor = false;
         $conexion = conectar();
+
+
         if($arrayMods[0]){
           $param_username = $nuevoUsername;
         } else{
@@ -325,11 +328,13 @@
         }
 
         if($arrayMods[1]){
-          $sql = "UPDATE usuarios SET username=?, nombre=?, email=?, password=?, permiso=? WHERE username = ?";
+          $sql = "UPDATE `usuarios` SET `username` = ?,`nombre` = ?, `email` = ?, `password` = ?, `permisos` = ? WHERE `username` = ?";
           $param_password = password_hash($nuevaPass, PASSWORD_DEFAULT);
+          
 
           if($stmt = mysqli_prepare($conexion, $sql)){
-            mysqli_stmt_bind_param($stmt, "ssssis", $param_username, $param_nombre, $param_email, $param_password, $param_permiso, $session->username);
+            $user = $session->username;
+            mysqli_stmt_bind_param($stmt, "ssssis", $param_username, $param_nombre, $param_email, $param_password, $param_permiso, $user);
 
             if(mysqli_stmt_execute($stmt)){
                 echo "Cambio de datos correcto con pass";
@@ -339,11 +344,16 @@
             }
             mysqli_stmt_close($stmt);
           }
-          var_dump($stmt);
-        } else{
-          $sql = "UPDATE usuarios SET username=? email=? nombre=? permiso=? FROM usuarios WHERE username = ?";
+        } 
+        else{
+
+          $sql = "UPDATE `usuarios` SET `username` = ?,`nombre` = ?, `email` = ?, `permisos` = ? WHERE `username` = ?";
+
+          var_dump("SESION USER:".$session->username);
           if($stmt = mysqli_prepare($conexion, $sql)){
-            mysqli_stmt_bind_param($stmt, "sssis", $param_username, $param_nombre, $param_email, $param_permiso, $session->username);
+            $user = $session->username;
+            mysqli_stmt_bind_param($stmt, "sssis", $param_username,$param_nombre, $param_email, $param_permiso, $user);
+
 
             if(mysqli_stmt_execute($stmt)){
                 echo "Cambio de datos correcto sin pass";
@@ -354,7 +364,7 @@
             mysqli_stmt_close($stmt);
           }
         }
-
+        
         mysqli_close($conexion);
         return $valor;
 

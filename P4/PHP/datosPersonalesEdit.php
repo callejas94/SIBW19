@@ -50,8 +50,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
       $arrayMods[4] = true;
   }
 
+  $session = Session::getInstance();
   
-  if(cambiarDatosPersonales($arrayMods,$nuevoUsername,$nuevaPass,$nuevoEmail,$nuevoNombre,$nuevosPermisos)){
+  if(cambiarDatosPersonales($arrayMods,$nuevoUsername,$nuevaPass,$nuevoEmail,$nuevoNombre,$nuevosPermisos, $session)){
     echo "Correctisimo";
   }
 }
