@@ -62,11 +62,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
       3-> permisos
 
       */
+
       $session->loggedin = true;
-      $session->username = $valores[0];
-      $session->nombre = $valores[1];
-      $session->email = $valores[2];
-      $session->permisos = $valores[3];
+      $session->username = $valores[0][0];
+      $session->nombre = $valores[0][1];
+      $session->email = $valores[0][2];
+      $session->permisos = $valores[0][3];
 
       var_dump( isset( $session->loggedin ));
       var_dump( isset( $session->username ));
@@ -83,7 +84,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
       // QUE CUANDO ESTE LOGUEADO TIRE PARA EL PANEL DE CONTROL
       // ESTO HARIA QUE FUESE DIRECTAMENTE A : http://localhost/P4/panelDeControl
-      //header('Location: panelDeControl');
+      header('Location: panelDeControl');
 
 
 

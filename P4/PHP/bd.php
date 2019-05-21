@@ -35,6 +35,29 @@
         $arrayDatos=consultar($conexion,$consultaEvento);
         return $arrayDatos;
       }
+
+      function getAllEventos(){
+        $conexion=conectar();
+        $consultaEvento="SELECT nombre,fecha,imagen,descripcion,id,piefoto,link,
+        etiqueta,fecha_publicacion,ultima_modificacion,fotoPortada,video FROM eventos";
+        $arrayDatos=consultar($conexion,$consultaEvento);
+        return $arrayDatos;
+      }
+
+      function getAllComentariosEvento(){
+        $conexion=conectar();
+        $consultaEvento="SELECT ip,nombre,email,fecha,texto FROM comentario";
+        $arrayDatos=consultar($conexion,$consultaEvento);
+        return $arrayDatos;
+      }
+
+      function getAllUsuarios(){
+        $conexion=conectar();
+        $consultaEvento="SELECT username, nombre, email, permisos FROM usuarios";
+        $arrayDatos=consultar($conexion,$consultaEvento);
+        return $arrayDatos;
+      }
+
       function getEvento($id){
         $conexion=conectar();
         $consultaEvento="SELECT nombre,fecha,imagen,descripcion,id,piefoto,link,
@@ -85,65 +108,75 @@
         $arrayDatos=consultar($conexion,$consultaEvento);
         return $arrayDatos;
       }
-
-      function getUsuario($username){
-        $valores = "";
-        $nombre = $email = $permisos = "";
+      function getUsuario($user){
         $conexion=conectar();
-        $sql = "SELECT username, nombre, email, permisos FROM usuarios WHERE username = ?";
-
-        if($stmt = mysqli_prepare($conexion,$sql)){
-          mysqli_stmt_bind_param($stmt, "s", $param_username);
-          $param_username = $username;
-
-          //Ejecuta la petición
-          if(mysqli_stmt_execute($stmt)){
-            mysqli_stmt_store_result($stmt);
-
-            //printf("Number of rows: %d.\n", mysqli_stmt_num_rows($stmt));
-
-            //Si el usuario existe
-            if(mysqli_stmt_num_rows($stmt)==1){
-              mysqli_stmt_bind_result($stmt, $username, $nombre, $email, $permisos);
-              /*var_dump( "username -> " . $username );
-              var_dump( "nombre -> " . $nombre );
-              var_dump( "email -> " . $email );
-              var_dump( "permisos -> " . $permisos );*/
-
-              while (mysqli_stmt_fetch($stmt)) {
-                  printf("%s %s\n", $username, $nombre, $email, $permisos);
-              }
-
-
-
-
-
-
-              $valores=array($username, $nombre, $email, $permisos);
-              //var_dump( "VALORES -> ");
-              /*var_dump($valores );
-              var_dump("\n");*/
-              //mysqli_stmt_bind_result($stmt, $valores);
-              /*if(mysqli_stmt_fetch($stmt)){
-                //die( "VALORES -> " . $valores );
-                var_dump( "VALORES -> ");
-                var_dump($valores );
-               
-              }*/
-            } 
-            else{
-              // Username no existe
-              echo "El usuario no existe";
-              $username_err = "El usuario no existe";
-            }
-          } 
-          else{
-            echo "Oh vaya! Qué embarazoso, prueba en otro momento";
-          }
-        }
-        mysqli_stmt_close($stmt);
-        return $valores;
+        $consultaEvento="SELECT username, nombre, email, permisos FROM usuarios WHERE username =\"";
+        $consultaEvento.=$user;
+        $consultaEvento.="\"";
+        $arrayDatos=consultar($conexion,$consultaEvento);
+        return $arrayDatos;
       }
+
+      // function getUsuario($username){
+      //   $valores = "";
+      //   $nombre = $email = $permisos = "";
+      //   $conexion=conectar();
+      //   $sql = "SELECT username, nombre, email, permisos FROM usuarios WHERE username = ?";
+
+      //   if($stmt = mysqli_prepare($conexion,$sql)){
+      //     mysqli_stmt_bind_param($stmt, "s", $param_username);
+      //     $param_username = $username;
+
+      //     //Ejecuta la petición
+      //     if(mysqli_stmt_execute($stmt)){
+      //       mysqli_stmt_store_result($stmt);
+
+      //       //printf("Number of rows: %d.\n", mysqli_stmt_num_rows($stmt));
+
+      //       //Si el usuario existe
+      //       if(mysqli_stmt_num_rows($stmt)==1){
+      //         mysqli_stmt_bind_result($stmt, $username, $nombre, $email, $permisos);
+      //         /*var_dump( "username -> " . $username );
+      //         var_dump( "nombre -> " . $nombre );
+      //         var_dump( "email -> " . $email );
+      //         var_dump( "permisos -> " . $permisos );*/
+
+      //         while (mysqli_stmt_fetch($stmt)) {
+      //             printf("%s %s\n", $username, $nombre, $email, $permisos);
+      //         }
+
+
+
+
+
+
+      //         $valores=array($username, $nombre, $email, $permisos);
+      //         var_dump( "VALORES -> ");
+      //         var_dump( $valores);
+      //         die( "VALORES -> " . $valores );
+      //         /*var_dump($valores );
+      //         var_dump("\n");*/
+      //         //mysqli_stmt_bind_result($stmt, $valores);
+      //         /*if(mysqli_stmt_fetch($stmt)){
+      //           die( "VALORES -> " . $valores );
+      //           var_dump( "VALORES -> ");
+      //           var_dump($valores );
+               
+      //         }*/
+      //       } 
+      //       else{
+      //         // Username no existe
+      //         echo "El usuario no existe";
+      //         $username_err = "El usuario no existe";
+      //       }
+      //     } 
+      //     else{
+      //       echo "Oh vaya! Qué embarazoso, prueba en otro momento";
+      //     }
+      //   }
+      //   mysqli_stmt_close($stmt);
+      //   return $valores;
+      // }
 
       function loginUsuario($username, $password){
         $valor = false;

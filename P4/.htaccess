@@ -8,4 +8,4 @@ RewriteRule ^([a-z]+)$ ./PHP/$1.php [NC,L]
 
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule (.*) ./PHP/index.php [NC,L]
+RewriteRule (.*) ./PHP/error.php [NC,L]

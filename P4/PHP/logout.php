@@ -1,6 +1,6 @@
 <?php
-    session_start();
-    echo "Sesion cerrada correctamente :D";
-    session_unset();
-    session_destroy();
+	require_once 'session.php';
+	$session = Session::getInstance();
+	$session->destroy();
+	header('Location: loginScreen');
 ?>;

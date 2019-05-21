@@ -1,0 +1,22 @@
+{% extends "basico.html" %}
+
+{% block principal %}
+  <main id="loginContenedor" class="contenedores">
+    
+    PAGINA NO ENCONTRADA
+  </main>
+{% endblock %}
+
+{% block menu %}
+  <nav role="Navegación">
+    <ul>
+      {% for elemento in elMenu %}
+        {% if elemento[1] == "Login" %}
+        {% elseif elemento[1] == "Busqueda" %}
+        {% else %}
+          <li><a href="/P4/{{ elemento[2] }}">{{ elemento[1] }}</a></li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </nav>
+{% endblock %}

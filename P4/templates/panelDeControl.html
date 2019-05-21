@@ -1,0 +1,133 @@
+{% extends "basico.html" %}
+
+{% block principal %}
+
+	<!-- $valores=array($username, $nombre, $email, $permisos); -->
+	<main id="loginContenedor" class="contenedores">
+		<form class="loginForm" name="userForm" method="post" action="/P4/AUN NO DEFINIDO">
+	      <h3 class="textoDescriptivo">Formulario Cambio de Datos de Usuario</h3>
+	      <p>
+	        
+	          <p><h5 class="textoDescriptivo"> Nombre de usuario</h5><input type="text" name="username" id="username" value="{{ usuario[0] }}" required></p>
+	        
+	        
+	          <p><h5 class="textoDescriptivo"> Contraseña</h5><input type="password" name="password" id="password" required></p>
+	        
+	        
+	          <p><h5 class="textoDescriptivo"> Correo electrónico</h5><input type="email" name="email" id="email" value="{{ usuario[2] }}" required></p>
+	        
+	          <p><h5 class="textoDescriptivo"> Nombre</h5><input type="text" name="nombre" id="nombre" value="{{ usuario[1] }}" required></p>
+	        
+	        
+	          <p><h5 class="textoDescriptivo"> Permisos de usuario</h5><input type="number" name="permiso" id="permiso" required></p>
+
+	          {{ dump(usuario) }}
+	        
+	      </p>
+	      <p>
+	        
+	          <input type="submit" name="buttonRegister" id="buttonRegister" value="Cambiar datos de usuario">
+	        
+	      </p>
+	    </form>
+
+		{% if  usuario[3]  == 2 or  usuario[3]  == 0 %}
+		<form class="loginForm" name="userForm" method="post" action="/P4/AUN NO DEFINIDO">
+	      <h3 class="textoDescriptivo">AQUI IRIA: moderador (comentarios)</h3>
+	      <p>
+	        	
+			{{ dump(comentarios) }}
+	          <p><h5 class="textoDescriptivo"> Nombre de usuario</h5><input type="text" name="username" id="username" required></p>
+	        
+	        
+	          <p><h5 class="textoDescriptivo"> Contraseña</h5><input type="password" name="password" id="password" required></p>
+	        
+	        
+	          <p><h5 class="textoDescriptivo"> Correo electrónico</h5><input type="email" name="email" id="email" required></p>
+	        
+	          <p><h5 class="textoDescriptivo"> Nombre</h5><input type="text" name="nombre" id="nombre" required></p>
+	        
+	        
+	          <p><h5 class="textoDescriptivo"> Permisos de usuario</h5><input type="number" name="permiso" id="permiso" required></p>
+	        
+	      </p>
+	      <p>
+	        
+	          <input type="submit" name="buttonRegister" id="buttonRegister" value="Cambiar datos de usuario">
+	        
+	      </p>
+	    </form>
+    {% endif %}
+	{% if  usuario[3]  == 1  or  usuario[3]  == 0 %}
+		<form class="loginForm" name="userForm" method="post" action="/P4/AUN NO DEFINIDO">
+	      <h3 class="textoDescriptivo">AQUI IRIA: gestor (eventos)</h3>
+	      <p>
+	        	{{ dump(eventos) }}
+	          <p><h5 class="textoDescriptivo"> Nombre de usuario</h5><input type="text" name="username" id="username" required></p>
+	        
+	        
+	          <p><h5 class="textoDescriptivo"> Contraseña</h5><input type="password" name="password" id="password" required></p>
+	        
+	        
+	          <p><h5 class="textoDescriptivo"> Correo electrónico</h5><input type="email" name="email" id="email" required></p>
+	        
+	          <p><h5 class="textoDescriptivo"> Nombre</h5><input type="text" name="nombre" id="nombre" required></p>
+	        
+	        
+	          <p><h5 class="textoDescriptivo"> Permisos de usuario</h5><input type="number" name="permiso" id="permiso" required></p>
+	        
+	      </p>
+	      <p>
+	        
+	          <input type="submit" name="buttonRegister" id="buttonRegister" value="Cambiar datos de usuario">
+	        
+	      </p>
+	    </form>
+    {% endif %}
+	{% if  usuario[3]  == 0 %}
+		<form class="loginForm" name="userForm" method="post" action="/P4/AUN NO DEFINIDO">
+	      <h3 class="textoDescriptivo">AQUI IRIA: usuarios</h3>
+	      <p>
+	        	{{ dump(usuarios) }}
+	          <p><h5 class="textoDescriptivo"> Nombre de usuario</h5><input type="text" name="username" id="username" required></p>
+	        
+	        
+	          <p><h5 class="textoDescriptivo"> Contraseña</h5><input type="password" name="password" id="password" required></p>
+	        
+	        
+	          <p><h5 class="textoDescriptivo"> Correo electrónico</h5><input type="email" name="email" id="email" required></p>
+	        
+	          <p><h5 class="textoDescriptivo"> Nombre</h5><input type="text" name="nombre" id="nombre" required></p>
+	        
+	        
+	          <p><h5 class="textoDescriptivo"> Permisos de usuario</h5><input type="number" name="permiso" id="permiso" required></p>
+	        
+	      </p>
+	      <p>
+	        
+	          <input type="submit" name="buttonRegister" id="buttonRegister" value="Cambiar datos de usuario">
+	        
+	      </p>
+	    </form>
+    {% endif %}
+
+
+	</main>
+	
+
+{% endblock %}
+
+{% block menu %}
+  <nav role="Navegación">
+    <ul>
+      {% for elemento in elMenu %}
+        {% if elemento[1] == "Login" %}
+    		<button id="boton_logout"><a href="/P4/logout">Cerrar Sesion</a></button>
+        {% elseif elemento[1] == "Busqueda" %}
+        {% else %}
+          <li><a href="/P4/{{ elemento[2] }}">{{ elemento[1] }}</a></li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </nav>
+{% endblock %}

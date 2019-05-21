@@ -494,3 +494,20 @@ h3.textoDescriptivo{
   margin-bottom: 0%;
 }
 
+#boton_logout{
+  background-color: #4CAF50; /* Green */
+  float: right;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+#boton_logout > a{
+
+  color: white;
+  text-align: center;
+  text-decoration: none;
+}
+
