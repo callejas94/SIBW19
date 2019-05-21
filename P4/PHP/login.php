@@ -42,23 +42,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
   if(empty($username_err) && empty($password_err)){
     if(loginUsuario($username, $password)){
       $session = Session::getInstance();
-      //var_dump( $session);
-      
-      //var_dump( $username);
-      //$session->username = $username;
 
       $valores = getUsuario($username);
-      //var_dump( $valores );
-
-
-      //var_dump( isset( $session->nickname ));
-      //var_dump( $session->nickname );
-
       /*
-      
-      0-> username, 
-      1-> nombre, 
-      2-> email, 
+
+      0-> username,
+      1-> nombre,
+      2-> email,
       3-> permisos
 
       */
@@ -85,13 +75,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
       // QUE CUANDO ESTE LOGUEADO TIRE PARA EL PANEL DE CONTROL
       // ESTO HARIA QUE FUESE DIRECTAMENTE A : http://localhost/P4/panelDeControl
       header('Location: panelDeControl');
-
-
-
-
-      //echo "LAS VARIABLES\n";
-      //var_dump( $session);
-
     }
   }
 }

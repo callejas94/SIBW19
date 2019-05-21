@@ -161,15 +161,15 @@
       //           die( "VALORES -> " . $valores );
       //           var_dump( "VALORES -> ");
       //           var_dump($valores );
-               
+
       //         }*/
-      //       } 
+      //       }
       //       else{
       //         // Username no existe
       //         echo "El usuario no existe";
       //         $username_err = "El usuario no existe";
       //       }
-      //     } 
+      //     }
       //     else{
       //       echo "Oh vaya! Qué embarazoso, prueba en otro momento";
       //     }
@@ -286,7 +286,7 @@
 
             if(mysqli_stmt_execute($stmt)){
                 echo "SALIO BIEN";
-                $valor = true; 
+                $valor = true;
             } else{
 
                 echo "¯\_(ツ)_/¯";
@@ -298,6 +298,66 @@
           mysqli_close($conexion);
           return $valor;
         }
+      }
+
+      function cambiarDatosPersonales($arrayMods,$nuevoUsername,$nuevaPass,$nuevoEmail,$nuevoNombre,$nuevosPermisos){
+        $valor = false;
+        $conexion = conectar();
+        if($arrayMods[0]){
+          $param_username = $nuevoUsername;
+        } else{
+          $param_username = $session->username;
+        }
+        if($arrayMods[2]){
+          $param_email = $nuevoEmail;
+        } else{
+          $param_email = $session->email;
+        }
+        if($arrayMods[3]){
+          $param_nombre = $nuevoNombre;
+        } else{
+          $param_nombre = $session->nombre;
+        }
+        if($arrayMods[4]){
+          $param_permiso = $nuevosPermisos;
+        } else{
+          $param_permiso = $session->permisos;
+        }
+
+        if($arrayMods[1]){
+          $sql = "UPDATE usuarios SET username=?, nombre=?, email=?, password=?, permiso=? WHERE username = ?";
+          $param_password = password_hash($nuevaPass, PASSWORD_DEFAULT);
+
+          if($stmt = mysqli_prepare($conexion, $sql)){
+            mysqli_stmt_bind_param($stmt, "ssssis", $param_username, $param_nombre, $param_email, $param_password, $param_permiso, $session->username);
+
+            if(mysqli_stmt_execute($stmt)){
+                echo "Cambio de datos correcto con pass";
+                $valor = true;
+            } else{
+                echo "¯\_(ツ)_/¯";
+            }
+            mysqli_stmt_close($stmt);
+          }
+          var_dump($stmt);
+        } else{
+          $sql = "UPDATE usuarios SET username=? email=? nombre=? permiso=? FROM usuarios WHERE username = ?";
+          if($stmt = mysqli_prepare($conexion, $sql)){
+            mysqli_stmt_bind_param($stmt, "sssis", $param_username, $param_nombre, $param_email, $param_permiso, $session->username);
+
+            if(mysqli_stmt_execute($stmt)){
+                echo "Cambio de datos correcto sin pass";
+                $valor = true;
+            } else{
+                echo "¯\_(ツ)_/¯";
+            }
+            mysqli_stmt_close($stmt);
+          }
+        }
+
+        mysqli_close($conexion);
+        return $valor;
+
       }
 
  ?>
