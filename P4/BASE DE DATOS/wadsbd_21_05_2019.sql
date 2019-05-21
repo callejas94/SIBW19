@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 21-05-2019 a las 12:25:19
+-- Tiempo de generación: 21-05-2019 a las 13:06:38
 -- Versión del servidor: 10.1.38-MariaDB
 -- Versión de PHP: 7.3.4
 
@@ -164,10 +164,10 @@ CREATE TABLE `usuarios` (
 
 INSERT INTO `usuarios` (`username`, `nombre`, `email`, `password`, `permisos`) VALUES
 ('guillergood', 'asssssssf', 'guillergood@gmail.com', '$2y$10$sHnRCK8WahqTn2cOat.DQeFi5.1adB43N/tYX8nev2aZBAR4R9sAq', 1),
-('pepitogrilloGestor', 'pepeGestor', 'pepitogrillogestor@gmail.com', 'adsf', 1),
-('pepitogrilloModerador', 'pepeModerador', 'pepitogrilloModerador@gmail.com', 'asdf', 2),
-('pepitogrilloRegistrado', 'pepeRegistrado', 'pepitogrilloRegistrado@gmail.com', 'asdf', 3),
-('pepitogrilloSuper', 'pepe', 'pepitogrillo@gmail.com', 'asdf', 0);
+('pepitogrilloGestor', 'pepeGestor', 'pepitogrillogestor@gmail.com', '$2y$10$sHnRCK8WahqTn2cOat.DQeFi5.1adB43N/tYX8nev2aZBAR4R9sAq', 1),
+('pepitogrilloModerador', 'pepeModerador', 'pepitogrilloModerador@gmail.com', '$2y$10$sHnRCK8WahqTn2cOat.DQeFi5.1adB43N/tYX8nev2aZBAR4R9sAq', 2),
+('pepitogrilloRegistrado', 'pepeRegistrado', 'pepitogrilloRegistrado@gmail.com', '$2y$10$sHnRCK8WahqTn2cOat.DQeFi5.1adB43N/tYX8nev2aZBAR4R9sAq', 3),
+('pepitogrilloSuper', 'pepe', 'pepitogrillo@gmail.com', '$2y$10$sHnRCK8WahqTn2cOat.DQeFi5.1adB43N/tYX8nev2aZBAR4R9sAq', 0);
 
 --
 -- Índices para tablas volcadas

@@ -32,7 +32,7 @@
 	    </form>
 
 		{% if  usuario[3]  == 2 or  usuario[3]  == 0 %}
-		<form class="loginForm" name="userForm" method="post" action="/P4/AUN NO DEFINIDO">
+		<div class="divPanelControl" name="userForm" method="post" action="/P4/AUN NO DEFINIDO">
 	      <h3 class="textoDescriptivo">AQUI IRIA: moderador (comentarios)</h3>
 	      <p>
 	        	
@@ -56,10 +56,10 @@
 	          <input type="submit" name="buttonRegister" id="buttonRegister" value="Cambiar datos de usuario">
 	        
 	      </p>
-	    </form>
+	    </div>
     {% endif %}
 	{% if  usuario[3]  == 1  or  usuario[3]  == 0 %}
-		<form class="loginForm" name="userForm" method="post" action="/P4/AUN NO DEFINIDO">
+		<div class="divPanelControl" name="userForm" method="post" action="/P4/AUN NO DEFINIDO">
 	      <h3 class="textoDescriptivo">AQUI IRIA: gestor (eventos)</h3>
 	      <p>
 	        	{{ dump(eventos) }}
@@ -82,10 +82,10 @@
 	          <input type="submit" name="buttonRegister" id="buttonRegister" value="Cambiar datos de usuario">
 	        
 	      </p>
-	    </form>
+	    </div>
     {% endif %}
 	{% if  usuario[3]  == 0 %}
-		<form class="loginForm" name="userForm" method="post" action="/P4/AUN NO DEFINIDO">
+		<div class="divPanelControl" name="userForm" method="post" action="/P4/AUN NO DEFINIDO">
 	      <h3 class="textoDescriptivo">AQUI IRIA: usuarios</h3>
 	      <p>
 	        	{{ dump(usuarios) }}
@@ -108,7 +108,7 @@
 	          <input type="submit" name="buttonRegister" id="buttonRegister" value="Cambiar datos de usuario">
 	        
 	      </p>
-	    </form>
+	    </div>
     {% endif %}
 
 

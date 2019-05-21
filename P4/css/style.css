@@ -406,7 +406,7 @@ a.evento_imprimir > div > img{
   margin: 2%;
 }
 
-form {
+form, .divPanelControl{
   border-style: outset;
   border: 2px solid rgb(226, 231, 235);
   border-radius: 5px;
@@ -510,4 +510,15 @@ h3.textoDescriptivo{
   text-align: center;
   text-decoration: none;
 }
+
+/*.divPanelControl{
+  border-style: outset;
+  border: 2px solid rgb(226, 231, 235);
+  border-radius: 5px;
+  background: #FCFCFC;
+  padding: 2% 2%;
+  overflow: hidden;
+  margin: 2%;
+
+}*/
 
