@@ -7,8 +7,8 @@ Prácticas de la asignatura SIBW(Sistemas de Información Basados en Web). Curso
 - [ ] Solo los usuarios registrados pueden añadir comentarios a los eventos **(5 %)**
 - [X] Hay un “panel de control” con las opciones disponibles para cada usuario
   **(5 %)**
-- [ ] Los moderadores pueden borrar comentarios **(2 %)**
-- [ ] Los moderadores pueden editar comentarios (añadiéndose el mensaje de
+- [X] Los moderadores pueden borrar comentarios **(2 %)**
+- [X] Los moderadores pueden editar comentarios (añadiéndose el mensaje de
   “Mensaje editado por el moderador”) **(3 %)**
 - [X] Los moderadores pueden acceder a un listado con todos los comentarios a
   todos los eventos **(5 %)**
