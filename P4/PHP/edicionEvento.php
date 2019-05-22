@@ -27,7 +27,7 @@ $nuevoUsername = $nuevaPass = $nuevoEmail = $nuevoNombre = $nuevosPermisos ="";
     else {
       die('Sin id');
     }
-      
+
     $nuevoNombre = $nuevaImagen = $nuevaDescripcion = $nuevoPie = $nuevoLink = $nuevaPublicacion = $nuevaFotoPortada = $nuevaEtiqueta = $nuevoVideo = "";
 
     if($_SERVER["REQUEST_METHOD"] == "POST"){
@@ -41,50 +41,50 @@ $nuevoUsername = $nuevaPass = $nuevoEmail = $nuevoNombre = $nuevosPermisos ="";
           $nuevaImagen = "";
       } else{
           $nuevaImagen = Input::validateStr($_POST["imagen"]);
-          
+
       }
       if(empty(Input::validateStr($_POST["descripcion"]))){
           $nuevaDescripcion = "";
       } else{
           $nuevaDescripcion = Input::validateStr($_POST["descripcion"]);
-          
+
       }
       if(empty(Input::validateStr($_POST["pie"]))){
           $nuevoPie = "";
       } else{
           $nuevoPie = Input::validateStr($_POST["pie"]);
-          
+
       }
       if(empty(Input::validateStr($_POST["link"]))){
           $nuevoLink = "";
       } else{
           $nuevoLink = Input::validateStr($_POST["link"]);
-          
+
       }
       if(empty(Input::validateStr($_POST["etiqueta"]))){
           $nuevaEtiqueta = "";
       } else{
           $nuevaEtiqueta = Input::validateStr($_POST["etiqueta"]);
-          
+
       }
 
       if(empty(Input::validateDate($_POST["fecha"]))){
           $nuevaFecha = "";
       } else{
           $nuevaFecha = Input::validateDate($_POST["fecha"]);
-          
+
       }
       if(empty(Input::validateDate($_POST["publicacion"]))){
           $nuevaPublicacion = "";
       } else{
           $nuevaPublicacion = Input::validateDate($_POST["publicacion"]);
-          
+
       }
       if(empty(Input::validateStr($_POST["foto_portada"]))){
           $nuevaFotoPortada = "";
       } else{
           $nuevaFotoPortada = Input::validateStr($_POST["foto_portada"]);
-          
+
       }
       if(empty(Input::validateStr($_POST["video"]))){
           $nuevoVideo = "";
@@ -98,7 +98,7 @@ $nuevoUsername = $nuevaPass = $nuevoEmail = $nuevoNombre = $nuevosPermisos ="";
 
 
 
-      
+
       if(cambiarDatosEvento($arrayDatos, $id)){
         header('Location: /P4/panelDeControl');
       }

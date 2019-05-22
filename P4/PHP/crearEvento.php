@@ -1,7 +1,6 @@
 <?php
   require_once '../vendor/autoload.php';
   require_once 'bd.php';
-  require_once 'validation.php';
   require_once 'session.php';
 
 
@@ -13,20 +12,14 @@
   //Debug
   $twig->addExtension(new \Twig\Extension\DebugExtension());
 
+
+  $menu=getMenu();
   $session = Session::getInstance();
 
-  if($session != null && ($session->permisos == 0 || $session->permisos == 2)){
-    if (isset($_GET['id'])) {
-      $id = Input::validateInt((int) $_GET['id']);
-      if(borrarComentario($id)){
-        echo "Borrado correcto";
-      }
+  if($session->loggedin){
 
-    }
-    else {
-      die('Sin id');
-    }
-    header('Location: http://localhost/P4/panelDeControl');
+    $template = $twig->load("crearEvento.html");
+    echo $template->render(['elMenu' => $menu]);
   }
   else{
     header('Location: error');

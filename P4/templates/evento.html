@@ -104,7 +104,9 @@
         Email: <input type="email" id="email" name="email" required>
         <br><br>
         <textarea id="texto" name="texto" rows="5" cols="80" onkeyup="Censura({{ prohibidas|json_encode }})" placeholder="Tu comentario aqui :)"form="formularioComentar" required></textarea>
-        <input id="botonEnviar" type="submit" name="postear" onclick="postCounter()" value="Comentar">
+        {% if sesionActual == true %}
+          <input id="botonEnviar" type="submit" name="postear" onclick="postCounter()" value="Comentar">
+        {% endif %}
       </form>
 
       <div id="result"></div>

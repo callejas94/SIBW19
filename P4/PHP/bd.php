@@ -317,10 +317,6 @@
         $conexion = conectar();
 
         $sql = "UPDATE `eventos` SET `nombre` = ?, `fecha` = ?, `imagen` = ?, `descripcion` = ?, `piefoto` = ?, `link` = ?, `fecha_publicacion` = ?, `fotoPortada` = ?,`etiqueta` = ?, `ultima_modificacion` = CURRENT_TIME(), `video` = ? WHERE `id` = ?";
-        
-        var_dump($arrayDatos[1]);
-        //die("HOLI");
-
 
         if($stmt = mysqli_prepare($conexion, $sql)){
           mysqli_stmt_bind_param($stmt, "ssssssssssi",$arrayDatos[0],$arrayDatos[1],$arrayDatos[2],$arrayDatos[3],$arrayDatos[4],$arrayDatos[5],$arrayDatos[6],$arrayDatos[7],$arrayDatos[8],$arrayDatos[9],$id);
@@ -330,7 +326,7 @@
               $valor = true;
               //var_dump($stmt);
               var_dump($arrayDatos);
-          } 
+          }
           else{
               echo "¯\_(ツ)_/¯";
           }
@@ -339,9 +335,9 @@
         else{
           echo "ERROR";
         }
-         
 
-        
+
+
         mysqli_close($conexion);
         return $valor;
       }
@@ -361,7 +357,7 @@
               $valor = true;
               //var_dump($stmt);
               var_dump($arrayDatos);
-          } 
+          }
           else{
               echo "¯\_(ツ)_/¯";
           }
@@ -370,9 +366,9 @@
         else{
           echo "ERROR";
         }
-         
 
-        
+
+
         mysqli_close($conexion);
         return $valor;
       }
@@ -482,8 +478,34 @@
           }
           mysqli_stmt_close($stmt);
         }
-        
+
         return $valor;
+      }
+
+      function crearEvento($arrayDatos){
+        $valor = false;
+        $conexion = conectar();
+
+        $sql = "INSERT INTO eventos (nombre, fecha, imagen, descripcion, piefoto, link, fecha_publicacion, fotoPortada, etiqueta, ultima_modificacion, video) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, CURRENT_TIME(), ?)";
+        if($stmt = mysqli_prepare($conexion, $sql)){
+
+          mysqli_stmt_bind_param($stmt, "ssssssssss",$arrayDatos[0],$arrayDatos[1],$arrayDatos[2],$arrayDatos[3],$arrayDatos[4],$arrayDatos[5],$arrayDatos[6],$arrayDatos[7],$arrayDatos[8],$arrayDatos[9]);
+
+          if(mysqli_stmt_execute($stmt)){
+              echo "Evento creado correctamente";
+              $valor = true;
+          }
+          else{
+              echo "¯\_(ツ)_/¯";
+          }
+          mysqli_stmt_close($stmt);
+        }
+        else{
+          echo "ERROR en preapre";
+        }
+        mysqli_close($conexion);
+        return $valor;
+
       }
 
  ?>
