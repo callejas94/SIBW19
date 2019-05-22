@@ -1,5 +1,9 @@
 {% extends "basico.html" %}
 
+{% block scripts %}
+	<script type="text/javascript" src="./javascript/searchBehaviourCP.js"></script>
+{% endblock %}
+
 {% block principal %}
 
 	<!-- $valores=array($username, $nombre, $email, $permisos); -->
@@ -30,82 +34,71 @@
 	    </form>
 
 		{% if  usuario[3]  == 2 or  usuario[3]  == 0 %}
-		<div class="divPanelControl" name="userForm" method="post" action="/P4/AUN NO DEFINIDO">
-	      <h3 class="textoDescriptivo">AQUI IRIA: moderador (comentarios)</h3>
-	      <p>
+		<div id="moderador" class="divPanelControl" name="userForm" method="post" action="/P4/AUN NO DEFINIDO">
+			<h2>Panel del Moderador</h2>
+			<input type="text" id="filtradoComentarios" placeholder="Filtrar">
 
-			{{ dump(comentarios) }}
-	          <p><h5 class="textoDescriptivo"> Nombre de usuario</h5><input type="text" name="username" id="username" required></p>
-
-
-	          <p><h5 class="textoDescriptivo"> Contraseña</h5><input type="password" name="password" id="password" required></p>
-
-
-	          <p><h5 class="textoDescriptivo"> Correo electrónico</h5><input type="email" name="email" id="email" required></p>
-
-	          <p><h5 class="textoDescriptivo"> Nombre</h5><input type="text" name="nombre" id="nombre" required></p>
-
-
-	          <p><h5 class="textoDescriptivo"> Permisos de usuario</h5><input type="number" name="permiso" id="permiso" required></p>
-
-	      </p>
-	      <p>
-
-	          <input type="submit" name="buttonRegister" id="buttonRegister" value="Cambiar datos de usuario">
-
-	      </p>
+  			{% for elComentario in comentarios %}
+  				<div class="elementoPC">
+  					<h3>Comentario {{elComentario[0]}}<h3>
+  					<p><h5 class="textoDescriptivo">Nombre: </h5><output>{{elComentario[1]}}</output></p>
+  					<p><h5 class="textoDescriptivo">IP: </h5><output>{{elComentario[2]}}</output></p>
+  					<p><h5 class="textoDescriptivo">Email: </h5><output>{{elComentario[3]}}</output></p>
+  					<p><h5 class="textoDescriptivo">Fecha: </h5><output>{{elComentario[4]}}</output></p>
+  					<p><h5 class="textoDescriptivo">Comentario: </h5><output>{{elComentario[5]}}</output></p>
+	          	</div>
+	        {% endfor %}
 	    </div>
+		    
     {% endif %}
 	{% if  usuario[3]  == 1  or  usuario[3]  == 0 %}
-		<div class="divPanelControl" name="userForm" method="post" action="/P4/AUN NO DEFINIDO">
-	      <h3 class="textoDescriptivo">AQUI IRIA: gestor (eventos)</h3>
-	      <p>
-	        	{{ dump(eventos) }}
-	          <p><h5 class="textoDescriptivo"> Nombre de usuario</h5><input type="text" name="username" id="username" required></p>
+		<div id="gestor" class="divPanelControl" name="userForm" method="post" action="/P4/AUN NO DEFINIDO">
 
+			<h2>Panel del Gestor</h2>
+			<input type="text" id="filtradoEventosPC" placeholder="Filtrar">
 
-	          <p><h5 class="textoDescriptivo"> Contraseña</h5><input type="password" name="password" id="password" required></p>
+  			{% for elEvento in eventos %}
+  				<div class="elementoPC">
+  					<h3>Evento {{elEvento[4]}}<h3>
+  					<p><h5 class="textoDescriptivo">Nombre: </h5><output>{{elEvento[0]}}</output></p>
+  					<p><h5 class="textoDescriptivo">Fecha Evento: </h5><output>{{elEvento[1]}}</output></p>
+  					<p><h5 class="textoDescriptivo">Imagen: </h5><output>{{elEvento[2]}}</output></p>
+  					<p><h5 class="textoDescriptivo">Descripcion: </h5><output>{{elEvento[3]}}</output></p>
+  					<p><h5 class="textoDescriptivo">Pie Foto: </h5><output>{{elEvento[5]}}</output></p>
+  					<p><h5 class="textoDescriptivo">Link Evento: </h5><output>{{elEvento[6]}}</output></p>
+  					<p><h5 class="textoDescriptivo">Etiqueta: </h5><output>{{elEvento[7]}}</output></p>
+  					<p><h5 class="textoDescriptivo">Fecha Publicación: </h5><output>{{elEvento[8]}}</output></p>
+  					<p><h5 class="textoDescriptivo">Última Modificación: </h5><output>{{elEvento[9]}}</output></p>
+  					<p><h5 class="textoDescriptivo">Foto Portada: </h5><output>{{elEvento[10]}}</output></p>
+  					<p><h5 class="textoDescriptivo">Video: </h5><output>{{elEvento[11]}}</output></p>
+	          	</div>
+	        {% endfor %}
 
-
-	          <p><h5 class="textoDescriptivo"> Correo electrónico</h5><input type="email" name="email" id="email" required></p>
-
-	          <p><h5 class="textoDescriptivo"> Nombre</h5><input type="text" name="nombre" id="nombre" required></p>
-
-
-	          <p><h5 class="textoDescriptivo"> Permisos de usuario</h5><input type="number" name="permiso" id="permiso" required></p>
-
-	      </p>
-	      <p>
-
-	          <input type="submit" name="buttonRegister" id="buttonRegister" value="Cambiar datos de usuario">
-
-	      </p>
 	    </div>
     {% endif %}
 	{% if  usuario[3]  == 0 %}
-		<div class="divPanelControl" name="userForm" method="post" action="/P4/AUN NO DEFINIDO">
-	      <h3 class="textoDescriptivo">AQUI IRIA: usuarios</h3>
-	      <p>
-	        	{{ dump(usuarios) }}
-	          <p><h5 class="textoDescriptivo"> Nombre de usuario</h5><input type="text" name="username" id="username" required></p>
+		<div id="superusuario" class="divPanelControl" name="userForm" method="post" action="/P4/AUN NO DEFINIDO">
 
+			<h2>Panel del Superusuario</h2>
+			<input type="text" id="filtradoUsuarios" placeholder="Filtrar">
 
-	          <p><h5 class="textoDescriptivo"> Contraseña</h5><input type="password" name="password" id="password" required></p>
+  			{% for usuario in usuarios %}
+  				<div class="elementoPC">
+  					<p><h5 class="textoDescriptivo">Avatar: </h5><output>{{usuario[0]}}</output></p>
+  					<p><h5 class="textoDescriptivo">Nombre: </h5><output>{{usuario[1]}}</output></p>
+  					<p><h5 class="textoDescriptivo">Email: </h5><output>{{usuario[2]}}</output></p>
+  					{% if  usuario[3]  == 0 %}
+  						<p><h5 class="textoDescriptivo">Permisos: </h5><output>Superusuario</output></p>
+  					{% elseif usuario[3]  == 1 %}
+  						<p><h5 class="textoDescriptivo">Permisos: </h5><output>Gestor</output></p>
+  					{% elseif usuario[3]  == 2 %}
+  						<p><h5 class="textoDescriptivo">Permisos: </h5><output>Moderador</output></p>
+  					{% elseif usuario[3]  == 3 %}
+  						<p><h5 class="textoDescriptivo">Permisos: </h5><output>Usuario</output></p>
+  					{% endif %}
+	          	</div>
+	        {% endfor %}
 
-
-	          <p><h5 class="textoDescriptivo"> Correo electrónico</h5><input type="email" name="email" id="email" required></p>
-
-	          <p><h5 class="textoDescriptivo"> Nombre</h5><input type="text" name="nombre" id="nombre" required></p>
-
-
-	          <p><h5 class="textoDescriptivo"> Permisos de usuario</h5><input type="number" name="permiso" id="permiso" required></p>
-
-	      </p>
-	      <p>
-
-	          <input type="submit" name="buttonRegister" id="buttonRegister" value="Cambiar datos de usuario">
-
-	      </p>
 	    </div>
     {% endif %}
 

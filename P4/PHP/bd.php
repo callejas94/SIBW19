@@ -47,7 +47,7 @@
 
       function getAllComentariosEvento(){
         $conexion=conectar();
-        $consultaEvento="SELECT ip,nombre,email,fecha,texto FROM comentario";
+        $consultaEvento="SELECT id,nombre,ip,email,fecha,texto FROM comentario";
         $arrayDatos=consultar($conexion,$consultaEvento);
         return $arrayDatos;
       }

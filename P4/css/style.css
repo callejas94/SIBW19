@@ -406,7 +406,7 @@ a.evento_imprimir > div > img{
   margin: 2%;
 }
 
-form, .divPanelControl{
+form, .divPanelControl, .elementoPC{
   border-style: outset;
   border: 2px solid rgb(226, 231, 235);
   border-radius: 5px;
