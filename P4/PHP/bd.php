@@ -339,7 +339,7 @@
         if($arrayMods[1]){
           $sql = "UPDATE `usuarios` SET `username` = ?,`nombre` = ?, `email` = ?, `password` = ?, `permisos` = ? WHERE `username` = ?";
           $param_password = password_hash($nuevaPass, PASSWORD_DEFAULT);
-          
+
 
           if($stmt = mysqli_prepare($conexion, $sql)){
             $user = $session->username;
@@ -353,7 +353,7 @@
             }
             mysqli_stmt_close($stmt);
           }
-        } 
+        }
         else{
 
           $sql = "UPDATE `usuarios` SET `username` = ?,`nombre` = ?, `email` = ?, `permisos` = ? WHERE `username` = ?";
@@ -373,10 +373,49 @@
             mysqli_stmt_close($stmt);
           }
         }
-        
+
         mysqli_close($conexion);
         return $valor;
 
+      }
+
+      function cambiarComentario($id,$nuevoMensaje){
+        $valor = false;
+        $conexion = conectar();
+
+        $sql = "UPDATE `comentario` SET `texto` = ? WHERE `id` = ?";
+        if($stmt = mysqli_prepare($conexion, $sql)){
+          mysqli_stmt_bind_param($stmt, "si", $nuevoMensaje,$id);
+
+          if(mysqli_stmt_execute($stmt)){
+              echo "Cambio de texto correcto";
+              $valor = true;
+          } else{
+              echo "¯\_(ツ)_/¯";
+          }
+          mysqli_stmt_close($stmt);
+        }
+
+        return $valor;
+      }
+      function borrarComentario($id){
+        $valor = false;
+        $conexion = conectar();
+
+        $sql = "DELETE FROM `comentario` WHERE `id` = ?";
+        if($stmt = mysqli_prepare($conexion, $sql)){
+          mysqli_stmt_bind_param($stmt, "i", $id);
+
+          if(mysqli_stmt_execute($stmt)){
+              echo "Comentario borrado correctamente";
+              $valor = true;
+          } else{
+              echo "¯\_(ツ)_/¯";
+          }
+          mysqli_stmt_close($stmt);
+        }
+        
+        return $valor;
       }
 
  ?>

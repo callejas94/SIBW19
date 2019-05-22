@@ -10,20 +10,11 @@
 		<form class="loginForm" name="userForm" method="post" action="/P4/datosPersonalesEdit">
 	      <h3 class="textoDescriptivo">Formulario Cambio de Datos de Usuario</h3>
 	      <p>
-
 	          <p><h5 class="textoDescriptivo"> Nombre de usuario</h5><input type="text" name="username" id="username" value="{{ usuario[0] }}" ></p>
-
-
 	          <p><h5 class="textoDescriptivo"> Contraseña</h5><input type="password" name="password" id="password"></p>
-
-
 	          <p><h5 class="textoDescriptivo"> Correo electrónico</h5><input type="email" name="email" id="email" value="{{ usuario[2] }}" ></p>
-
 	          <p><h5 class="textoDescriptivo"> Nombre</h5><input type="text" name="nombre" id="nombre" value="{{ usuario[1] }}" ></p>
-
-
 	          <p><h5 class="textoDescriptivo"> Permisos de usuario</h5><input type="number" name="permiso" id="permiso" value="{{ usuario[3] }}"></p>
-
 	      </p>
 	      <p>
 
@@ -47,10 +38,10 @@
   					<p><h5 class="textoDescriptivo">Comentario: </h5><output>{{elComentario[5]}}</output></p>
   					<button><a href="/P4/editarComentario/{{elComentario[0]}}">Editar</a></button>
   					<button><a href="/P4/borrarComentario/{{elComentario[0]}}">Borrar</a></button>
-	          	</div>
-	        {% endfor %}
+	        </div>
+	      {% endfor %}
 	    </div>
-		    
+
     {% endif %}
 	{% if  usuario[3]  == 1  or  usuario[3]  == 0 %}
 		<div id="gestor" class="divPanelControl" name="userForm" method="post" action="/P4/AUN NO DEFINIDO">

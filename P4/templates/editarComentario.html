@@ -3,15 +3,12 @@
 {% block principal %}
 
 	<main class="contenedores">
-	    <form class="loginForm" name="ComentarioEditForm" method="post" action="/P4/login">
-	      	<h3>Formulario de Edicion de Comentario</h3>
+	    <form class="loginForm" name="ComentarioEditForm" method="post" action="/P4/editarComentarioBD">
+	      <h3>Formulario de Edicion de Comentario</h3>
 		  	<h3>Comentario {{elComentario[0][0]}}<h3>
-			<p><h5 class="textoDescriptivo">Nombre: </h5><input class="edit" type="text" name="nombre" id="nombre" value="{{elComentario[0][1]}}"></input></p>
-			<p><h5 class="textoDescriptivo">IP: </h5><input class="edit" type="text" name="ip" id="ip" value="{{elComentario[0][2]}}"></input></p>
-			<p><h5 class="textoDescriptivo">Email: </h5><input class="edit" type="text" name="email" id="email" value="{{elComentario[0][2]}}"></input></p>
-			<p><h5 class="textoDescriptivo">Fecha: </h5><input class="edit" type="text" name="fecha" id="fecha" value="{{elComentario[0][3]}}"></input></p>
-			<p><h5 class="textoDescriptivo">Texto: </h5><input class="edit" type="text" name="texto" id="texto" value="{{elComentario[0][5]}}"></input></p>
-          	<input type="submit" value="Cambiar datos">
+				<p><h5 class="textoDescriptivo">Texto: </h5><input class="edit" type="text" name="texto" id="texto" value="{{elComentario[0][5]}}"></input></p>
+				<input type="hidden" name="id" id="id" value="{{elComentario[0][0]}}"></input>
+        <input type="submit" value="Cambiar datos">
 	    </form>
 
     </main>
