@@ -45,6 +45,18 @@ class Input {
 		return $val;
 	}
 
+	static function validateDate($val) {
+		$val = Input::validateStr($val);
+		$val = date('Y-m-d H:i', strtotime($val));
+		
+		if ($val === false) {
+			self::throwError('Fecha no valida', 905);
+		}
+		return $val;
+	}
+
+	
+
 	static function throwError($error = 'Error en Procesar', $errorCode = 0) {
 		if (self::$errors === true) {
 			throw new Exception($error, $errorCode);
