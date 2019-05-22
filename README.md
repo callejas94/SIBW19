@@ -4,7 +4,7 @@ Prácticas de la asignatura SIBW(Sistemas de Información Basados en Web). Curso
 - [X] Existen distintos roles de usuarios: anónimo, registrado, moderador, gestor,
   superusuario **(5 %)**
 - [X] Los usuarios pueden editar su información personal **(5 %)**
-- [ ] Solo los usuarios registrados pueden añadir comentarios a los eventos **(5 %)**
+- [X] Solo los usuarios registrados pueden añadir comentarios a los eventos **(5 %)**
 - [X] Hay un “panel de control” con las opciones disponibles para cada usuario
   **(5 %)**
 - [X] Los moderadores pueden borrar comentarios **(2 %)**
