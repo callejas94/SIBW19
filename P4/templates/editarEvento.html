@@ -4,6 +4,15 @@
 
 	<main class="contenedores">
 
+nombre
+fecha
+imagen
+descripcion
+pie
+link
+etiqueta
+publicacion
+modificacion
 	    <form class="loginForm" name="eventoEditForm" method="post" action="/P4/login">
 	      	<h3>Formulario de Edicion de Evento</h3>
 		  	<h3>Evento {{elEvento[0][4]}}<h3>
@@ -15,7 +24,6 @@
 			<p><h5 class="textoDescriptivo">Link Evento: </h5><input class="edit" type="text" name="link" id="link" value="{{elEvento[0][6]}}"></input></p>
 			<p><h5 class="textoDescriptivo">Etiqueta: </h5><input class="edit" type="text" name="etiqueta" id="etiqueta" value="{{elEvento[0][7]}}"></input></p>
 			<p><h5 class="textoDescriptivo">Fecha Publicación: </h5><input class="edit" type="text" name="publicacion" id="publicacion" value="{{elEvento[0][8]}}"></input></p>
-			<p><h5 class="textoDescriptivo">Última Modificación: </h5><input class="edit" type="text" name="modificacion" id="modificacion" value="{{elEvento[0][9]}}"></input></p>
 			<p><h5 class="textoDescriptivo">Foto Portada: </h5><input class="edit" type="text" name="foto_portada" id="foto_portada" value="{{elEvento[0][10]}}"></input></p>
 			<p><h5 class="textoDescriptivo">Video: </h5><input class="edit" type="text" name="video" id="video" value="{{elEvento[0][11]}}"></input></p>
           	<input type="submit" value="Cambiar datos">
