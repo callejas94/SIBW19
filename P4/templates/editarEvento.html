@@ -1,0 +1,41 @@
+{% extends "basico.html" %}
+
+{% block principal %}
+
+	<main class="contenedores">
+
+	    <form class="loginForm" name="eventoEditForm" method="post" action="/P4/login">
+	      	<h3>Formulario de Edicion de Evento</h3>
+		  	<h3>Evento {{elEvento[0][4]}}<h3>
+			<p><h5 class="textoDescriptivo">Nombre: </h5><input class="edit" type="text" name="nombre" id="nombre" value="{{elEvento[0][0]}}"></input></p>
+			<p><h5 class="textoDescriptivo">Fecha Evento: </h5><input class="edit" type="text" name="fecha" id="fecha" value="{{elEvento[0][1]}}"></input></p>
+			<p><h5 class="textoDescriptivo">Imagen: </h5><input class="edit" type="text" name="imagen" id="imagen" value="{{elEvento[0][2]}}"></input></p>
+			<p><h5 class="textoDescriptivo">Descripcion: </h5><input class="edit" type="text" name="descripcion" id="descripcion" value="{{elEvento[0][3]}}"></input></p>
+			<p><h5 class="textoDescriptivo">Pie Foto: </h5><input class="edit" type="text" name="pie" id="pie" value="{{elEvento[0][5]}}"></input></p>
+			<p><h5 class="textoDescriptivo">Link Evento: </h5><input class="edit" type="text" name="link" id="link" value="{{elEvento[0][6]}}"></input></p>
+			<p><h5 class="textoDescriptivo">Etiqueta: </h5><input class="edit" type="text" name="etiqueta" id="etiqueta" value="{{elEvento[0][7]}}"></input></p>
+			<p><h5 class="textoDescriptivo">Fecha Publicación: </h5><input class="edit" type="text" name="publicacion" id="publicacion" value="{{elEvento[0][8]}}"></input></p>
+			<p><h5 class="textoDescriptivo">Última Modificación: </h5><input class="edit" type="text" name="modificacion" id="modificacion" value="{{elEvento[0][9]}}"></input></p>
+			<p><h5 class="textoDescriptivo">Foto Portada: </h5><input class="edit" type="text" name="foto_portada" id="foto_portada" value="{{elEvento[0][10]}}"></input></p>
+			<p><h5 class="textoDescriptivo">Video: </h5><input class="edit" type="text" name="video" id="video" value="{{elEvento[0][11]}}"></input></p>
+          	<input type="submit" value="Cambiar datos">
+	    </form>
+
+    </main>
+
+
+{% endblock %}
+
+{% block menu %}
+  <nav role="Navegación">
+    <ul>
+      {% for elemento in elMenu %}
+        {% if elemento[1] == "Login" %}
+        {% elseif elemento[1] == "Busqueda" %}
+        {% else %}
+          <li><a href="/P4/{{ elemento[2] }}">{{ elemento[1] }}</a></li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </nav>
+{% endblock %}

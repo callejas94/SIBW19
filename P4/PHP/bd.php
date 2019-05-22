@@ -74,6 +74,15 @@
         $arrayDatos=consultar($conexion,$consultaEvento);
         return $arrayDatos;
       }
+
+      function getComentario($id){
+        $conexion=conectar();
+        $consultaEvento="SELECT id,nombre,ip,email,fecha,texto FROM comentario WHERE id =";
+        $consultaEvento.=$id;
+        $arrayDatos=consultar($conexion,$consultaEvento);
+        return $arrayDatos;
+      }
+
       function getPalabrasProhibidas(){
         $conexion=conectar();
         $consultaEvento="SELECT * FROM prohibidas";

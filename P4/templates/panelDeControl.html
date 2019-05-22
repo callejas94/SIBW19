@@ -6,7 +6,6 @@
 
 {% block principal %}
 
-	<!-- $valores=array($username, $nombre, $email, $permisos); -->
 	<main id="loginContenedor" class="contenedores">
 		<form class="loginForm" name="userForm" method="post" action="/P4/datosPersonalesEdit">
 	      <h3 class="textoDescriptivo">Formulario Cambio de Datos de Usuario</h3>
@@ -46,6 +45,8 @@
   					<p><h5 class="textoDescriptivo">Email: </h5><output>{{elComentario[3]}}</output></p>
   					<p><h5 class="textoDescriptivo">Fecha: </h5><output>{{elComentario[4]}}</output></p>
   					<p><h5 class="textoDescriptivo">Comentario: </h5><output>{{elComentario[5]}}</output></p>
+  					<button><a href="/P4/editarComentario/{{elComentario[0]}}">Editar</a></button>
+  					<button><a href="/P4/borrarComentario/{{elComentario[0]}}">Borrar</a></button>
 	          	</div>
 	        {% endfor %}
 	    </div>
@@ -71,6 +72,8 @@
   					<p><h5 class="textoDescriptivo">Última Modificación: </h5><output>{{elEvento[9]}}</output></p>
   					<p><h5 class="textoDescriptivo">Foto Portada: </h5><output>{{elEvento[10]}}</output></p>
   					<p><h5 class="textoDescriptivo">Video: </h5><output>{{elEvento[11]}}</output></p>
+  					<button><a href="/P4/editarEvento/{{elEvento[4]}}">Editar</a></button>
+  					<button><a href="/P4/borrarEvento/{{elEvento[4]}}">Borrar</a></button>
 	          	</div>
 	        {% endfor %}
 
@@ -96,6 +99,8 @@
   					{% elseif usuario[3]  == 3 %}
   						<p><h5 class="textoDescriptivo">Permisos: </h5><output>Usuario</output></p>
   					{% endif %}
+  					<button><a href="/P4/editarUsuario/{{usuario[0]}}">Editar</a></button>
+  					<button><a href="/P4/borrarUsuario/{{usuario[0]}}">Borrar</a></button>
 	          	</div>
 	        {% endfor %}
 
