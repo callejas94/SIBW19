@@ -13,11 +13,11 @@ Prácticas de la asignatura SIBW(Sistemas de Información Basados en Web). Curso
 - [X] Los moderadores pueden acceder a un listado con todos los comentarios a
   todos los eventos **(5 %)**
 - [X] Los moderadores pueden buscar comentarios **(5 %)**
-- [ ] Los gestores pueden añadir y borrar etiquetas a los eventos **(5 %)**
-- [ ] Los gestores pueden borrar un evento del sitio **(2 %)**
+- [X] Los gestores pueden añadir y borrar etiquetas a los eventos **(5 %)**
+- [X] Los gestores pueden borrar un evento del sitio **(2 %)**
 - [ ] Los gestores pueden añadir un evento al sitio **(5 %)**
-- [ ] Los gestores pueden editar un evento del sitio **(8 %)**
-- [ ] Los gestores pueden añadir / borrar fotografías de los eventos del sitio
+- [X] Los gestores pueden editar un evento del sitio **(8 %)**
+- [X] Los gestores pueden añadir / borrar fotografías de los eventos del sitio
   **(5 %)**
 - [X] Los gestores pueden acceder a un listado con todos los eventos **(5 %)**
 - [X] Los gestores pueden buscar eventos **(5 %)**
