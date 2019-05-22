@@ -15,17 +15,18 @@ Prácticas de la asignatura SIBW(Sistemas de Información Basados en Web). Curso
 - [X] Los moderadores pueden buscar comentarios **(5 %)**
 - [X] Los gestores pueden añadir y borrar etiquetas a los eventos **(5 %)**
 - [X] Los gestores pueden borrar un evento del sitio **(2 %)**
-- [ ] Los gestores pueden añadir un evento al sitio **(5 %)**
+- [X] Los gestores pueden añadir un evento al sitio **(5 %)**
 - [X] Los gestores pueden editar un evento del sitio **(8 %)**
 - [X] Los gestores pueden añadir / borrar fotografías de los eventos del sitio
   **(5 %)**
 - [X] Los gestores pueden acceder a un listado con todos los eventos **(5 %)**
 - [X] Los gestores pueden buscar eventos **(5 %)**
 - [X] Los superusuarios deben poder realizar todas las acciones anteriormente descritas para los moderadores y gestores **(2 %)**
-- [ ] Los superusuarios deben poder asignar / retirar roles de moderación y
+- [X] Los superusuarios deben poder asignar / retirar roles de moderación y
   gestión **(3 %)**
-- [ ] Los superusuarios deben poder asignar / retirar roles de superusuario (no
+- [X] Los superusuarios deben poder asignar / retirar roles de superusuario (no
   debe quedar la plataforma nunca sin al menos un superusuario) **(5 %)**
+  (Al retirarse a uno mismo cualquier tipo de permiso hay que hacer logout+login para actualizarlos)
 - [ ] Diagrama IFML del proceso de inclusión de un nuevo evento en el sitio
   **(10 %)**
 - [ ] Diagramas de secuencia de dos funcionalidades que impliquen modificación
