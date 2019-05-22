@@ -51,9 +51,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
   }
 
   $session = Session::getInstance();
-  
+
   if(cambiarDatosPersonales($arrayMods,$nuevoUsername,$nuevaPass,$nuevoEmail,$nuevoNombre,$nuevosPermisos, $session)){
     echo "Correctisimo";
+    header("Location: panelDeControl");
   }
 }
 

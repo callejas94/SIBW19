@@ -507,5 +507,34 @@
         return $valor;
 
       }
+      function cambiarPermisos($nuevosPermisos,$avatar,$antiguosPermisos){
+        $valor = false;
+        $conexion1 = conectar();
+        $conexion2 = conectar();
+        $sql = "SELECT COUNT(*) FROM usuarios WHERE permisos = 0";
+        $num = consultar($conexion1,$sql);
+
+        if((($antiguosPermisos == 0 && $nuevosPermisos != 0) && $num[0][0] != 1) || !($antiguosPermisos == 0 && $nuevosPermisos != 0)){
+          $sql = "UPDATE `usuarios` SET `permisos`=? WHERE `username`=?";
+          if($stmt = mysqli_prepare($conexion2, $sql)){
+            mysqli_stmt_bind_param($stmt, "is", $nuevosPermisos,$avatar);
+
+            if(mysqli_stmt_execute($stmt)){
+                echo "Permisos alterados correctamente";
+                $valor = true;
+            }
+            else{
+                echo "¯\_(ツ)_/¯";
+            }
+            mysqli_stmt_close($stmt);
+          }
+          else{
+            echo "ERROR en prepare";
+          }
+          mysqli_close($conexion2);
+        }
+
+        return $valor;
+      }
 
  ?>

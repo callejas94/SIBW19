@@ -4,14 +4,15 @@
 
 	<main class="contenedores">
 
-	    <form class="loginForm" name="userEditForm" method="post" action="/P4/login">
-	      	<h3>Formulario de Edicion de Usuario</h3>
+	    <form class="loginForm" name="userEditForm" method="post" action="/P4/superEditDatos">
+	      <h3>Formulario de Edicion de Usuario</h3>
 		  	<h3>Usuario {{elUsuario[0][4]}}<h3>
-			<p><h5 class="textoDescriptivo">Avatar: </h5><input class="edit" type="text" name="nombre" id="nombre" value="{{elUsuario[0][0]}}"></input></p>
-			<p><h5 class="textoDescriptivo">Nombre: </h5><input class="edit" type="text" name="fecha" id="fecha" value="{{elUsuario[0][1]}}"></input></p>
-			<p><h5 class="textoDescriptivo">Email: </h5><input class="edit" type="text" name="imagen" id="imagen" value="{{elUsuario[0][2]}}"></input></p>
-			<p><h5 class="textoDescriptivo">Permisos: </h5><input class="edit" type="number" name="descripcion" id="descripcion" value="{{elUsuario[0][3]}}"></input></p>
-          	<input type="submit" value="Cambiar datos">
+				<p><h5 class="textoDescriptivo">Avatar: </h5><input class="edit" type="text" name="avatar" id="avatar" value="{{elUsuario[0][0]}}" required></input></p>
+				<p><h5 class="textoDescriptivo">Nombre: </h5><input class="edit" type="text" name="nombre" id="nombre" value="{{elUsuario[0][1]}}"></input></p>
+				<p><h5 class="textoDescriptivo">Email: </h5><input class="edit" type="text" name="email" id="email" value="{{elUsuario[0][2]}}"></input></p>
+				<p><h5 class="textoDescriptivo">Permisos: </h5><input class="edit" type="number" name="permisos" id="permisos" required></input></p>
+				<input type="hidden" name="otros" id="otros" value="{{elUsuario[0][3]}}"></input>
+        <input type="submit" value="Cambiar permisos">
 	    </form>
 
     </main>
