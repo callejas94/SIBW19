@@ -310,6 +310,74 @@
         }
       }
 
+
+
+      function cambiarDatosEvento($arrayDatos, $id){
+        $valor = false;
+        $conexion = conectar();
+
+        $sql = "UPDATE `eventos` SET `nombre` = ?, `fecha` = ?, `imagen` = ?, `descripcion` = ?, `piefoto` = ?, `link` = ?, `fecha_publicacion` = ?, `fotoPortada` = ?,`etiqueta` = ?, `ultima_modificacion` = CURRENT_TIME(), `video` = ? WHERE `id` = ?";
+        
+        var_dump($arrayDatos[1]);
+        //die("HOLI");
+
+
+        if($stmt = mysqli_prepare($conexion, $sql)){
+          mysqli_stmt_bind_param($stmt, "ssssssssssi",$arrayDatos[0],$arrayDatos[1],$arrayDatos[2],$arrayDatos[3],$arrayDatos[4],$arrayDatos[5],$arrayDatos[6],$arrayDatos[7],$arrayDatos[8],$arrayDatos[9],$id);
+
+          if(mysqli_stmt_execute($stmt)){
+              echo "Cambio de datos evento correcto";
+              $valor = true;
+              //var_dump($stmt);
+              var_dump($arrayDatos);
+          } 
+          else{
+              echo "¯\_(ツ)_/¯";
+          }
+          mysqli_stmt_close($stmt);
+        }
+        else{
+          echo "ERROR";
+        }
+         
+
+        
+        mysqli_close($conexion);
+        return $valor;
+      }
+
+
+      function borrarEvento($id){
+        $valor = false;
+        $conexion = conectar();
+
+        $sql ="DELETE FROM `eventos` WHERE `id` = ?";
+
+        if($stmt = mysqli_prepare($conexion, $sql)){
+          mysqli_stmt_bind_param($stmt, "i",$id);
+
+          if(mysqli_stmt_execute($stmt)){
+              echo "Borrado de evento correcto";
+              $valor = true;
+              //var_dump($stmt);
+              var_dump($arrayDatos);
+          } 
+          else{
+              echo "¯\_(ツ)_/¯";
+          }
+          mysqli_stmt_close($stmt);
+        }
+        else{
+          echo "ERROR";
+        }
+         
+
+        
+        mysqli_close($conexion);
+        return $valor;
+      }
+
+
       function cambiarDatosPersonales($arrayMods,$nuevoUsername,$nuevaPass,$nuevoEmail,$nuevoNombre,$nuevosPermisos, $session){
         $valor = false;
         $conexion = conectar();
