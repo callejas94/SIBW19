@@ -14,7 +14,15 @@
 	          <p><h5 class="textoDescriptivo"> Contraseña</h5><input type="password" name="password" id="password"></p>
 	          <p><h5 class="textoDescriptivo"> Correo electrónico</h5><input type="email" name="email" id="email" value="{{ usuario[2] }}" ></p>
 	          <p><h5 class="textoDescriptivo"> Nombre</h5><input type="text" name="nombre" id="nombre" value="{{ usuario[1] }}" ></p>
-	          <p><h5 class="textoDescriptivo"> Permisos de usuario</h5><input type="number" name="permiso" id="permiso" value="{{ usuario[3] }}"></p>
+            {% if  usuario[3]  == 0 %}
+              <p><h5 class="textoDescriptivo">Permisos: </h5><output>Superusuario</output></p>
+            {% elseif usuario[3]  == 1 %}
+              <p><h5 class="textoDescriptivo">Permisos: </h5><output>Gestor</output></p>
+            {% elseif usuario[3]  == 2 %}
+              <p><h5 class="textoDescriptivo">Permisos: </h5><output>Moderador</output></p>
+            {% elseif usuario[3]  == 3 %}
+              <p><h5 class="textoDescriptivo">Permisos: </h5><output>Usuario</output></p>
+            {% endif %}
 	      </p>
 	      <p>
 

@@ -34,14 +34,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
   } else{
       $nombre = Input::validateStr($_POST["nombre"]);
   }
-  if(Input::validateInt($_POST["permiso"]) < 0 && Input::validateInt($_POST["permiso"]) > 4){
-      $permiso_err = "Introduzca su permiso";
-  } else{
-      $permiso = Input::validateInt($_POST["permiso"]);
-  }
 
   if(empty($username_err) && empty($password_err) && empty($email_err) && empty($nombre_err) && empty($permiso_err)){
-    registroUsuario($username, $password, $email, $nombre, $permiso);
+    registroUsuario($username, $password, $email, $nombre, 3);
     header('Location: loginScreen');
   }
   else{

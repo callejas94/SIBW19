@@ -43,16 +43,16 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
       $nuevoNombre = Input::validateStr($_POST["nombre"]);
       $arrayMods[3] = true;
   }
-  if(empty(Input::validateStr($_POST["permiso"])) || Input::validateStr($_POST["permiso"]) == 0){
-      $arrayMods[4] = false;
-  } else{
-      $nuevosPermisos = Input::validateStr($_POST["permiso"]);
-      $arrayMods[4] = true;
-  }
+  // if(empty(Input::validateStr($_POST["permiso"])) || Input::validateStr($_POST["permiso"]) == 0){
+  //     $arrayMods[4] = false;
+  // } else{
+  //     $nuevosPermisos = Input::validateStr($_POST["permiso"]);
+  //     $arrayMods[4] = true;
+  // }
 
   $session = Session::getInstance();
 
-  if(cambiarDatosPersonales($arrayMods,$nuevoUsername,$nuevaPass,$nuevoEmail,$nuevoNombre,$nuevosPermisos, $session)){
+  if(cambiarDatosPersonales($arrayMods,$nuevoUsername,$nuevaPass,$nuevoEmail,$nuevoNombre, $session)){
     echo "Correctisimo";
     header("Location: panelDeControl");
   }

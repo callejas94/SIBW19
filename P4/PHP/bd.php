@@ -374,7 +374,7 @@
       }
 
 
-      function cambiarDatosPersonales($arrayMods,$nuevoUsername,$nuevaPass,$nuevoEmail,$nuevoNombre,$nuevosPermisos, $session){
+      function cambiarDatosPersonales($arrayMods,$nuevoUsername,$nuevaPass,$nuevoEmail,$nuevoNombre, $session){
         $valor = false;
         $conexion = conectar();
 
@@ -394,11 +394,9 @@
         } else{
           $param_nombre = $session->nombre;
         }
-        if($arrayMods[4]){
-          $param_permiso = $nuevosPermisos;
-        } else{
-          $param_permiso = $session->permisos;
-        }
+
+        $param_permiso = $session->permisos;
+        
 
         if($arrayMods[1]){
           $sql = "UPDATE `usuarios` SET `username` = ?,`nombre` = ?, `email` = ?, `password` = ?, `permisos` = ? WHERE `username` = ?";
