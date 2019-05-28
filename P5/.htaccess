@@ -11,6 +11,7 @@ RewriteRule ^borrarEvento/([0-9]+) ./PHP/borrarEvento.php?id=$1 [NC,L]
 RewriteRule ^editarComentario/([0-9]+) ./PHP/editarComentario.php?id=$1 [NC,L]
 RewriteRule ^borrarComentario/([0-9]+) ./PHP/borrarComentario.php?id=$1 [NC,L]
 RewriteRule ^edicionEvento/([0-9]+) ./PHP/edicionEvento.php?id=$1 [NC,L]
+RewriteRule ^publicacionEvento/([0-9]+) ./PHP/publicacionEvento.php?id=$1 [NC,L]
 RewriteRule ^([a-z]+)$ ./PHP/$1.php [NC,L]
 
 RewriteCond %{REQUEST_FILENAME} !-f

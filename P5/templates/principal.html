@@ -10,12 +10,15 @@
     evento[0] es el nombre,
     evento[1] es la imagen,
     evento[2] es el id,
+    evento[3] es si esta publicado,
      -->
     {% for evento in eventos %}
-      <a class="contenedor" href="./evento/{{ evento[2] }}" >
-        <img src="{{ evento[1] }}" alt="HS">
-        <h3>{{ evento[0] }}</h3>
-      </a>
+      {% if evento[3]  == true %}
+        <a class="contenedor" href="./evento/{{ evento[2] }}" >
+          <img src="{{ evento[1] }}" alt="HS">
+          <h3>{{ evento[0] }}</h3>
+        </a>
+      {% endif %}  
     {% endfor %}
   </main>
 {% endblock %}

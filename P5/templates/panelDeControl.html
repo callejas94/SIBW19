@@ -2,6 +2,7 @@
 
 {% block scripts %}
 	<script type="text/javascript" src="./javascript/searchBehaviourCP.js"></script>
+  <script type="text/javascript" src="./javascript/searchBehaviour.js"></script>
 {% endblock %}
 
 {% block principal %}
@@ -55,7 +56,11 @@
 		<div id="gestor" class="divPanelControl" name="userForm" method="post" action="/P5/AUN NO DEFINIDO">
 
 			<h2>Panel del Gestor</h2>
+      <h3>Filtrado Local</h3>
 			<input type="text" id="filtradoEventosPC" placeholder="Filtrar">
+      <h3>Filtrado Global</h3>
+      <input type="text" id="filtradoEventos" placeholder="Filtrar" onkeyup="showHint(this.value)">
+      <div id="livesearch"></div>
 
   			{% for elEvento in eventos %}
   				<div class="elementoPC">
@@ -73,6 +78,11 @@
   					<p><h5 class="textoDescriptivo">Video: </h5><output>{{elEvento[11]}}</output></p>
   					<button><a href="/P5/editarEvento/{{elEvento[4]}}">Editar</a></button>
   					<button><a href="/P5/borrarEvento/{{elEvento[4]}}">Borrar</a></button>
+            {% if elEvento[12]  == false %}
+              <button><a href="/P5/publicacionEvento/{{elEvento[4]}}">Publicar</a></button>
+            {% else %}
+              <button><a href="/P5/publicacionEvento/{{elEvento[4]}}">Esconder</a></button>
+            {% endif %}
 	        </div>
 	      {% endfor %}
 

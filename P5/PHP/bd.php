@@ -32,7 +32,7 @@
       //Funciones SELECT
       function eventosGeneral(){
         $conexion=conectar();
-        $consultaEvento="SELECT nombre,fotoPortada,id FROM eventos";
+        $consultaEvento="SELECT nombre,fotoPortada,id,publicado FROM eventos";
         $arrayDatos=consultar($conexion,$consultaEvento);
         return $arrayDatos;
       }
@@ -40,7 +40,7 @@
       function getAllEventos(){
         $conexion=conectar();
         $consultaEvento="SELECT nombre,fecha,imagen,descripcion,id,piefoto,link,
-        etiqueta,fecha_publicacion,ultima_modificacion,fotoPortada,video FROM eventos";
+        etiqueta,fecha_publicacion,ultima_modificacion,fotoPortada,video,publicado FROM eventos";
         $arrayDatos=consultar($conexion,$consultaEvento);
         return $arrayDatos;
       }
@@ -62,11 +62,49 @@
       function getEvento($id){
         $conexion=conectar();
         $consultaEvento="SELECT nombre,fecha,imagen,descripcion,id,piefoto,link,
-        etiqueta,fecha_publicacion,ultima_modificacion,fotoPortada,video FROM eventos WHERE id =";
+        etiqueta,fecha_publicacion,ultima_modificacion,fotoPortada,video,publicado FROM eventos WHERE id =";
         $consultaEvento.=$id;
         $arrayDatos=consultar($conexion,$consultaEvento);
         return $arrayDatos;
       }
+
+      function cambiarPublicacionEvento($id){
+        $valor = false;
+        $conexion = conectar();
+        $datosEvento = getEvento($id);
+
+
+        if($datosEvento[0][12] == "1"){
+          $valor = "0";
+        }
+        else{
+          $valor = "1";
+        }
+
+        $sql = "UPDATE `eventos` SET `publicado` = ? WHERE `id` = ?";
+
+        if($stmt = mysqli_prepare($conexion, $sql)){
+          mysqli_stmt_bind_param($stmt, "ii",$valor, $id);
+
+          if(mysqli_stmt_execute($stmt)){
+              echo "Cambio de datos evento correcto";
+              $valor = true;
+              //var_dump($stmt);
+              var_dump($arrayDatos);
+          }
+          else{
+              echo "¯\_(ツ)_/¯";
+          }
+          mysqli_stmt_close($stmt);
+        }
+        else{
+          echo "ERROR";
+        }
+
+        mysqli_close($conexion);
+        return $valor;
+      }
+
       function getComentariosEvento($id){
         $conexion=conectar();
         $consultaEvento="SELECT ip,nombre,email,fecha,texto FROM comentario WHERE idEvento =";
@@ -127,66 +165,6 @@
         return $arrayDatos;
       }
 
-      // function getUsuario($username){
-      //   $valores = "";
-      //   $nombre = $email = $permisos = "";
-      //   $conexion=conectar();
-      //   $sql = "SELECT username, nombre, email, permisos FROM usuarios WHERE username = ?";
-
-      //   if($stmt = mysqli_prepare($conexion,$sql)){
-      //     mysqli_stmt_bind_param($stmt, "s", $param_username);
-      //     $param_username = $username;
-
-      //     //Ejecuta la petición
-      //     if(mysqli_stmt_execute($stmt)){
-      //       mysqli_stmt_store_result($stmt);
-
-      //       //printf("Number of rows: %d.\n", mysqli_stmt_num_rows($stmt));
-
-      //       //Si el usuario existe
-      //       if(mysqli_stmt_num_rows($stmt)==1){
-      //         mysqli_stmt_bind_result($stmt, $username, $nombre, $email, $permisos);
-      //         /*var_dump( "username -> " . $username );
-      //         var_dump( "nombre -> " . $nombre );
-      //         var_dump( "email -> " . $email );
-      //         var_dump( "permisos -> " . $permisos );*/
-
-      //         while (mysqli_stmt_fetch($stmt)) {
-      //             printf("%s %s\n", $username, $nombre, $email, $permisos);
-      //         }
-
-
-
-
-
-
-      //         $valores=array($username, $nombre, $email, $permisos);
-      //         var_dump( "VALORES -> ");
-      //         var_dump( $valores);
-      //         die( "VALORES -> " . $valores );
-      //         /*var_dump($valores );
-      //         var_dump("\n");*/
-      //         //mysqli_stmt_bind_result($stmt, $valores);
-      //         /*if(mysqli_stmt_fetch($stmt)){
-      //           die( "VALORES -> " . $valores );
-      //           var_dump( "VALORES -> ");
-      //           var_dump($valores );
-
-      //         }*/
-      //       }
-      //       else{
-      //         // Username no existe
-      //         echo "El usuario no existe";
-      //         $username_err = "El usuario no existe";
-      //       }
-      //     }
-      //     else{
-      //       echo "Oh vaya! Qué embarazoso, prueba en otro momento";
-      //     }
-      //   }
-      //   mysqli_stmt_close($stmt);
-      //   return $valores;
-      // }
 
       function loginUsuario($username, $password){
         $valor = false;
@@ -484,7 +462,7 @@
         $valor = false;
         $conexion = conectar();
 
-        $sql = "INSERT INTO eventos (nombre, fecha, imagen, descripcion, piefoto, link, fecha_publicacion, fotoPortada, etiqueta, ultima_modificacion, video) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, CURRENT_TIME(), ?)";
+        $sql = "INSERT INTO eventos (nombre, fecha, imagen, descripcion, piefoto, link, fecha_publicacion, fotoPortada, etiqueta, ultima_modificacion, video, publicado) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, CURRENT_TIME(), ?, 0)";
         if($stmt = mysqli_prepare($conexion, $sql)){
 
           mysqli_stmt_bind_param($stmt, "ssssssssss",$arrayDatos[0],$arrayDatos[1],$arrayDatos[2],$arrayDatos[3],$arrayDatos[4],$arrayDatos[5],$arrayDatos[6],$arrayDatos[7],$arrayDatos[8],$arrayDatos[9]);
