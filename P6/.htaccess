@@ -1,0 +1,19 @@
+Options +FollowSymLinks
+RewriteEngine on
+
+RewriteRule ^indice ./PHP/index.php [NC,L]
+RewriteRule ^evento/([0-9]+) ./PHP/evento.php?id=$1 [NC,L]
+RewriteRule ^evento/evento_imprimir/([0-9]+) ./PHP/evento_imprimir.php?id=$1 [NC,L]
+RewriteRule ^editarUsuario/([a-z]+) ./PHP/editarUsuario.php?user=$1 [NC,L]
+RewriteRule ^borrarUsuario/([a-z]+) ./PHP/borrarUsuario.php?user=$1 [NC,L]
+RewriteRule ^editarEvento/([0-9]+) ./PHP/editarEvento.php?id=$1 [NC,L]
+RewriteRule ^borrarEvento/([0-9]+) ./PHP/borrarEvento.php?id=$1 [NC,L]
+RewriteRule ^editarComentario/([0-9]+) ./PHP/editarComentario.php?id=$1 [NC,L]
+RewriteRule ^borrarComentario/([0-9]+) ./PHP/borrarComentario.php?id=$1 [NC,L]
+RewriteRule ^edicionEvento/([0-9]+) ./PHP/edicionEvento.php?id=$1 [NC,L]
+RewriteRule ^publicacionEvento/([0-9]+) ./PHP/publicacionEvento.php?id=$1 [NC,L]
+RewriteRule ^([a-z]+)$ ./PHP/$1.php [NC,L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule (.*) ./PHP/error.php [NC,L]
