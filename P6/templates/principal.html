@@ -1,0 +1,43 @@
+{% extends "basico.html" %}
+
+
+{% block scripts %}
+  <script type="text/javascript" src="./javascript/searchBehaviour.js"></script>
+{% endblock %}
+{% block principal %}
+  <main id="contenedores" class="contenedores">
+    <!--eventos tiene un array donde:
+    evento[0] es el nombre,
+    evento[1] es la imagen,
+    evento[2] es el id,
+    evento[3] es si esta publicado,
+     -->
+    {% for evento in eventos %}
+      {% if evento[3]  == true %}
+        <a class="contenedor" href="./evento/{{ evento[2] }}" >
+          <img src="{{ evento[1] }}" alt="HS">
+          <h3>{{ evento[0] }}</h3>
+        </a>
+      {% endif %}  
+    {% endfor %}
+  </main>
+{% endblock %}
+
+{% block menu %}
+  <nav role="Navegación">
+    <ul>
+      {% for elemento in elMenu %}
+        {% if elemento[1] == "Login" %}
+          <a id="boton_circular" alt="Inicio de sesión" href="/P6/{{ elemento[2] }}"><img id="login_img"src="../P6/imgs/profile.png"></img></a>
+        {% elseif elemento[1] == "Busqueda" %}
+          <div id="searchContainer">
+            <input type="text" id="filtradoEventos" placeholder="Filtrar" onkeyup="showHint(this.value)">
+            <div id="livesearch"></div>
+          </div>
+        {% else %}
+          <li><a href="/P6/{{ elemento[2] }}">{{ elemento[1] }}</a></li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </nav>
+{% endblock %}

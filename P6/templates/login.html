@@ -1,0 +1,60 @@
+{% extends "basico.html" %}
+
+{% block principal %}
+  <main id="loginContenedor" class="contenedores">
+    
+    <form class="loginForm" name="loginForm" method="post" action="/P6/login">
+      <h3 class="textoDescriptivo">Formulario de Inicio de Sesión</h3>
+      <p>
+        <label>
+          <p><h5 class="textoDescriptivo"> Nombre de usuario</h5><input type="text" name="username" id="usernameLogin" required></p>
+        </label>
+        <label>
+          <p><h5 class="textoDescriptivo"> Contraseña</h5><input type="password" name="password" id="passwordLogin" required></p>
+        </label>
+      </p>
+      <p>
+        <label>
+          <input type="submit" name="buttonLogin" id="buttonLogin" value="Iniciar Sesión">
+        </label>
+      </p>
+    </form>
+
+    <form class="loginForm" name="registerForm" method="post" action="/P6/registro">
+      <h3 class="textoDescriptivo">Formulario de Registro</h3>
+      <p>
+        <label>
+          <p><h5 class="textoDescriptivo"> Nombre de usuario</h5><input type="text" name="username" id="username" required></p>
+        </label>
+        <label>
+          <p><h5 class="textoDescriptivo"> Contraseña</h5><input type="password" name="password" id="password" required></p>
+        </label>
+        <label>
+          <p><h5 class="textoDescriptivo"> Correo electrónico</h5><input type="email" name="email" id="email" required></p>
+        </label>
+        <label>
+          <p><h5 class="textoDescriptivo"> Nombre</h5><input type="text" name="nombre" id="nombre" required></p>
+        </label>
+      </p>
+      <p>
+        <label>
+          <input type="submit" name="buttonRegister" id="buttonRegister" value="Registrarse">
+        </label>
+      </p>
+    </form>
+  </main>
+{% endblock %}
+
+{% block menu %}
+  <nav role="Navegación">
+    <ul>
+      {% for elemento in elMenu %}
+        {% if elemento[1] == "Login" %}
+        {% elseif elemento[1] == "Busqueda" %}
+        {% else %}
+          <li><a href="/P6/{{ elemento[2] }}">{{ elemento[1] }}</a></li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </nav>
+{% endblock %}

@@ -406,7 +406,7 @@ a.evento_imprimir > div > img{
   margin: 2%;
 }
 
-form {
+form, .divPanelControl, .elementoPC{
   border-style: outset;
   border: 2px solid rgb(226, 231, 235);
   border-radius: 5px;
@@ -453,4 +453,64 @@ form {
   font-weight: bold;
   padding-bottom: 2%;
   margin: 0;
+}
+
+#boton_circular{
+  float: right;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 30px;
+  text-align: center;
+  color: #333;
+  background-color: #fff;
+  border-color: #ccc;
+  margin: 0.2rem;
+}
+
+#login_img{
+  margin-top: 0.5rem;
+  float: none;
+}
+
+#filtradoEventos{
+  float: right;
+  margin-top: 0.8rem;
+  margin-right: 0.3rem;
+}
+
+
+#loginContenedor{
+  display: block;
+  grid-template-columns: none;
+}
+
+h5.textoDescriptivo{
+  margin: 0;
+  margin-right: 2%;
+}
+
+h3.textoDescriptivo{
+  margin-top: 0;
+  margin-bottom: 0%;
+}
+
+#boton_logout{
+  background-color: #4CAF50; /* Green */
+  float: right;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+#boton_logout > a{
+
+  color: white;
+  text-align: center;
+  text-decoration: none;
+}
+
+.edit{
+  width: 15rem;
 }

@@ -95,23 +95,25 @@
       <!-- Palabras para la censura -->
 
 
-      <script type="text/javascript" src="/P3/javascript/behaviour.js">
+      <script type="text/javascript" src="/P4/javascript/behaviour.js">
       </script>
 
-      <form action="/P3/PHP/comment.php?id={{ elEvento[0][4] }}" method="POST" name="formularioComentar" id="formularioComentar">
+      <form action="/P4/PHP/comment.php?id={{ elEvento[0][4] }}" method="POST" name="formularioComentar" id="formularioComentar">
         Nombre: <input type="text" id="name" name="nombreUsuario" required>
         <br><br>
         Email: <input type="email" id="email" name="email" required>
         <br><br>
         <textarea id="texto" name="texto" rows="5" cols="80" onkeyup="Censura({{ prohibidas|json_encode }})" placeholder="Tu comentario aqui :)"form="formularioComentar" required></textarea>
-        <input id="botonEnviar" type="submit" name="postear" onclick="postCounter()" value="Comentar">
+        {% if sesionActual == true %}
+          <input id="botonEnviar" type="submit" name="postear" onclick="postCounter()" value="Comentar">
+        {% endif %}
       </form>
 
       <div id="result"></div>
 
     </div>
     <!-- Script para el despliegue de la sección de comentarios --->
-    <script type="text/javascript" src="/P3/javascript/comentarios.js">
+    <script type="text/javascript" src="/P4/javascript/comentarios.js">
     </script>
 
     {% for palabra in prohibidas %}
@@ -124,7 +126,7 @@
 {% block imprimir %}
   <p>
     <a class="imprimir" href="./evento_imprimir/{{ elEvento[0][4] }}">
-              <img src="/P3/imgs/imprimir.png" alt="Impresión de la página web">
+              <img src="/P4/imgs/imprimir.png" alt="Impresión de la página web">
     </a>
   </p>
 {% endblock %}
@@ -132,19 +134,23 @@
 {% block menu %}
   <nav role="Navegación">
     <ul>
-
       {% for elemento in elMenu %}
-        <li><a href="/P3/{{ elemento[2] }}">{{ elemento[1] }}</a></li>
+        {% if elemento[1] == "Login" %}
+          <a id="boton_circular" alt="Inicio de sesión" href="/P4/{{ elemento[2] }}"><img id="login_img"src="/P4/imgs/profile.png"></img></a>
+        {% elseif elemento[1] == "Busqueda" %}
+        {% else %}
+          <li><a href="/P4/{{ elemento[2] }}">{{ elemento[1] }}</a></li>
+        {% endif %}
       {% endfor %}
     </ul>
   </nav>
 {% endblock %}
 
 {% block facebook %}
-  <script type="text/javascript" src="/P3/javascript/redes.js">
+  <script type="text/javascript" src="/P4/javascript/redes.js">
   </script>
   <a class="rrss_facebook" onclick="funcionFacebook()">
-    <img src="/P3/imgs/Facebook.png" alt="Facebook">
+    <img src="/P4/imgs/Facebook.png" alt="Facebook">
   </a>
 
   <div id="modalFB" class="modal">
@@ -162,7 +168,7 @@
 
 {% block twitter %}
   <a class="rrss_twitter" onclick="funcionTwitter()">
-    <img src="/P3/imgs/Twitter.png" alt="Twitter">
+    <img src="/P4/imgs/Twitter.png" alt="Twitter">
   </a>
 
   <div id="modalTW" class="modal">

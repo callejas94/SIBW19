@@ -26,7 +26,6 @@ Prácticas de la asignatura SIBW(Sistemas de Información Basados en Web). Curso
   gestión **(3 %)**
 - [X] Los superusuarios deben poder asignar / retirar roles de superusuario (no
   debe quedar la plataforma nunca sin al menos un superusuario) **(5 %)**
-  (Al retirarse a uno mismo cualquier tipo de permiso hay que hacer logout+login para actualizarlos)
 - [X] Diagrama IFML del proceso de inclusión de un nuevo evento en el sitio
   **(10 %)**
 - [ ] Diagramas de secuencia de dos funcionalidades que impliquen modificación

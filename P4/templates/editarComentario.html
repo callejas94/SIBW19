@@ -1,0 +1,31 @@
+{% extends "basico.html" %}
+
+{% block principal %}
+
+	<main class="contenedores">
+	    <form class="loginForm" name="ComentarioEditForm" method="post" action="/P4/editarComentarioBD">
+	      <h3>Formulario de Edicion de Comentario</h3>
+		  	<h3>Comentario {{elComentario[0][0]}}<h3>
+				<p><h5 class="textoDescriptivo">Texto: </h5><input class="edit" type="text" name="texto" id="texto" value="{{elComentario[0][5]}}"></input></p>
+				<input type="hidden" name="id" id="id" value="{{elComentario[0][0]}}"></input>
+        <input type="submit" value="Cambiar datos">
+	    </form>
+
+    </main>
+
+
+{% endblock %}
+
+{% block menu %}
+  <nav role="Navegación">
+    <ul>
+      {% for elemento in elMenu %}
+        {% if elemento[1] == "Login" %}
+        {% elseif elemento[1] == "Busqueda" %}
+        {% else %}
+          <li><a href="/P4/{{ elemento[2] }}">{{ elemento[1] }}</a></li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </nav>
+{% endblock %}

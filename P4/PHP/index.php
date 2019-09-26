@@ -11,6 +11,8 @@
   //Debug
   $twig->addExtension(new \Twig\Extension\DebugExtension());
 
+  //Iniciamos la sesión
+  session_start();
 
   $menu=getMenu();
   $arrayEventos=eventosGeneral();

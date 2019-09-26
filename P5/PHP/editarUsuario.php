@@ -1,0 +1,37 @@
+<?php
+  require_once '../vendor/autoload.php';
+  require_once 'bd.php';
+  require_once 'validation.php';
+  require_once 'session.php';
+
+
+  $loader = new \Twig\Loader\FilesystemLoader('../templates');
+  $twig = new \Twig\Environment($loader, [
+    'debug' => true,
+  ]);
+
+  //Debug
+  $twig->addExtension(new \Twig\Extension\DebugExtension());
+
+  $session = Session::getInstance();
+
+  if($session != null && $session->permisos == 0){
+    if (isset($_GET['user'])) {
+      $name = Input::validateStr($_GET['user']);
+      $arrayEventos=getUsuario($name);
+      $menu=getMenu();
+    }
+    else {
+      die('Sin user');
+    }
+
+
+    $template = $twig->load("editarUsuario.html");
+    echo $template->render(['elUsuario' => $arrayEventos,'elMenu' => $menu]);
+  }
+  else{
+    header('Location: error');
+  }
+  
+
+?>

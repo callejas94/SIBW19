@@ -1,0 +1,655 @@
+/* Cuerpo de la pagina web   */
+body {
+  font-family: sans-serif;
+  width: 90%;
+  margin: auto;
+}
+
+
+/*Estilo de la cabecera*/
+header {
+  margin-top: 1%;
+  background-color: #24292e;
+}
+
+
+/* Estilo para que el texto se quede alineado y el logo arriba a la izquierda */
+
+header img {
+    vertical-align: top;
+    float: left;
+    margin: auto;
+    padding: 1%;
+}
+
+header h1 {
+    padding-top: 3%;
+    padding-left: 6%;
+}
+
+/* Estilo de la zona central de enlaces */
+main.contenedores  {
+  width: 79%;
+  margin-left: 1%;
+  margin-top: 1%;
+  margin-bottom: 1%;
+  float: right;
+  background-color: #90caf9;
+  display: grid;
+  grid-template-columns: auto auto auto;
+}
+
+
+.contenedor {
+  text-align: center;
+  text-decoration:none;
+  color: black;
+  padding-top: 5%;
+}
+.contenedor > img {
+  height: auto;
+  max-width:100%;
+}
+
+/* Estilo para la imagen en la pagina evento.html */
+main.imagen_evento {
+  width: 79%;
+  margin-left: 1%;
+  margin-top: 1%;
+  float: right;
+  margin-bottom: 1%;
+  background-color: #90caf9;
+}
+
+a.link_evento {
+  width: 100%;
+  padding-bottom: 2.35%;
+  float: right;
+  text-align: center;
+  background-color: #90caf9;
+}
+
+main.imagen_evento > div{
+  margin-right: 15%;
+}
+main.imagen_evento > div > div > .banner_img {
+  color: #fff;
+  background-color: #000;
+  opacity: 0.5;
+  font-weight: bold;
+  position: relative;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  bottom: 18px;
+}
+main.imagen_evento > div > div > img{
+  display: block;
+  margin-top: 5%;
+  margin-left: auto;
+  margin-right: auto;
+  height: auto;
+  max-width: 100%;
+  position: relative;
+}
+
+main.imagen_evento > div > h2{
+  text-align: center;
+  color: black;
+  font-size: 50px;
+  clear: both;
+}
+main.imagen_evento > div > h3{
+  text-align: center;
+  color: black;
+  font-size: 20px;
+}
+
+main.imagen_evento > div > p{
+  margin: 5%;
+  text-align: justify;
+  color: black;
+}
+
+main.imagen_evento > div > p > a{
+  margin: 5%;
+  text-align: justify;
+  color: black;
+}
+
+main.imagen_evento h5{
+  text-align: right;
+}
+
+
+div.gallery {
+  margin: 2%;
+  border: 1px solid #ccc;
+  float: left;
+  width: 30%;
+}
+
+div.gallery:hover {
+  border: 1px solid #777;
+}
+
+div.gallery img {
+  width: 100%;
+  height: auto;
+}
+
+div#result{
+    text-align: center;
+    margin: 1%;
+}
+
+
+iframe{
+  height: 110%;
+  margin: 3%;
+  display: block;
+  margin-top: 5%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+main.about {
+  width: 79%;
+  margin-left: 1%;
+  margin-top: 1%;
+  float: right;
+  margin-bottom: 1%;
+  background-color: #90caf9;
+}
+
+main.about > h2{
+  text-align: center;
+  color: black;
+  font-size: 50px;
+  clear: both;
+}
+main.about > h3{
+  text-align: center;
+  color: black;
+  font-size: 20px;
+}
+
+main.noticias {
+  width: 79%;
+  margin-left: 1%;
+  margin-top: 1%;
+  float: right;
+  margin-bottom: 1%;
+  background-color: #90caf9;
+}
+
+main.noticias > h2{
+  text-align: center;
+  color: black;
+  font-size: 50px;
+  clear: both;
+}
+main.noticias > h3{
+  text-align: center;
+  color: black;
+  font-size: 20px;
+}
+
+/* Estilo de la barra de navegaciÃ³n    https://www.w3schools.com/css/css_navbar.asp */
+
+nav {
+  width: 100%;
+  margin: 0 !important;
+}
+
+nav > ul {
+  list-style-type: none;
+  margin: 0 !important;
+  padding: 0;
+  overflow: hidden;
+  background-color: #EC672F;
+  position: sticky;
+  min-width: 100%;
+}
+
+nav > ul > li {
+  float: left;
+}
+
+nav> ul > li > a{
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+nav> ul >li > a:hover {
+  background-color: #24292e;
+}
+
+
+/* Zona lateral de enlaces de interes */
+aside {
+  width: 20%;
+  padding-top: 1em;
+  padding-bottom: 13em;
+  background-color: #EC672F;
+  text-align: center;
+  border-top: 1px solid white;
+}
+
+aside > ul{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  min-width: 100%;
+
+}
+
+aside > ul > li{
+  padding-top: 1em;
+
+}
+aside > ul > li > a{
+  text-decoration: none;
+  color: white;
+  text-align: center;
+
+}
+
+aside > ul > li > a:hover{
+  color: #24292e;
+}
+
+/* Quitar linea azul en los logos */
+aside > a{
+  text-decoration: none;
+  margin-top: 10%;
+}
+
+/* Añadir un poco de margen con respecto a los enlaces de interés */
+aside > a > img{
+  margin-top: 10%;
+}
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: white;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 50%;
+}
+.botonCierre {
+  border: 1px solid black;
+  background-color: darkgrey;
+  width: 40%;
+  margin-left: 30%;
+}
+.close {
+  font-size: 30px;
+}
+
+footer {
+
+  height: 75%;
+  background-color: #24292e;
+  clear: both;
+  margin-bottom: 2%;
+}
+
+footer h3 {
+  padding-top: 20px;
+  text-align: center;
+  color: white;
+}
+
+#titulo {
+  font-family: sans-serif;
+  color: white;
+  margin: auto;
+  display: inline-block;
+}
+
+/*Estilo referente a evento_imprimir*/
+#tituloImprimir {
+  font-family: sans-serif;
+  color: black;
+  margin: auto;
+  font-size: 40px;
+}
+
+header > div{
+  background-color: white;
+}
+
+header > div > a {
+  float: left;
+  margin: 3%;
+}
+
+a.evento_imprimir{
+  width: 70%;
+  text-align: center;
+}
+a.evento_imprimir > h2{
+  padding-top: 5%;
+}
+a.evento_imprimir > p {
+  width: 50%;
+  text-align: justify;
+  margin-left: auto;
+  margin-right: auto;
+  column-count: 2;
+}
+a.evento_imprimir > footer{
+  background-color: white;
+}
+a.evento_imprimir > footer > h3{
+  color: black;
+}
+a.evento_imprimir > div > img{
+  width: -webkit-fill-available;
+}
+
+
+/*Estilo de la zona de comentarios*/
+.collapse {
+  background-color: #777;
+  color: white;
+  cursor: pointer;
+  margin: 8%;
+  padding: 1%;
+  width: 10%;
+  border: none;
+  font-size: 2vh;
+  outline: none;
+  object-fit: contain;
+  text-align: center;
+  position: fixed;
+  top: 16%;
+  right: 0;
+}
+.collapse:hover {
+  background-color: #333;
+}
+
+.collapseContent {
+  width: 99%;
+  padding-right: 1%;
+  display: none;
+  overflow: hidden;
+  background-color: #F1F3F6;
+}
+
+.comentario{
+  border-style: outset;
+  border: 2px solid rgb(226, 231, 235);
+  border-radius: 5px;
+  background: #FCFCFC;
+  padding: 10px 12px;
+  overflow: hidden;
+  margin: 2%;
+}
+
+form, .divPanelControl, .elementoPC{
+  border-style: outset;
+  border: 2px solid rgb(226, 231, 235);
+  border-radius: 5px;
+  background: #FCFCFC;
+  padding: 2% 2%;
+  overflow: hidden;
+  margin: 2%;
+}
+
+#botonEnviar{
+  float: right;
+  width: 25%;
+  height: 75px;
+  font-size: 3vh;
+}
+
+#separador_comentario {
+	margin-top: 3%;
+	border: 0;
+	height: 0;
+	overflow: visible;
+	border-top: 1px solid rgba(0, 0, 0, 0.1);
+	border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+#contenido_comentario{
+  padding-top: 1%;
+  margin: 0;
+}
+
+#comentario_autor {
+  float: left;
+  color: #364560;
+  font-size: 15px;
+  font-weight: bold;
+  margin: 0;
+}
+
+#comentario_hora {
+  float: right;
+  text-align: right;
+  color: #364560;
+  font-size: 15px;
+  font-weight: bold;
+  padding-bottom: 2%;
+  margin: 0;
+}
+
+#boton_circular{
+  float: right;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 30px;
+  text-align: center;
+  color: #333;
+  background-color: #fff;
+  border-color: #ccc;
+  margin: 0.2rem;
+}
+
+#login_img{
+  margin-top: 0.5rem;
+  float: none;
+}
+
+#filtradoEventos{
+  margin-top: 0.8rem;
+  margin-right: 0.2rem;
+}
+
+#searchContainer{
+  float: right;
+}
+
+#livesearchCP{
+  display:none;
+  border: 2px solid rgb(226, 231, 235);
+  padding: 1%;
+  border-radius: 5px;
+  background: #FCFCFC;
+}
+
+#livesearch{
+  display:none;
+  position: fixed;
+  border: 2px solid rgb(226, 231, 235);
+  padding: 1%;
+  border-radius: 5px;
+  background: #FCFCFC;
+}
+
+
+#loginContenedor{
+  display: block;
+  grid-template-columns: none;
+}
+
+h5.textoDescriptivo{
+  margin: 0;
+  margin-right: 2%;
+}
+
+h3.textoDescriptivo{
+  margin-top: 0;
+  margin-bottom: 0%;
+}
+
+#boton_logout{
+  background-color: #4CAF50; /* Green */
+  float: right;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+#boton_logout > a{
+
+  color: white;
+  text-align: center;
+  text-decoration: none;
+}
+
+.edit{
+  width: 15rem;
+}
+
+#menu_movil{
+  display: block;
+  background-color: #24292e;
+}
+
+#icono_movil{
+  display: none;
+}
+
+
+
+@media (min-width: 333px) and (max-width: 700px) {
+  aside {
+    display: none;
+  }
+
+  main.contenedores{
+    width: 100%;
+    grid-template-columns: auto;
+  }
+
+  .contenedor > img {
+    width: 100%;
+  }
+
+  #filtradoEventos{
+    display: none;
+  }
+
+  nav > ul > li {
+    float: unset;
+  }
+
+  #boton_circular {
+    float: unset;
+    display: block;
+    margin-left: 46%;
+  }
+
+  header h1 {
+    padding-top: unset;
+    padding-left: unset;
+    padding: 3% 0% 3% 6%;
+  }
+
+  #logo{
+    margin-left: 33%;
+  }
+
+  #menu_movil > nav {
+    display: none;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+  }
+
+  #menu_movil:hover > nav {
+    display: block;
+  }
+
+  #icono_movil{
+    display: block;
+    position: fixed;
+    width: 7%;
+    left: 86%;
+    bottom: 92%;
+  }
+
+  main.imagen_evento{
+    width: 100%;
+  }
+
+  .collapse{
+    margin: unset;
+    width: unset;
+    padding: 3%;
+  }
+
+  main.imagen_evento > div > div > img{
+    width: 117.5%;
+    margin-top: unset; 
+    margin-left: unset;
+    margin-right: unset;
+    max-width: unset;
+    position: unset; 
+  }
+
+  main.imagen_evento > div > div > .banner_img {
+    width: 117.5%;
+  }
+
+  main.noticias {
+    width: 100%;
+  }
+
+  main.about {
+    width: 100%;
+  }
+
+  #boton_logout{
+    margin-right: 37%;
+  }
+
+  div.gallery {
+    float: unset;
+    margin: unset;
+    border: 1px solid #ccc;
+    float: unset;
+    width: unset;
+    border: unset;
+  }
+
+  div.gallery img {
+    width: 117.5%;
+  }
+  
+
+
+}

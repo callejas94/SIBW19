@@ -1,0 +1,130 @@
+{% extends "basico.html" %}
+
+{% block scripts %}
+	<script type="text/javascript" src="./javascript/searchBehaviourCP.js"></script>
+{% endblock %}
+
+{% block principal %}
+
+	<main id="loginContenedor" class="contenedores">
+		<form class="loginForm" name="userForm" method="post" action="/P4/datosPersonalesEdit">
+	      <h3 class="textoDescriptivo">Formulario Cambio de Datos de Usuario</h3>
+	      <p>
+	          <p><h5 class="textoDescriptivo"> Nombre de usuario</h5><input type="text" name="username" id="username" value="{{ usuario[0] }}" ></p>
+	          <p><h5 class="textoDescriptivo"> Contraseña</h5><input type="password" name="password" id="password"></p>
+	          <p><h5 class="textoDescriptivo"> Correo electrónico</h5><input type="email" name="email" id="email" value="{{ usuario[2] }}" ></p>
+	          <p><h5 class="textoDescriptivo"> Nombre</h5><input type="text" name="nombre" id="nombre" value="{{ usuario[1] }}" ></p>
+            {% if  usuario[3]  == 0 %}
+              <p><h5 class="textoDescriptivo">Permisos: </h5><output>Superusuario</output></p>
+            {% elseif usuario[3]  == 1 %}
+              <p><h5 class="textoDescriptivo">Permisos: </h5><output>Gestor</output></p>
+            {% elseif usuario[3]  == 2 %}
+              <p><h5 class="textoDescriptivo">Permisos: </h5><output>Moderador</output></p>
+            {% elseif usuario[3]  == 3 %}
+              <p><h5 class="textoDescriptivo">Permisos: </h5><output>Usuario</output></p>
+            {% endif %}
+	      </p>
+	      <p>
+
+	          <input type="submit" name="buttonRegister" id="buttonRegister" value="Cambiar datos de usuario">
+
+	      </p>
+	    </form>
+
+		{% if  usuario[3]  == 2 or  usuario[3]  == 0 %}
+		<div id="moderador" class="divPanelControl" name="userForm" method="post" action="/P4/AUN NO DEFINIDO">
+			<h2>Panel del Moderador</h2>
+			<input type="text" id="filtradoComentarios" placeholder="Filtrar">
+
+  			{% for elComentario in comentarios %}
+  				<div class="elementoPC">
+  					<h3>Comentario {{elComentario[0]}}<h3>
+  					<p><h5 class="textoDescriptivo">Nombre: </h5><output>{{elComentario[1]}}</output></p>
+  					<p><h5 class="textoDescriptivo">IP: </h5><output>{{elComentario[2]}}</output></p>
+  					<p><h5 class="textoDescriptivo">Email: </h5><output>{{elComentario[3]}}</output></p>
+  					<p><h5 class="textoDescriptivo">Fecha: </h5><output>{{elComentario[4]}}</output></p>
+  					<p><h5 class="textoDescriptivo">Comentario: </h5><output>{{elComentario[5]}}</output></p>
+  					<button><a href="/P4/editarComentario/{{elComentario[0]}}">Editar</a></button>
+  					<button><a href="/P4/borrarComentario/{{elComentario[0]}}">Borrar</a></button>
+	        </div>
+	      {% endfor %}
+	    </div>
+
+    {% endif %}
+	{% if  usuario[3]  == 1  or  usuario[3]  == 0 %}
+		<div id="gestor" class="divPanelControl" name="userForm" method="post" action="/P4/AUN NO DEFINIDO">
+
+			<h2>Panel del Gestor</h2>
+			<input type="text" id="filtradoEventosPC" placeholder="Filtrar">
+
+  			{% for elEvento in eventos %}
+  				<div class="elementoPC">
+  					<h3>Evento {{elEvento[4]}}<h3>
+  					<p><h5 class="textoDescriptivo">Nombre: </h5><output>{{elEvento[0]}}</output></p>
+  					<p><h5 class="textoDescriptivo">Fecha Evento: </h5><output>{{elEvento[1]}}</output></p>
+  					<p><h5 class="textoDescriptivo">Imagen: </h5><output>{{elEvento[2]}}</output></p>
+  					<p><h5 class="textoDescriptivo">Descripcion: </h5><output>{{elEvento[3]}}</output></p>
+  					<p><h5 class="textoDescriptivo">Pie Foto: </h5><output>{{elEvento[5]}}</output></p>
+  					<p><h5 class="textoDescriptivo">Link Evento: </h5><output>{{elEvento[6]}}</output></p>
+  					<p><h5 class="textoDescriptivo">Etiqueta: </h5><output>{{elEvento[7]}}</output></p>
+  					<p><h5 class="textoDescriptivo">Fecha Publicación: </h5><output>{{elEvento[8]}}</output></p>
+  					<p><h5 class="textoDescriptivo">Última Modificación: </h5><output>{{elEvento[9]}}</output></p>
+  					<p><h5 class="textoDescriptivo">Foto Portada: </h5><output>{{elEvento[10]}}</output></p>
+  					<p><h5 class="textoDescriptivo">Video: </h5><output>{{elEvento[11]}}</output></p>
+  					<button><a href="/P4/editarEvento/{{elEvento[4]}}">Editar</a></button>
+  					<button><a href="/P4/borrarEvento/{{elEvento[4]}}">Borrar</a></button>
+	        </div>
+	      {% endfor %}
+
+				<button><a href="/P4/crearEvento">Crear Evento</a></button>
+
+	    </div>
+    {% endif %}
+	{% if  usuario[3]  == 0 %}
+		<div id="superusuario" class="divPanelControl" name="userForm" method="post" action="/P4/AUN NO DEFINIDO">
+
+			<h2>Panel del Superusuario</h2>
+			<input type="text" id="filtradoUsuarios" placeholder="Filtrar">
+
+  			{% for usuario in usuarios %}
+  				<div class="elementoPC">
+  					<p><h5 class="textoDescriptivo">Avatar: </h5><output>{{usuario[0]}}</output></p>
+  					<p><h5 class="textoDescriptivo">Nombre: </h5><output>{{usuario[1]}}</output></p>
+  					<p><h5 class="textoDescriptivo">Email: </h5><output>{{usuario[2]}}</output></p>
+  					{% if  usuario[3]  == 0 %}
+  						<p><h5 class="textoDescriptivo">Permisos: </h5><output>Superusuario</output></p>
+  					{% elseif usuario[3]  == 1 %}
+  						<p><h5 class="textoDescriptivo">Permisos: </h5><output>Gestor</output></p>
+  					{% elseif usuario[3]  == 2 %}
+  						<p><h5 class="textoDescriptivo">Permisos: </h5><output>Moderador</output></p>
+  					{% elseif usuario[3]  == 3 %}
+  						<p><h5 class="textoDescriptivo">Permisos: </h5><output>Usuario</output></p>
+  					{% endif %}
+  					<button><a href="/P4/editarUsuario/{{usuario[0]}}">Editar</a></button>
+  					<button><a href="/P4/borrarUsuario/{{usuario[0]}}">Borrar</a></button>
+	          	</div>
+	        {% endfor %}
+
+	    </div>
+    {% endif %}
+
+
+	</main>
+
+
+{% endblock %}
+
+{% block menu %}
+  <nav role="Navegación">
+    <ul>
+      {% for elemento in elMenu %}
+        {% if elemento[1] == "Login" %}
+    		<button id="boton_logout"><a href="/P4/logout">Cerrar Sesion</a></button>
+        {% elseif elemento[1] == "Busqueda" %}
+        {% else %}
+          <li><a href="/P4/{{ elemento[2] }}">{{ elemento[1] }}</a></li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </nav>
+{% endblock %}

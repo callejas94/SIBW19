@@ -8,7 +8,7 @@
     $user = Input::validateStr($_REQUEST["nombreUsuario"]);
     $email = Input::validateEmail($_REQUEST["email"]);
     $elValor = postComment($id, $user, $email, $comment);
-    header("location:http://localhost/P3/evento/".$id);
+    header("location:http://localhost/P4/evento/".$id);
   }
   else{
     die('Sin id o submit'. $_REQUEST['id'] . $_REQUEST['postear']);
